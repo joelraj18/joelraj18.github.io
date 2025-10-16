@@ -5,6 +5,7 @@
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 html, body, div, span, applet, object,
@@ -33,6 +34,44 @@ body {
 	line-height: 1;
 }
 
+
+.dropup {
+       position: relative;
+       display: inline-block;
+   }
+   
+.dropbtn {
+       background-color: transparent;
+       color: white;
+       padding: 16px;
+       font-size: 16px;
+       border: none;
+       cursor: pointer;
+   }
+   
+.dropup-content {
+       display: none;
+       position: absolute;
+       background-color: #2a2f4a;
+       min-width: 160px;
+       bottom: 50px;
+       z-index: 1;
+   }
+   
+.dropup-content a {
+       color: white;
+       padding: 12px 16px;
+       text-decoration: none;
+       display: block;
+   }
+   
+.dropup-content a:hover {
+       background-color: #6fc3df;
+   }
+   
+.dropup:hover .dropup-content {
+       display: block;
+   }
 ol, ul {
 	list-style: none;
 }
