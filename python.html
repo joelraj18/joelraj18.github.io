@@ -1,174 +1,204 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Python - Data Analysis</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!-- Link to the template's main CSS and Font Awesome for icons -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
-<body class="is-preload">
+	<head>
+		<title>Python &amp; Machine Learning | Joel Raj Vemuri</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Python and machine learning work by Joel Raj Vemuri: data cleaning, feature engineering, classification and clustering projects with business recommendations." />
+		<meta name="theme-color" content="#242943" />
+		<link rel="canonical" href="https://joelraj18.github.io/python.html" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Joel Raj Vemuri" />
+		<meta property="og:title" content="Python &amp; Machine Learning | Joel Raj Vemuri" />
+		<meta property="og:description" content="Python and machine learning work by Joel Raj Vemuri: data cleaning, feature engineering, classification and clustering projects with business recommendations." />
+		<meta property="og:url" content="https://joelraj18.github.io/python.html" />
+		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
+		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
+		<meta name="twitter:card" content="summary" />
+		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic&amp;display=swap" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/portfolio.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-        <!-- Header -->
-        <!-- Note: Ensure the 'alt' class is present if the banner effect is desired -->
-        <header id="header" class="style2 alt">
-            <a href="index.html" class="logo"><strong>Data Analyst Portfolio</strong> <span>by Joel Raj</span></a>
-            <nav>
-                <!-- This link triggers the menu overlay defined in main.js -->
-                <a href="#menu">Menu</a>
-            </nav>
-        </header>
+				<!-- Header -->
+					<header id="header" class="alt style1">
+						<a href="index.html" class="logo"><strong>Joel Raj Vemuri</strong> <span>Business &amp; Data Analyst</span></a>
+						<nav aria-label="Primary">
+							<a href="about.html" class="nav-extra">About</a>
+							<a href="index.html#one" class="nav-extra">Projects</a>
+							<a href="#contact" class="nav-extra">Contact</a>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
 
-        <!-- Menu -->
-        <nav id="menu">
-            <div class="inner">
-                <ul class="links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#footer">Contact</a></li>
-                    <!-- Dropup section (for template version 2.0+ or custom CSS) -->
-                    <li class="dropup">
-                        <button class="button fit dropbtn">Portfolio Projects</button>
-                        <div class="dropup-content">
-                            <a href="python.html">Python</a>
-                            <a href="r.html">R</a>
-                            <a href="sql.html">SQL</a>
-                            <a href="excel.html">Excel</a>
-                            <a href="https://public.tableau.com/app/profile/tianna.parris" target="_blank" class="link">Tableau</a>
-                            <a href="powerbi.html">Power BI</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <a class="close" href="#menu">Close</a>
-        </nav>
+				<!-- Menu -->
+					<nav id="menu" aria-label="Site">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li class="menu-label">Projects</li>
+							<li><a href="python.html" aria-current="page">Python &amp; Machine Learning</a></li>
+							<li><a href="sql.html">SQL</a></li>
+							<li><a href="powerbi.html">Power BI</a></li>
+							<li><a href="tableau.html">Tableau</a></li>
+							<li><a href="excel.html">Excel</a></li>
+							<li><a href="tools.html">Tools &amp; Websites</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#contact" class="button primary fit">Get in Touch</a></li>
+						</ul>
+						<noscript><a href="#wrapper" class="close">Close</a></noscript>
+					</nav>
 
+				<!-- Banner -->
+					<section id="banner" class="style1" style="background-image: url('images/pic07.jpg');" aria-labelledby="page-title">
+						<div class="inner">
+							<header class="major">
+								<h1 id="page-title">Python &amp; Machine Learning</h1>
+							</header>
+							<div class="content">
+								<p>Exploratory analysis, feature engineering and predictive models in Python, each tied to a business decision.</p>
+							</div>
+						</div>
+					</section>
 
-        <!-- Banner -->
-        <!-- Use your original background image path here (e.g., 'images/pic07.jpg') -->
-        <section id="banner" class="style2" style="background-image: url('images/pic07.jpg');">
-            <div class="inner">
-                <span class="image" style="display: none;">
-                    <!-- Replace with your placeholder or actual image path for reference -->
-                    <img src="images/pic07.jpg" alt="">
-                </span>
-                <header class="major">
-                    <h1>Data Analysis using Python</h1>
-                </header>
-                <div class="content">
-                    <p>THESE PROJECTS DEMONSTRATE MY PROFICIENCY IN PYTHON, INCLUDING MY ABILITY TO WORK WITH COMPLEX DATA SETS. <br>THEY SHOWCASE MY SKILLS IN DATA EXPLORATION, STATISTICS, AND DATA VISUALIZATION, EMPLOYING NUMPY, SCIPY, PANDAS, SEABORN, AND MATPLOTLIB TO ACCOMPLISH THESE TASKS.</p>
-                </div>
-            </div>
-        </section>
+				<!-- Main -->
+					<main id="main">
 
-        <!-- Main -->
-        <div id="main">
+						<!-- Overview -->
+							<section id="overview">
+								<div class="inner">
+									<header class="major">
+										<h2>What This Track Covers</h2>
+									</header>
+									<p>Projects in this track take a business question from raw data to a recommendation: cleaning and exploring the data with Pandas, engineering features, then building, tuning and evaluating regression, classification and clustering models with Scikit-learn against a clear baseline.</p>
+									<ul class="tags">
+										<li>Pandas</li>
+										<li>NumPy</li>
+										<li>Matplotlib</li>
+										<li>Seaborn</li>
+										<li>Scikit-learn</li>
+										<li>Feature Engineering</li>
+										<li>Linear Regression</li>
+										<li>Logistic Regression</li>
+										<li>Decision Trees</li>
+										<li>Random Forest</li>
+										<li>Gradient Boosting</li>
+										<li>SMOTE</li>
+										<li>K-Means</li>
+										<li>Hierarchical Clustering</li>
+										<li>Cross-Validation</li>
+										<li>F1 / Recall</li>
+										<li>RMSE / MAE</li>
+									</ul>
+									<ul class="actions">
+										<li><a href="about.html#approach-ml" class="button next">My ML Approach</a></li>
+									</ul>
+								</div>
+							</section>
 
-            <!-- Python Projects Section (Spotlights) -->
-            <section id="two" class="spotlights">
-                
-                <!-- Project 1: Movie Analysis -->
-                <section>
-                    <a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Analyzing%20the%20Factors%20Contributing%20to%20the%20Success%20of%20a%20Movie.ipynb" target="_blank" class="image">
-                        <!-- Replace with your image path: images/pythonmovie.png -->
-                        <img src="images/pythonmovie.png" alt="Movie Data Analysis Visualization" data-position="center center">
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Analyzing the Factors Contributing to the Success of a Movie</h3>
-                            </header>
-                            <p>Is the movie industry dying? What determines the success of a movie? I was interested in understanding the key factors that determine a movie's success, including whether the production company, the movie's budget, and other variables have a significant impact.</p>
-                            <ul class="actions">
-                                <li><a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Analyzing%20the%20Factors%20Contributing%20to%20the%20Success%20of%20a%20Movie.ipynb" target="_blank" class="button primary">View in GitHub</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+						<!-- Case Studies -->
+							<section id="case-studies">
+								<div class="inner">
+									<header class="major">
+										<h2>Case Studies</h2>
+									</header>
 
-                <!-- Project 2: Tech Store Sales -->
-                <section>
-                    <a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Tech%20Store%20Sales%20Analysis.ipynb" target="_blank" class="image">
-                        <!-- Replace with your image path: images/pythontechstore.png -->
-                        <img src="images/pythontechstore.png" alt="Tech Store Sales Analysis Chart" data-position="top center">
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Analyzing the Sales History of a Tech Store</h3>
-                            </header>
-                            <p>What trends and patterns can be observed in the data, and what do they indicate? How can the business optimize its operations and improve its efficiency? How effective are the current marketing strategies, and what changes can be made to improve them? I was interested in analyzing this store's sales history to provide insights on how they are performing.</p>
-                            <ul class="actions">
-                                <li><a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Tech%20Store%20Sales%20Analysis.ipynb" target="_blank" class="button primary">View in GitHub</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
+									<div class="coming-next">
+										<h3>Coming Next</h3>
+										<p>Full write-ups with code are being added one at a time. Each covers the business problem, the data, the approach, the result against a baseline, and the recommendation.</p>
+										<ul class="alt">
+											<li><strong>Booking Cancellation Prediction (INN Hotels)</strong>: logistic regression and decision trees on 36,275 hotel bookings</li>
+											<li><strong>Visa Approval Prediction (EasyVisa)</strong>: tree-based ensembles with SMOTE on 25,480 visa applications</li>
+											<li><strong>Customer Segmentation (AllLife Bank)</strong>: K-Means and hierarchical clustering on 660 credit-card customers</li>
+										</ul>
+										<ul class="actions">
+											<li><a href="about.html#approach-ml" class="button primary">Read the Project Summaries</a></li>
+										</ul>
+									</div>
 
-                <!-- Project 3: Lego Analysis -->
-                <section>
-                    <a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Lego%20Analysis.ipynb" target="_blank" class="image">
-                        <!-- Replace with your image path: images/pythonlego.png -->
-                        <img src="images/pythonlego.png" alt="Lego Data Analysis Graph" data-position="25% 25%">
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Lego Data Analysis (Study Project)</h3>
-                            </header>
-                            <p>This project analyzed a Lego dataset with information on the name, year, number of parts, theme name, parent theme, ID, and licensing status. Two questions were addressed: determining the percentage of licensed sets that were Star Wars-themed and identifying the year when Star Wars was not the most popular licensed theme.</p>
-                            <ul class="actions">
-                                <li><a href="https://github.com/tiannaparris/PortfolioProjects/blob/main/Lego%20Analysis.ipynb" target="_blank" class="button primary">View in GitHub</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
+									<ul class="actions pager">
+										<li><a href="tools.html" class="button">&larr; Tools &amp; Websites</a></li>
+										<li><a href="index.html#one" class="button">All Projects</a></li>
+										<li><a href="sql.html" class="button">SQL &rarr;</a></li>
+									</ul>
+								</div>
+							</section>
 
-        </div>
+					</main>
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <section class="split">
-                    <section>
-                        <h4>Contact Information</h4>
-                        <div class="contact-method">
-                            <span class="icon solid alt fa-envelope"></span>
-                            <h3>Email</h3>
-                            <a href="mailto:vjoelraj1823@gmail.com">vjoelraj1823@gmail.com</a>
-                        </div>
-                    </section>
-                </section>
+				<!-- Contact -->
+					<section id="contact" aria-labelledby="contact-title">
+						<div class="inner">
+							<section>
+								<h2 id="contact-title">Let&rsquo;s Talk</h2>
+								<p>I am based in India, open to on-site, hybrid or remote Business Analyst and Data Analyst roles, and willing to relocate. If you are hiring, or would like to walk through any of my projects in detail, I would be glad to connect.</p>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope" aria-hidden="true"></span>
+										<h3>Email</h3>
+										<a href="mailto:vjoelraj1823@gmail.com?subject=Opportunity%20for%20Joel%20Raj%20Vemuri">vjoelraj1823@gmail.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon brands alt fa-linkedin-in" aria-hidden="true"></span>
+										<h3>LinkedIn</h3>
+										<a href="https://www.linkedin.com/in/joel-raj-44a007299/" target="_blank" rel="noopener">linkedin.com/in/joel-raj-44a007299<span class="visually-hidden"> (opens in a new tab)</span></a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon brands alt fa-github" aria-hidden="true"></span>
+										<h3>GitHub</h3>
+										<a href="https://github.com/joelraj18" target="_blank" rel="noopener">github.com/joelraj18<span class="visually-hidden"> (opens in a new tab)</span></a>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
 
-                <ul class="icons">
-                    <li><a href="mailto:vjoelraj1823@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-                    <li><a href="https://github.com/joelraj18" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://www.linkedin.com/in/joel-raj-44a007299/" target="_blank" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; Untitled</li>
-                    <li>Design: <a href="https://html5up.net/">HTML5 UP</a></li>
-                </ul>
-            </div>
-        </footer>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="mailto:vjoelraj1823@gmail.com?subject=Opportunity%20for%20Joel%20Raj%20Vemuri" class="icon solid alt fa-envelope" aria-label="Email"><span class="label">Email</span></a></li>
+								<li><a href="https://www.linkedin.com/in/joel-raj-44a007299/" target="_blank" rel="noopener" class="icon brands alt fa-linkedin-in" aria-label="LinkedIn (opens in a new tab)"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/joelraj18" target="_blank" rel="noopener" class="icon brands alt fa-github" aria-label="GitHub (opens in a new tab)"><span class="label">GitHub</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Joel Raj Vemuri</li>
+								<li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+							</ul>
+						</div>
+					</footer>
 
-    </div>
+			</div>
 
-    <!-- Scripts - You must ensure these files are available in your assets/js/ folder or adjust the paths -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <!-- Note: A file named 'util.js' is usually required by the Forty template but not provided, assuming main.js incorporates or skips it. -->
-    <script src="assets/js/main.js"></script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 </html>
-

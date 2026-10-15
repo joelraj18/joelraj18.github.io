@@ -1,0 +1,1110 @@
+/*
+	Portfolio components layered on top of the Forty template (main.css).
+	Colors reuse the template palette so everything reads as one system.
+	Text colors on the dark background stay at 0.55+ alpha to keep WCAG AA contrast.
+*/
+
+/* Base */
+
+	header.major {
+		max-width: 100%;
+	}
+
+	.contact-method a {
+		word-break: break-word;
+	}
+
+	.muted {
+		color: rgba(244, 244, 255, 0.65);
+	}
+
+	.visually-hidden {
+		clip: rect(0 0 0 0);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+
+	ul.actions:not(.stacked) {
+		flex-wrap: wrap;
+		row-gap: 1em;
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	.button:focus-visible,
+	summary:focus-visible,
+	[tabindex]:focus-visible {
+		outline: 2px solid #9bf1ff;
+		outline-offset: 3px;
+	}
+
+	#one, #contact {
+		scroll-margin-top: 3.25em;
+	}
+
+		@media screen and (max-width: 736px) {
+
+			#one, #contact {
+				scroll-margin-top: 2.75em;
+			}
+
+		}
+
+/* Readable line length for running text */
+
+	#main > section > .inner > p,
+	.tab-panel > .lead,
+	ol.steps p,
+	.case-study dd {
+		max-width: 42em;
+	}
+
+/* Header */
+
+	#header .logo {
+		white-space: nowrap;
+	}
+
+	/* The tagline only fits beside the nav links on wider screens. */
+	@media screen and (max-width: 860px) {
+
+		#header .logo span {
+			display: none;
+		}
+
+	}
+
+	#header.alt[class*="style"] .logo strong {
+		color: #242943;
+	}
+
+	#header nav a[aria-current="page"] {
+		color: #9bf1ff;
+	}
+
+	@media screen and (max-width: 736px) {
+
+		#header nav a.nav-extra {
+			display: none;
+		}
+
+	}
+
+/* Menu */
+
+	#menu ul.links > li > a:not(.button) {
+		line-height: 3.25em;
+	}
+
+		#menu ul.links > li > a[aria-current="page"] {
+			color: #9bf1ff;
+		}
+
+	#menu ul.links > li.menu-label {
+		border-top: solid 1px rgba(212, 212, 255, 0.1);
+		color: rgba(244, 244, 255, 0.7);
+		font-size: 0.7em;
+		font-weight: 600;
+		letter-spacing: 0.3em;
+		padding: 1.75em 0 0.5em 0;
+		text-transform: uppercase;
+	}
+
+		#menu ul.links > li.menu-label + li > a:not(.button) {
+			border-top: 0;
+		}
+
+/* Footer */
+
+	#footer .copyright li,
+	#footer .copyright li a {
+		color: rgba(244, 244, 255, 0.6);
+	}
+
+/* Banner */
+
+	/* Keep the role and tools lines apart on phones (the template hides this <br>). */
+	#banner.major > .inner .content p br {
+		display: inline;
+	}
+
+	/* Navy scrim over the pastel overlay keeps white banner text readable. */
+	#banner[class*="style"]:after {
+		background-image: linear-gradient(rgba(36, 41, 67, 0.6), rgba(36, 41, 67, 0.6));
+	}
+
+	#banner:not(.major) > .inner .content p {
+		font-size: 1.05em;
+		font-weight: 300;
+		letter-spacing: 0.025em;
+		line-height: 1.6;
+		max-width: 38em;
+		text-transform: none;
+	}
+
+	#banner .pitch {
+		font-size: 1.15em;
+		font-weight: 300;
+		line-height: 1.55;
+		margin: 0 0 1.75em 0;
+		max-width: 34em;
+	}
+
+/* Tiles (home) */
+
+	/* Navy layer above the pastel overlay for text contrast; stays on hover. */
+	.tiles article:before {
+		z-index: 1;
+	}
+
+	.tiles article:after {
+		background-color: rgba(36, 41, 67, 0.52);
+		z-index: 2;
+	}
+
+	.tiles article h2 {
+		font-size: 1.75em;
+	}
+
+		.tiles article h2 a:hover {
+			color: inherit !important;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.tiles article h2 {
+				font-size: 1.5em;
+			}
+
+		}
+
+/* Stats (home) */
+
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5em;
+		list-style: none;
+		margin: 0 0 2.5em 0;
+		padding: 0;
+	}
+
+		.stats li {
+			border: solid 1px rgba(212, 212, 255, 0.1);
+			border-top: solid 3px #9bf1ff;
+			padding: 1.5em 1.5em 1.25em 1.5em;
+		}
+
+		.stats strong {
+			display: block;
+			font-size: 2.25em;
+			line-height: 1.2;
+			margin-bottom: 0.25em;
+		}
+
+		.stats span {
+			color: rgba(244, 244, 255, 0.7);
+			display: block;
+			font-size: 0.9em;
+			line-height: 1.5;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.stats {
+				grid-template-columns: 1fr;
+				gap: 1em;
+			}
+
+		}
+
+/* Profile (about) */
+
+	.profile {
+		align-items: flex-start;
+		display: flex;
+		gap: 3em;
+		margin: 0 0 1em 0;
+	}
+
+		.profile-photo {
+			flex: 0 0 14em;
+		}
+
+			.profile-photo img {
+				border: solid 1px rgba(212, 212, 255, 0.15);
+				display: block;
+				height: auto;
+				width: 100%;
+			}
+
+		.profile-body {
+			flex: 1 1 auto;
+			min-width: 0;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.profile {
+				align-items: stretch;
+				flex-direction: column;
+				gap: 1.5em;
+			}
+
+				.profile-photo {
+					flex-basis: auto;
+					width: 10em;
+				}
+
+		}
+
+	.facts {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.25em 2em;
+		list-style: none;
+		margin: 0 0 2em 0;
+		padding: 0;
+	}
+
+		.facts li {
+			border-left: solid 2px #9bf1ff;
+			line-height: 1.5;
+			padding: 0 0 0 1em;
+		}
+
+		.facts span {
+			color: rgba(244, 244, 255, 0.65);
+			display: block;
+			font-size: 0.75em;
+			font-weight: 600;
+			letter-spacing: 0.18em;
+			margin-bottom: 0.25em;
+			text-transform: uppercase;
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.facts {
+				grid-template-columns: 1fr;
+			}
+
+		}
+
+/* In-page jump links (about) */
+
+	ul.jump-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em 1.5em;
+		list-style: none;
+		margin: -0.5em 0 2.5em 0;
+		padding: 0;
+	}
+
+		ul.jump-links li {
+			padding: 0;
+		}
+
+		ul.jump-links a {
+			font-size: 0.8em;
+			font-weight: 600;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+		}
+
+/* Section headings inside long pages */
+
+	.section-title {
+		border-top: solid 1px rgba(212, 212, 255, 0.1);
+		margin-top: 1em;
+		padding-top: 2.5em;
+		scroll-margin-top: 3.5em;
+	}
+
+/* Timeline (experience) */
+
+	.timeline {
+		border-left: solid 2px rgba(212, 212, 255, 0.15);
+		margin: 0 0 2em 0.4em;
+		padding-left: 2em;
+	}
+
+		.timeline > article {
+			margin-bottom: 2.25em;
+			position: relative;
+		}
+
+			.timeline > article:last-child {
+				margin-bottom: 0;
+			}
+
+			.timeline > article:before {
+				background-color: #9bf1ff;
+				border-radius: 50%;
+				box-shadow: 0 0 0 4px #242943;
+				content: '';
+				height: 12px;
+				left: calc(-2em - 7px);
+				position: absolute;
+				top: 0.6em;
+				width: 12px;
+			}
+
+		.timeline h3 {
+			margin: 0;
+		}
+
+			.timeline h3 .org {
+				color: rgba(244, 244, 255, 0.7);
+				font-weight: 300;
+			}
+
+		.timeline .when {
+			color: rgba(244, 244, 255, 0.65);
+			font-size: 0.85em;
+			font-weight: 600;
+			letter-spacing: 0.08em;
+			margin: 0.25em 0 0.75em 0;
+			text-transform: uppercase;
+		}
+
+		.timeline ul {
+			margin-bottom: 0;
+		}
+
+/* Cards and tags */
+
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.5em;
+		margin: 0 0 2em 0;
+	}
+
+		.card-grid > * {
+			border: solid 1px rgba(212, 212, 255, 0.1);
+			padding: 1.5em;
+		}
+
+			.card-grid > * > :last-child {
+				margin-bottom: 0;
+			}
+
+		.card-grid h3 {
+			font-size: 1.1em;
+		}
+
+			.card-grid h3 .icon {
+				color: #9bf1ff;
+				margin-right: 0.5em;
+			}
+
+		@media screen and (max-width: 736px) {
+
+			.card-grid {
+				grid-template-columns: 1fr;
+			}
+
+		}
+
+	ul.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		list-style: none;
+		margin: 0 0 1em 0;
+		padding: 0;
+	}
+
+		ul.tags li {
+			background-color: rgba(212, 212, 255, 0.06);
+			border: solid 1px rgba(212, 212, 255, 0.14);
+			border-radius: 2em;
+			font-size: 0.85em;
+			line-height: 1.5;
+			padding: 0.25em 0.85em;
+		}
+
+/* Approach architecture (about) */
+
+	.architecture {
+		margin: 0 0 3em 0;
+	}
+
+		.arch-flow {
+			display: grid;
+			gap: 1.5em;
+			grid-template-columns: repeat(6, minmax(0, 1fr));
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+			.arch-flow > li {
+				padding: 0;
+				position: relative;
+			}
+
+				/* Arrow to the next stage */
+				.arch-flow > li:not(:last-child):after {
+					color: #9bf1ff;
+					content: '\2192';
+					font-size: 1.1em;
+					line-height: 1;
+					position: absolute;
+					right: -1.05em;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+
+			.arch-flow a {
+				background-color: rgba(212, 212, 255, 0.035);
+				border: solid 1px rgba(212, 212, 255, 0.15);
+				border-top: solid 3px #6fc3df;
+				display: flex;
+				flex-direction: column;
+				gap: 0.4em;
+				height: 100%;
+				padding: 1em 1em 1.1em 1em;
+				text-decoration: none;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+				.arch-flow a:hover {
+					background-color: rgba(155, 241, 255, 0.08);
+					color: inherit !important;
+				}
+
+			.arch-flow > li:nth-child(2) a { border-top-color: #8d82c4; }
+			.arch-flow > li:nth-child(3) a { border-top-color: #ec8d81; }
+			.arch-flow > li:nth-child(4) a { border-top-color: #e7b788; }
+			.arch-flow > li:nth-child(5) a { border-top-color: #8ea9e8; }
+			.arch-flow > li:nth-child(6) a { border-top-color: #87c5a4; }
+
+			.arch-num {
+				color: rgba(244, 244, 255, 0.65);
+				font-size: 0.75em;
+				font-weight: 600;
+				letter-spacing: 0.2em;
+			}
+
+			.arch-title {
+				color: #ffffff;
+				font-size: 0.95em;
+				font-weight: 600;
+				line-height: 1.35;
+			}
+
+			.arch-desc {
+				font-size: 0.8em;
+				line-height: 1.5;
+			}
+
+			.arch-tools {
+				color: #9bf1ff;
+				font-size: 0.75em;
+				line-height: 1.5;
+				margin-top: auto;
+				padding-top: 0.35em;
+			}
+
+		.arch-loop {
+			border: dashed 1px rgba(155, 241, 255, 0.45);
+			font-size: 0.85em;
+			line-height: 1.5;
+			margin: 1.25em 0 0 0;
+			padding: 0.75em 1em;
+			text-align: center;
+		}
+
+			.arch-loop .icon {
+				color: #9bf1ff;
+				margin-right: 0.5em;
+			}
+
+		.arch-gates {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5em 1em;
+			margin: 1em 0 0 0;
+		}
+
+			.arch-gates > span {
+				color: rgba(244, 244, 255, 0.7);
+				font-size: 0.75em;
+				font-weight: 600;
+				letter-spacing: 0.18em;
+				text-transform: uppercase;
+			}
+
+			.arch-gates ul.tags {
+				margin: 0;
+			}
+
+		@media screen and (max-width: 1280px) {
+
+			.arch-flow {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+
+				.arch-flow > li:nth-child(3n):after {
+					display: none;
+				}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.arch-flow {
+				gap: 1.75em;
+				grid-template-columns: 1fr;
+			}
+
+				.arch-flow > li:not(:last-child):after,
+				.arch-flow > li:nth-child(3n):not(:last-child):after {
+					bottom: -1.45em;
+					content: '\2193';
+					display: block;
+					left: 50%;
+					right: auto;
+					top: auto;
+					transform: translateX(-50%);
+				}
+
+		}
+
+/* Tabs (approach) */
+
+	.tabs {
+		scroll-margin-top: 4.5em;
+	}
+
+		.tab-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75em;
+			margin: 0 0 2.5em 0;
+		}
+
+			.tab-list button {
+				font-family: inherit;
+				font-size: 0.75em;
+				height: auto;
+				letter-spacing: 0.15em;
+				line-height: 1.4;
+				padding: 0.95em 1.3em;
+				white-space: normal;
+			}
+
+			.tab-list button[aria-selected="true"],
+			.tab-list button[aria-selected="true"]:hover {
+				background-color: #ffffff;
+				box-shadow: none;
+				color: #242943;
+			}
+
+			@media screen and (max-width: 480px) {
+
+				.tab-list {
+					display: grid;
+					gap: 0.5em;
+					grid-template-columns: 1fr 1fr;
+				}
+
+					.tab-list button {
+						padding: 0.9em 0.6em;
+						width: 100%;
+					}
+
+			}
+
+		.tabs:not(.is-ready) .tab-list {
+			display: none;
+		}
+
+		/* With JS (class set in <head>), show only the first panel until the tabs script runs. */
+		.js .tabs:not(.is-ready) .tab-panel + .tab-panel {
+			display: none;
+		}
+
+		@media (forced-colors: active) {
+
+			.tab-list button {
+				border: 2px solid ButtonText;
+			}
+
+			.tab-list button[aria-selected="true"] {
+				background: Highlight;
+				border-color: Highlight;
+				color: HighlightText;
+				forced-color-adjust: none;
+			}
+
+		}
+
+		.tab-panel {
+			scroll-margin-top: 3.5em;
+		}
+
+			/* The template's reset sets section { display: block }, which would override [hidden]. */
+			.tab-panel[hidden] {
+				display: none;
+			}
+
+			.tab-panel:focus-visible {
+				outline-offset: 0.75em;
+			}
+
+			.tabs:not(.is-ready) .tab-panel + .tab-panel {
+				border-top: solid 1px rgba(212, 212, 255, 0.1);
+				padding-top: 2.5em;
+			}
+
+			.tab-panel > h3 {
+				margin-bottom: 0.5em;
+			}
+
+			.tab-panel .lead {
+				color: rgba(244, 244, 255, 0.8);
+				font-size: 1.05em;
+			}
+
+			.tab-panel h4.subhead {
+				margin-top: 0.5em;
+			}
+
+/* Numbered process steps */
+
+	ol.steps {
+		counter-reset: step;
+		list-style: none;
+		margin: 0 0 2.5em 0;
+		padding: 0;
+	}
+
+		ol.steps > li {
+			counter-increment: step;
+			padding: 0 0 1.5em 3.5em;
+			position: relative;
+		}
+
+			ol.steps > li:before {
+				background-color: #ffffff;
+				border-radius: 50%;
+				color: #242943;
+				content: counter(step, decimal-leading-zero);
+				font-size: 0.8em;
+				font-weight: 600;
+				height: 2.6em;
+				left: 0;
+				letter-spacing: 0;
+				line-height: 2.6em;
+				position: absolute;
+				text-align: center;
+				top: 0;
+				width: 2.6em;
+			}
+
+			ol.steps > li:after {
+				background-color: rgba(212, 212, 255, 0.12);
+				bottom: 0.25em;
+				content: '';
+				left: calc(1.04em - 1px);
+				position: absolute;
+				top: 2.4em;
+				width: 2px;
+			}
+
+			ol.steps > li:last-child {
+				padding-bottom: 0;
+			}
+
+				ol.steps > li:last-child:after {
+					display: none;
+				}
+
+		ol.steps h4 {
+			margin: 0 0 0.35em 0;
+		}
+
+		ol.steps p {
+			margin: 0 0 0.75em 0;
+		}
+
+		ol.steps ul.tags {
+			margin-bottom: 0;
+		}
+
+/* Callout */
+
+	.callout {
+		background-color: rgba(212, 212, 255, 0.035);
+		border-left: solid 4px #9bf1ff;
+		margin: 0 0 2.5em 0;
+		padding: 1.5em 1.75em;
+	}
+
+		.callout h4 {
+			color: #9bf1ff;
+			font-size: 0.75em;
+			letter-spacing: 0.2em;
+			margin: 0 0 0.75em 0;
+			text-transform: uppercase;
+		}
+
+		.callout > :last-child,
+		.callout > ul > li:last-child {
+			margin-bottom: 0;
+		}
+
+		.callout ul li {
+			margin-bottom: 0.75em;
+		}
+
+/* Code */
+
+	ol.steps p code,
+	.callout code,
+	table.compact code {
+		font-size: 0.85em;
+		margin: 0 0.1em;
+		padding: 0.1em 0.4em;
+	}
+
+	.code-sample {
+		margin: 0 0 2.5em 0;
+	}
+
+		.code-sample p {
+			font-size: 0.85em;
+			margin: 0 0 0.5em 0;
+		}
+
+		.code-sample pre {
+			background: rgba(212, 212, 255, 0.035);
+			border: solid 1px rgba(212, 212, 255, 0.1);
+			margin: 0;
+		}
+
+			.code-sample pre code {
+				background: none;
+				font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+				font-size: 0.85em;
+				margin: 0;
+			}
+
+		@media screen and (max-width: 736px) {
+
+			.code-sample pre code {
+				font-size: 0.8em;
+				padding: 1em;
+			}
+
+		}
+
+/* Tables */
+
+	table.compact td {
+		font-size: 0.9em;
+		line-height: 1.55;
+		vertical-align: top;
+	}
+
+		table.compact td:first-child {
+			font-weight: 600;
+			white-space: nowrap;
+		}
+
+	/* Phones: each row becomes a labelled card instead of a sideways-scrolling table. */
+	@media screen and (max-width: 736px) {
+
+		table.compact thead {
+			display: none;
+		}
+
+		table.compact,
+		table.compact tbody,
+		table.compact tr,
+		table.compact td {
+			display: block;
+			width: 100%;
+		}
+
+		table.compact tr {
+			padding: 0.85em 0;
+		}
+
+		table.compact td {
+			padding: 0.2em 0.75em;
+		}
+
+			table.compact td:first-child {
+				font-size: 1em;
+				white-space: normal;
+			}
+
+			table.compact td[data-label]:before {
+				color: rgba(244, 244, 255, 0.65);
+				content: attr(data-label);
+				display: block;
+				font-size: 0.75em;
+				font-weight: 600;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+			}
+
+	}
+
+/* Collapsible reference (cheat-sheet) */
+
+	details.cheatsheet {
+		border: solid 1px rgba(212, 212, 255, 0.15);
+		margin: 0 0 2.5em 0;
+	}
+
+		details.cheatsheet > summary {
+			cursor: pointer;
+			display: flex;
+			font-weight: 600;
+			gap: 1em;
+			justify-content: space-between;
+			list-style: none;
+			padding: 1em 1.25em;
+		}
+
+			details.cheatsheet > summary::-webkit-details-marker {
+				display: none;
+			}
+
+			details.cheatsheet > summary:after {
+				color: #9bf1ff;
+				content: '+';
+				font-size: 1.25em;
+				line-height: 1;
+			}
+
+			details.cheatsheet[open] > summary:after {
+				content: '\2212';
+			}
+
+			details.cheatsheet > summary .muted {
+				font-weight: 300;
+			}
+
+			details.cheatsheet[open] > summary .muted {
+				display: none;
+			}
+
+		details.cheatsheet > .cheatsheet-body {
+			padding: 0.5em 1.25em 0.25em 1.25em;
+		}
+
+			details.cheatsheet > .cheatsheet-body > :last-child {
+				margin-bottom: 1.25em;
+			}
+
+/* Case studies (project pages) */
+
+	.case-studies {
+		display: grid;
+		gap: 2em;
+		margin: 0 0 2.5em 0;
+	}
+
+		.case-study {
+			border: solid 1px rgba(212, 212, 255, 0.12);
+			border-top: solid 3px #9bf1ff;
+			padding: 2em;
+			scroll-margin-top: 3.5em;
+		}
+
+			.case-study h3 {
+				margin-bottom: 0.5em;
+			}
+
+			.case-study .image.fit {
+				margin-bottom: 1.5em;
+			}
+
+			.case-study dl {
+				display: grid;
+				gap: 0.75em 1.5em;
+				grid-template-columns: 10em minmax(0, 1fr);
+				margin: 1.5em 0;
+			}
+
+			.case-study dt {
+				color: rgba(244, 244, 255, 0.65);
+				font-size: 0.75em;
+				letter-spacing: 0.15em;
+				margin: 0;
+				padding-top: 0.35em;
+				text-transform: uppercase;
+			}
+
+			.case-study dd {
+				margin: 0;
+			}
+
+			.case-study ul.actions {
+				margin-bottom: 0;
+			}
+
+		@media screen and (max-width: 736px) {
+
+			.case-study {
+				padding: 1.5em 1.25em;
+			}
+
+				.case-study dl {
+					gap: 0.25em;
+					grid-template-columns: 1fr;
+				}
+
+					.case-study dd {
+						margin-bottom: 0.75em;
+					}
+
+		}
+
+	/* Shown until a track's first case study is published. */
+	.coming-next {
+		border: solid 1px rgba(212, 212, 255, 0.12);
+		padding: 2em;
+	}
+
+		.coming-next h3 {
+			margin-bottom: 0.5em;
+		}
+
+		.coming-next ul.alt {
+			margin-bottom: 1.5em;
+		}
+
+		.coming-next ul.actions {
+			margin-bottom: 0;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.coming-next {
+				padding: 1.5em 1.25em;
+			}
+
+		}
+
+/* Previous / next track navigation (project pages) */
+
+	ul.actions.pager {
+		border-top: solid 1px rgba(212, 212, 255, 0.1);
+		justify-content: space-between;
+		margin: 3em 0 0 0;
+		padding-top: 2em;
+	}
+
+		@media screen and (max-width: 736px) {
+
+			/* Previous and next side by side, "All Projects" full width below. */
+			ul.actions.pager {
+				display: grid;
+				gap: 0.75em;
+				grid-template-columns: 1fr 1fr;
+				margin-left: 0;
+			}
+
+				ul.actions.pager li {
+					padding: 0;
+				}
+
+				ul.actions.pager li:nth-child(2) {
+					grid-column: 1 / -1;
+					grid-row: 2;
+				}
+
+				ul.actions.pager .button {
+					height: auto;
+					letter-spacing: 0.12em;
+					line-height: 1.4;
+					padding: 0.9em 0.75em;
+					white-space: normal;
+					width: 100%;
+				}
+
+		}
+
+/* Reduced motion */
+
+	@media (prefers-reduced-motion: reduce) {
+
+		*, *:before, *:after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			scroll-behavior: auto !important;
+			transition-delay: 0s !important;
+			transition-duration: 0.01ms !important;
+		}
+
+		body.is-preload #banner > .inner {
+			filter: none !important;
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
+		#menu .inner {
+			transform: none !important;
+		}
+
+	}
+
+/* Print (hiring panels sometimes save the About page as PDF) */
+
+	@media print {
+
+		body, #wrapper, #main, #contact, #banner {
+			background: #ffffff !important;
+			color: #111111 !important;
+		}
+
+		#wrapper {
+			padding-top: 0 !important;
+		}
+
+		h1, h2, h3, h4, h5, h6, strong, b, a, p, li, td, th, dt, dd, span, code {
+			color: #111111 !important;
+		}
+
+		a {
+			border-bottom: 0 !important;
+		}
+
+		#header, #menu, #footer, .tab-list, ul.actions, ul.jump-links, #banner:after, .tiles {
+			display: none !important;
+		}
+
+		.tab-panel[hidden] {
+			display: block !important;
+		}
+
+		.tab-panel + .tab-panel {
+			border-top: solid 1px #999999;
+			padding-top: 1.5em;
+		}
+
+		ul.tags li, .callout, .code-sample pre, .arch-flow a, .stats li, .card-grid > *, details.cheatsheet {
+			background: none !important;
+			border-color: #999999 !important;
+		}
+
+		#banner {
+			height: auto !important;
+			min-height: 0 !important;
+			padding: 1em 0 !important;
+			top: 0 !important;
+		}
+
+	}

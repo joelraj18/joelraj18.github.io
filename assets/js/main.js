@@ -10,7 +10,8 @@
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
 		$header = $('#header'),
-		$banner = $('#banner');
+		$banner = $('#banner'),
+		reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 	// Breakpoints.
 		breakpoints({
@@ -26,7 +27,7 @@
 	 * Applies parallax scrolling to an element's background image.
 	 * @return {jQuery} jQuery object.
 	 */
-	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile) ? function() { return $(this) } : function(intensity) {
+	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile || reduceMotion) ? function() { return $(this) } : function(intensity) {
 
 		var	$window = $(window),
 			$this = $(this);
@@ -91,8 +92,8 @@
 
 	};
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
+	// Play initial animations as soon as the DOM is ready (not after every image has loaded).
+		$(function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
@@ -111,10 +112,22 @@
 
 	// Scrolly.
 		$('.scrolly').scrolly({
+			speed: reduceMotion ? 0 : 1000,
 			offset: function() {
 				return $header.height() - 2;
 			}
 		});
+
+		// Move keyboard focus to the section the button scrolled to.
+			$('.scrolly').on('click', function() {
+				var target = document.querySelector($(this).attr('href')),
+					link = target ? target.querySelector('h2 a, a') : null;
+
+				if (link)
+					window.setTimeout(function() {
+						link.focus({ preventScroll: true });
+					}, 0);
+			});
 
 	// Tiles.
 		var $tiles = $('.tiles > article');
@@ -141,9 +154,11 @@
 			// Link.
 				if ($link.length > 0) {
 
+					// Full-tile click target; hidden from keyboard and assistive tech (the heading link stays the accessible one).
 					$x = $link.clone()
 						.text('')
 						.addClass('primary')
+						.attr({ 'aria-hidden': 'true', tabindex: '-1' })
 						.appendTo($this);
 
 					$link = $link.add($x);
@@ -151,6 +166,10 @@
 					$link.on('click', function(event) {
 
 						var href = $link.attr('href');
+
+						// Let modified clicks (new tab / window) behave natively.
+							if (event.ctrlKey || event.metaKey || event.shiftKey || event.button > 0)
+								return;
 
 						// Prevent default.
 							event.stopPropagation();
@@ -162,6 +181,11 @@
 								// Open in new tab.
 									window.open(href);
 
+							}
+
+						// Reduced motion: skip the transition.
+							else if (reduceMotion) {
+								location.href = href;
 							}
 
 						// Otherwise ...
@@ -239,6 +263,26 @@
 		$menuInner = $menu.children('.inner');
 		$menu._locked = false;
 
+		// Accessibility: expose the toggle state, move focus into the menu, and return it on close.
+			var $toggle = $('#header nav a[href="#menu"]')
+				.attr({ 'aria-controls': 'menu', 'aria-expanded': 'false' });
+
+			function menuOpened() {
+				$toggle.attr('aria-expanded', 'true');
+				$wrapper.prop('inert', true);
+				window.setTimeout(function() {
+					$menuInner.find('a').first().trigger('focus');
+				}, 50);
+			}
+
+			function menuClosed(restoreFocus) {
+				$toggle.attr('aria-expanded', 'false');
+				$wrapper.prop('inert', false);
+
+				if (restoreFocus)
+					$toggle.first().trigger('focus');
+			}
+
 		$menu._lock = function() {
 
 			if ($menu._locked)
@@ -256,22 +300,35 @@
 
 		$menu._show = function() {
 
-			if ($menu._lock())
+			if ($menu._lock()) {
 				$body.addClass('is-menu-visible');
+				menuOpened();
+			}
 
 		};
 
-		$menu._hide = function() {
+		$menu._hide = function(restoreFocus) {
 
-			if ($menu._lock())
+			if (!$body.hasClass('is-menu-visible'))
+				return;
+
+			if ($menu._lock()) {
 				$body.removeClass('is-menu-visible');
+				menuClosed(restoreFocus !== false);
+			}
 
 		};
 
 		$menu._toggle = function() {
 
-			if ($menu._lock())
+			if ($menu._lock()) {
 				$body.toggleClass('is-menu-visible');
+
+				if ($body.hasClass('is-menu-visible'))
+					menuOpened();
+				else
+					menuClosed(true);
+			}
 
 		};
 
@@ -283,11 +340,15 @@
 
 				var href = $(this).attr('href');
 
+				// Let modified clicks (new tab / window) behave natively.
+					if (event.ctrlKey || event.metaKey || event.shiftKey || event.button > 0)
+						return;
+
 				event.preventDefault();
 				event.stopPropagation();
 
-				// Hide.
-					$menu._hide();
+				// Hide (the page is navigating, so focus is not returned to the toggle).
+					$menu._hide(false);
 
 				// Redirect.
 					window.setTimeout(function() {
@@ -303,7 +364,30 @@
 				event.stopPropagation();
 				event.preventDefault();
 
-				$body.removeClass('is-menu-visible');
+				if ($body.hasClass('is-menu-visible')) {
+					$body.removeClass('is-menu-visible');
+					menuClosed(true);
+				}
+
+			})
+			.on('keydown', function(event) {
+
+				// Keep Tab inside the open menu.
+					if (event.keyCode != 9 || !$body.hasClass('is-menu-visible'))
+						return;
+
+					var $focusable = $menu.find('a:visible'),
+						first = $focusable.get(0),
+						last = $focusable.get($focusable.length - 1);
+
+					if (event.shiftKey && document.activeElement === first) {
+						event.preventDefault();
+						last.focus();
+					}
+					else if (!event.shiftKey && document.activeElement === last) {
+						event.preventDefault();
+						first.focus();
+					}
 
 			})
 			.append('<a class="close" href="#menu">Close</a>');

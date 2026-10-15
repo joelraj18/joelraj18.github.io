@@ -21,3 +21,43 @@
 		transform: none;
 		opacity: 1;
 	}
+/* Header (no fade-in without JS) */
+
+	body.is-preload #header.alt {
+		opacity: 1;
+	}
+
+/* Menu (opens via its #menu fragment without JS) */
+
+	#menu:target {
+		flex-direction: column;
+		opacity: 1;
+		overflow-y: auto;
+		pointer-events: auto;
+		visibility: visible;
+	}
+
+		#menu:target ul.links,
+		#menu:target ul.actions {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 18em;
+			text-align: center;
+		}
+
+/* Tiles (show the background image that main.js would otherwise apply) */
+
+	.tiles article .image {
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+		.tiles article .image img {
+			height: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
