@@ -296,10 +296,12 @@
 |  `- Orders per customer    -5.6%
 `- Average order value      +3.5%
 
-Read-out: AOV held up (+3.5%), so discounting will
-not win the revenue back. The decline is volume,
-mostly lost customers. Next: did a price rise drive
-them away? Check retention by customer cohort.</code></pre>
+Read-out: AOV rose (+3.5%), so the decline is
+volume, not basket size: mostly lost customers
+(-10.0%), plus fewer orders per customer (-5.6%).
+Next: did a price rise lift AOV but drive
+customers away? Check retention by customer
+cohort before choosing a price or retention fix.</code></pre>
 														</div>
 														<ul class="tags"><li>Driver Trees</li><li>North-Star Metric</li><li>Volume vs. Price Split</li></ul>
 													</li>
@@ -320,7 +322,7 @@ them away? Check retention by customer cohort.</code></pre>
 													</li>
 													<li>
 														<h4>Lead with the answer</h4>
-														<p>I write findings top-down (the pyramid principle): the recommendation first, then the reasons, then the evidence. From my New Wheels analysis: <em>Recommendation</em>, commit to a 25-day shipping SLA and track shipping days and customer ratings every week. <em>Why</em>, revenue fell 39% across the quarters analyzed while average shipping time rose 60%, from 28 to 45 days. <em>Evidence</em>, the quarterly KPI query in the SQL tab, plus the test design in the Statistics tab that would confirm the effect.</p>
+														<p>I write findings top-down (the pyramid principle): the recommendation first, then the reasons, then the evidence. From my New Wheels analysis: <em>Recommendation</em>, pilot a 25-day shipping SLA with a randomly chosen half of customers, and roll it out to everyone if, at the planned sample size, average rating improves without raising shipping cost per order. <em>Why</em>, revenue fell 39% across the quarters analyzed while average shipping time rose 60%, from 28 to 45 days. <em>Evidence</em>, the quarterly KPI query in the SQL tab; the pilot, designed in the Statistics tab, tests whether the SLA causes the improvement.</p>
 														<ul class="tags"><li>Pyramid Principle</li><li>Executive Summary</li><li>Data Storytelling</li></ul>
 													</li>
 												</ol>
