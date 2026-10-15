@@ -10,7 +10,8 @@
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
 		$header = $('#header'),
-		$banner = $('#banner');
+		$banner = $('#banner'),
+		reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
 	// Breakpoints.
 		breakpoints({
@@ -26,7 +27,7 @@
 	 * Applies parallax scrolling to an element's background image.
 	 * @return {jQuery} jQuery object.
 	 */
-	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile) ? function() { return $(this) } : function(intensity) {
+	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile || reduceMotion) ? function() { return $(this) } : function(intensity) {
 
 		var	$window = $(window),
 			$this = $(this);
@@ -111,10 +112,22 @@
 
 	// Scrolly.
 		$('.scrolly').scrolly({
+			speed: reduceMotion ? 0 : 1000,
 			offset: function() {
 				return $header.height() - 2;
 			}
 		});
+
+		// Move keyboard focus to the section the button scrolled to.
+			$('.scrolly').on('click', function() {
+				var target = document.querySelector($(this).attr('href')),
+					link = target ? target.querySelector('h2 a, a') : null;
+
+				if (link)
+					window.setTimeout(function() {
+						link.focus({ preventScroll: true });
+					}, 0);
+			});
 
 	// Tiles.
 		var $tiles = $('.tiles > article');
@@ -168,6 +181,11 @@
 								// Open in new tab.
 									window.open(href);
 
+							}
+
+						// Reduced motion: skip the transition.
+							else if (reduceMotion) {
+								location.href = href;
 							}
 
 						// Otherwise ...
@@ -251,6 +269,7 @@
 
 			function menuOpened() {
 				$toggle.attr('aria-expanded', 'true');
+				$wrapper.prop('inert', true);
 				window.setTimeout(function() {
 					$menuInner.find('a').first().trigger('focus');
 				}, 50);
@@ -258,6 +277,7 @@
 
 			function menuClosed(restoreFocus) {
 				$toggle.attr('aria-expanded', 'false');
+				$wrapper.prop('inert', false);
 
 				if (restoreFocus)
 					$toggle.first().trigger('focus');

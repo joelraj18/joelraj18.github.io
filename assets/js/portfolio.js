@@ -84,6 +84,7 @@
 
 				event.preventDefault();
 				select(i, false, true);
+				tabs[i].focus({ preventScroll: true });
 				container.scrollIntoView();
 			});
 

@@ -18,6 +18,15 @@
 		color: rgba(244, 244, 255, 0.65);
 	}
 
+	.visually-hidden {
+		clip: rect(0 0 0 0);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+
 	ul.actions:not(.stacked) {
 		flex-wrap: wrap;
 		row-gap: 1em;
@@ -54,6 +63,19 @@
 	}
 
 /* Header */
+
+	#header .logo {
+		white-space: nowrap;
+	}
+
+	/* The tagline only fits beside the nav links on wider screens. */
+	@media screen and (max-width: 860px) {
+
+		#header .logo span {
+			display: none;
+		}
+
+	}
 
 	#header.alt[class*="style"] .logo strong {
 		color: #242943;
@@ -104,9 +126,9 @@
 
 /* Banner */
 
-	/* Project pages swap in their own image via main.js, so skip the default download. */
-	#banner:not(.major) {
-		background-image: none;
+	/* Keep the role and tools lines apart on phones (the template hides this <br>). */
+	#banner.major > .inner .content p br {
+		display: inline;
 	}
 
 	/* Navy scrim over the pastel overlay keeps white banner text readable. */
@@ -605,6 +627,26 @@
 			display: none;
 		}
 
+		/* With JS (class set in <head>), show only the first panel until the tabs script runs. */
+		.js .tabs:not(.is-ready) .tab-panel + .tab-panel {
+			display: none;
+		}
+
+		@media (forced-colors: active) {
+
+			.tab-list button {
+				border: 2px solid ButtonText;
+			}
+
+			.tab-list button[aria-selected="true"] {
+				background: Highlight;
+				border-color: Highlight;
+				color: HighlightText;
+				forced-color-adjust: none;
+			}
+
+		}
+
 		.tab-panel {
 			scroll-margin-top: 3.5em;
 		}
@@ -759,7 +801,7 @@
 		@media screen and (max-width: 736px) {
 
 			.code-sample pre code {
-				font-size: 0.75em;
+				font-size: 0.8em;
 				padding: 1em;
 			}
 
@@ -852,6 +894,10 @@
 
 			details.cheatsheet > summary .muted {
 				font-weight: 300;
+			}
+
+			details.cheatsheet[open] > summary .muted {
+				display: none;
 			}
 
 		details.cheatsheet > .cheatsheet-body {

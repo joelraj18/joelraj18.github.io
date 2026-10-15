@@ -20,7 +20,7 @@ Approach tabs can be linked directly: `about.html#approach-kpi`, `#approach-sql`
 
 ## Adding a case study
 
-On the relevant project page, replace the `<div class="coming-next">` block in the "Case Studies" section with a `case-studies` list, and add one `<article>` per project (newest first):
+On the relevant project page, add a `<div class="case-studies">` directly **above** the `<div class="coming-next">` block (in the "Case Studies" section, or "Projects" on `tools.html`), with one `<article>` per project, newest first. Remove each project from the coming-next list as it is published, and delete that block once the list is empty:
 
 ```html
 <div class="case-studies">
@@ -37,7 +37,7 @@ On the relevant project page, replace the `<div class="coming-next">` block in t
 			<dt>Approach</dt>
 			<dd>Cleaning, feature engineering, logistic regression vs. pruned decision tree.</dd>
 			<dt>Result</dt>
-			<dd>83% test accuracy against a 67.2% majority-class baseline (add F1 / recall).</dd>
+			<dd>83% test accuracy against a 67.2% majority-class baseline; F1 0.xx and recall 0.xx on cancellations.</dd>
 			<dt>Recommendation</dt>
 			<dd>Automated reminder emails for high-risk bookings.</dd>
 		</dl>
@@ -51,4 +51,4 @@ On the relevant project page, replace the `<div class="coming-next">` block in t
 </div>
 ```
 
-The image is optional; every result should be stated against a baseline. When a page gets its first case study, also update its `<meta name="description">`.
+The image is optional; every result should be stated against a baseline (for classification, include F1 and recall for the class that matters). When a page gets its first case study, update both its `<meta name="description">` and `<meta property="og:description">`.
