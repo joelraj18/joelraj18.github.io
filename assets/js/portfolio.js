@@ -1,7 +1,8 @@
 /*
 	Accessible tabs for the "My Approach" section on the About page.
 	Without JavaScript every panel stays visible, so no content is lost.
-	A panel can be opened directly from a link, e.g. about.html#approach-sql.
+	A panel can be opened directly from a link, e.g. about.html#approach-sql,
+	or from any in-page link to a panel id (such as the architecture cards).
 */
 
 (function() {
@@ -15,7 +16,7 @@
 				return document.getElementById(tab.getAttribute('aria-controls'));
 			});
 
-		function select(index, focus) {
+		function select(index, focus, updateHash) {
 
 			tabs.forEach(function(tab, i) {
 				var active = (i === index);
@@ -28,11 +29,12 @@
 			if (focus)
 				tabs[index].focus();
 
+			if (updateHash && window.history.replaceState)
+				window.history.replaceState(null, '', '#' + panels[index].id);
+
 		}
 
-		function indexFromHash() {
-
-			var id = window.location.hash.slice(1);
+		function indexOfPanel(id) {
 
 			for (var i = 0; i < panels.length; i++)
 				if (panels[i].id === id)
@@ -45,14 +47,15 @@
 		tabs.forEach(function(tab, i) {
 
 			tab.addEventListener('click', function() {
-				select(i, false);
-
-				if (window.history.replaceState)
-					window.history.replaceState(null, '', '#' + panels[i].id);
+				select(i, false, true);
 			});
 
 			tab.addEventListener('keydown', function(event) {
 				var next = null;
+
+				// Leave browser shortcuts such as Alt+Left (Back) alone.
+					if (event.altKey || event.ctrlKey || event.metaKey)
+						return;
 
 				if (event.key === 'ArrowRight')
 					next = (i + 1) % tabs.length;
@@ -65,24 +68,59 @@
 
 				if (next !== null) {
 					event.preventDefault();
-					select(next, true);
+					select(next, true, true);
 				}
 			});
 
 		});
 
+		// In-page links to a panel (e.g. the architecture cards) open that tab, even when re-clicked.
+			document.addEventListener('click', function(event) {
+				var link = event.target.closest ? event.target.closest('a[href^="#"]') : null,
+					i = link ? indexOfPanel(link.getAttribute('href').slice(1)) : -1;
+
+				if (i < 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.button > 0)
+					return;
+
+				event.preventDefault();
+				select(i, false, true);
+				container.scrollIntoView();
+			});
+
 		window.addEventListener('hashchange', function() {
-			var i = indexFromHash();
+			var i = indexOfPanel(window.location.hash.slice(1));
 
 			if (i > -1) {
-				select(i, false);
+				select(i, false, false);
 				container.scrollIntoView();
 			}
 		});
 
-		var initial = indexFromHash();
+		// Print every panel, then restore the selected one.
+			var selectedBeforePrint = 0;
 
-		select(initial > -1 ? initial : 0, false);
+			window.addEventListener('beforeprint', function() {
+				selectedBeforePrint = Math.max(0, tabs.findIndex(function(tab) {
+					return tab.getAttribute('aria-selected') === 'true';
+				}));
+				panels.forEach(function(panel) { panel.hidden = false; });
+				Array.prototype.forEach.call(document.querySelectorAll('details'), function(details) {
+					details.setAttribute('data-was-open', details.open ? '1' : '0');
+					details.open = true;
+				});
+			});
+
+			window.addEventListener('afterprint', function() {
+				select(selectedBeforePrint, false, false);
+				Array.prototype.forEach.call(document.querySelectorAll('details[data-was-open]'), function(details) {
+					details.open = details.getAttribute('data-was-open') === '1';
+					details.removeAttribute('data-was-open');
+				});
+			});
+
+		var initial = indexOfPanel(window.location.hash.slice(1));
+
+		select(initial > -1 ? initial : 0, false, false);
 		container.classList.add('is-ready');
 
 		// Deep link: once layout settles, bring the tab bar (not just the panel) into view.

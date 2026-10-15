@@ -8,24 +8,47 @@ Built on the [Forty](https://html5up.net/forty) template by HTML5 UP (CCA 3.0).
 
 | Page | Purpose |
 | --- | --- |
-| `index.html` | Landing page with project tracks and highlights |
-| `about.html` | Profile, experience, skills, step-by-step approach (KPIs, ML, SQL, Power BI / Tableau, Excel), certifications |
+| `index.html` | Landing page: pitch, highlights and the six project tracks |
+| `about.html` | Profile, experience, skills, approach architecture and step-by-step playbooks, certifications |
 | `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track |
 | `tools.html` | Tools and websites |
+| `404.html` | Not-found page (uses root-absolute paths because GitHub Pages serves it at any URL) |
 
-Custom styles live in `assets/css/portfolio.css` and the About page tabs in `assets/js/portfolio.js`; `main.css` and `main.js` are the template files. Approach tabs can be linked directly, e.g. `about.html#approach-sql`.
+Custom styles live in `assets/css/portfolio.css` and the About page tabs in `assets/js/portfolio.js`; `main.css` and `main.js` are the template files (with small accessibility fixes). The menu, contact and footer blocks are identical on every page, so change them everywhere at once.
+
+Approach tabs can be linked directly: `about.html#approach-kpi`, `#approach-sql`, `#approach-ml`, `#approach-stats`, `#approach-bi`, `#approach-excel`.
 
 ## Adding a case study
 
-On the relevant project page, replace the `empty-state` block in the "Case Studies" section with one entry per project:
+On the relevant project page, replace the `<div class="coming-next">` block in the "Case Studies" section with a `case-studies` list, and add one `<article>` per project (newest first):
 
 ```html
-<div class="card-grid">
-	<div>
-		<h3>Project title</h3>
-		<p><strong>Problem:</strong> ... <strong>Approach:</strong> ... <strong>Result:</strong> ...</p>
-		<ul class="tags"><li>Python</li><li>Scikit-learn</li></ul>
-		<ul class="actions"><li><a href="https://github.com/joelraj18/..." class="button small">View Code</a></li></ul>
-	</div>
+<div class="case-studies">
+
+	<article class="case-study" id="inn-hotels">
+		<span class="image fit"><img src="images/inn-hotels.png" alt="Cancellation rate by lead-time band" /></span>
+		<h3>Booking Cancellation Prediction (INN Hotels)</h3>
+		<ul class="tags"><li>Python</li><li>Scikit-learn</li><li>Decision Trees</li></ul>
+		<dl>
+			<dt>Problem</dt>
+			<dd>Which bookings are likely to cancel, and why?</dd>
+			<dt>Data</dt>
+			<dd>36,275 bookings, 32.8% canceled.</dd>
+			<dt>Approach</dt>
+			<dd>Cleaning, feature engineering, logistic regression vs. pruned decision tree.</dd>
+			<dt>Result</dt>
+			<dd>83% test accuracy against a 67.2% majority-class baseline (add F1 / recall).</dd>
+			<dt>Recommendation</dt>
+			<dd>Automated reminder emails for high-risk bookings.</dd>
+		</dl>
+		<ul class="actions">
+			<li><a href="https://github.com/joelraj18/REPO" target="_blank" rel="noopener" class="button primary">View Code</a></li>
+			<!-- For tools and dashboards: -->
+			<li><a href="https://LIVE-LINK" target="_blank" rel="noopener" class="button">Live Version</a></li>
+		</ul>
+	</article>
+
 </div>
 ```
+
+The image is optional; every result should be stated against a baseline. When a page gets its first case study, also update its `<meta name="description">`.
