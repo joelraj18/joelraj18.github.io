@@ -9,17 +9,18 @@
 		<title>Tools &amp; Websites | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Websites and automation tools by Joel Raj Vemuri will be listed here, each with a live link and source code." />
+		<meta name="description" content="Seven web apps and analysis tools by Joel Raj Vemuri, from SQL and AutoML engines to A/B testing, RAG and in-browser EDA, each with its build approach, history, issues solved, limitations and next steps." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/tools.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Tools &amp; Websites | Joel Raj Vemuri" />
-		<meta property="og:description" content="Websites and automation tools by Joel Raj Vemuri will be listed here, each with a live link and source code." />
+		<meta property="og:description" content="Seven web apps and analysis tools, each with its build approach, history, issues solved, limitations and next steps." />
 		<meta property="og:url" content="https://joelraj18.github.io/tools.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
 		<meta name="twitter:card" content="summary" />
+		<script>document.documentElement.className += ' js';</script>
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,7 +71,7 @@
 								<h1 id="page-title">Tools &amp; Websites</h1>
 							</header>
 							<div class="content">
-								<p>Small web apps and automation tools I build alongside my analysis work.</p>
+								<p>Web apps and analysis tools I have built, each with how I made it, what went wrong along the way, and what comes next.</p>
 							</div>
 						</div>
 					</section>
@@ -84,7 +85,58 @@
 									<header class="major">
 										<h2>What You Will Find Here</h2>
 									</header>
-									<p>This section will collect the websites and automation tools I build alongside my analysis work. Each entry will explain the problem it solves, how it is built, and link to the live version and the source code.</p>
+									<p>Seven projects, one card each. Every card explains how I approached the build, what I did from the first version to the current one, the issues I hit and how I dealt with them, what the project still can&rsquo;t do, and what I would improve next. Four are live web apps you can open right now, two are Python tools that run locally with Streamlit, and the last is this site.</p>
+									<ul class="project-index">
+										<li>
+											<a href="#autosql">
+												<span class="project-name">AutoSQL Explorer</span>
+												<span class="project-desc">Learns a schema, then writes, runs and explains the SQL analysis</span>
+												<span class="project-status">Python tool &middot; Runs locally</span>
+											</a>
+										</li>
+										<li>
+											<a href="#datamind">
+												<span class="project-name">DataMind</span>
+												<span class="project-desc">In-browser exploratory analysis that reads every row of a CSV</span>
+												<span class="project-status is-live">Live web app</span>
+											</a>
+										</li>
+										<li>
+											<a href="#automl">
+												<span class="project-name">AutoML Explorer</span>
+												<span class="project-desc">Picks the model, writes the notebook and explains each step</span>
+												<span class="project-status">Python tool &middot; Runs locally</span>
+											</a>
+										</li>
+										<li>
+											<a href="#workx">
+												<span class="project-name">WorkX</span>
+												<span class="project-desc">Workforce planning and product analytics, with SQL and Excel labs</span>
+												<span class="project-status is-live">Live web app</span>
+											</a>
+										</li>
+										<li>
+											<a href="#experiment-lab">
+												<span class="project-name">Experiment Lab</span>
+												<span class="project-desc">Plans, analyzes and archives A/B tests, checked against SciPy</span>
+												<span class="project-status is-live">Live web app</span>
+											</a>
+										</li>
+										<li>
+											<a href="#rag-studio">
+												<span class="project-name">RAG AI Studio</span>
+												<span class="project-desc">Chat with any document, with cited and evaluated answers</span>
+												<span class="project-status is-live">Live web app</span>
+											</a>
+										</li>
+										<li>
+											<a href="#portfolio">
+												<span class="project-name">This Portfolio</span>
+												<span class="project-desc">A static, accessible site on GitHub Pages</span>
+												<span class="project-status is-live">Live website</span>
+											</a>
+										</li>
+									</ul>
 								</div>
 							</section>
 
@@ -95,13 +147,861 @@
 										<h2>Projects</h2>
 									</header>
 
-									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
-									<div class="coming-next">
-										<h3>First Entries Coming Soon</h3>
-										<p>The first entries are being prepared. In the meantime, my approach page shows how I work end to end.</p>
-										<ul class="actions">
-											<li><a href="about.html#approach" class="button primary">See How I Work</a></li>
-										</ul>
+									<!-- Adding a project: copy one <article>, give it a new id prefix for its tabs and panels, and add it to the index above (README.md). -->
+									<div class="case-studies">
+
+										<!-- AutoSQL Explorer -->
+										<article class="case-study project-card" id="autosql" aria-labelledby="autosql-title">
+											<p class="project-kicker">SQL &middot; Python &middot; Runs locally</p>
+											<h3 id="autosql-title">AutoSQL Explorer</h3>
+											<p class="project-summary">Upload a set of tables and it learns the schema, checks the data before trusting it, writes the analysis as readable MySQL or PostgreSQL, runs it, and explains every number in plain English. It ends with a one-page business brief a manager can act on.</p>
+											<ul class="stats compact">
+												<li><strong>4 traps</strong><span>caught on its own in Microsoft&rsquo;s Northwind sample, such as freight summed 3.19&times; too high after a join</span></li>
+												<li><strong>645</strong><span>query results per database matched against real PostgreSQL 16 and MySQL 8.4 on every push</span></li>
+												<li><strong>~6 s</strong><span>to load, profile and analyze 1,000,000 rows, down from about 15 s</span></li>
+											</ul>
+											<ul class="tags"><li>Python</li><li>SQL</li><li>DuckDB</li><li>MySQL 8</li><li>PostgreSQL</li><li>pandas</li><li>Streamlit</li><li>pytest</li><li>GitHub Actions</li></ul>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/autosql" target="_blank" rel="noopener" class="button primary">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/autosql/blob/main/examples/northwind/Northwind_sales_analysis.ipynb" target="_blank" rel="noopener" class="button">Worked Example<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="AutoSQL Explorer write-up">
+													<button type="button" role="tab" id="tab-autosql-approach" aria-controls="autosql-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-autosql-journey" aria-controls="autosql-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-autosql-issues" aria-controls="autosql-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-autosql-limits" aria-controls="autosql-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-autosql-next" aria-controls="autosql-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="autosql-approach" role="tabpanel" aria-labelledby="tab-autosql-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>I write SQL that someone else can read, rerun and trust, so I turned that habit into a pipeline where every decision is a written rule rather than a black box.</p>
+													<ul>
+														<li><strong>Schema first.</strong> Each table&rsquo;s key and grain (what one row is), every foreign key, and how many rows join to one, so a join can&rsquo;t silently multiply a total.</li>
+														<li><strong>Validate before analyzing.</strong> Duplicates, NULLs, impossible values, orphans and partial periods are checked, and revenue is reconciled to the cent between the raw table, the views and an independent pandas recomputation.</li>
+														<li><strong>One statement, three dialects.</strong> Each query is written once as small CTE steps and rendered for MySQL 8 and PostgreSQL (shown) and DuckDB (run inside the app), so no database server is needed.</li>
+														<li><strong>Explanations written from the result.</strong> Every step says what was found, why it matters and what it does next. The closing finding is generated by code from the actual output, so the text can&rsquo;t contradict the numbers, and every change carries a 95% confidence interval.</li>
+														<li><strong>From numbers to a decision.</strong> A data-trust score, prioritized recommendations with their evidence and SQL, and a self-contained HTML brief that works offline.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="autosql-journey" role="tabpanel" aria-labelledby="tab-autosql-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Reused my AutoML Explorer design <span class="step-when">23 Oct 2026</span></h5>
+															<p>I started from the architecture of AutoML Explorer (profile, decide, generate code, run, explain) and rebuilt it around a seven-step SQL method: grain, validate, CTEs, KPIs, window functions, root cause, fast and correct.</p>
+														</li>
+														<li>
+															<h5>A real dataset and a first audit <span class="step-when">23 Oct 2026</span></h5>
+															<p>Built the Northwind example from Microsoft&rsquo;s original install script, then swept awkward datasets: gaps between periods, count-only data, tables loaded twice and European number formats.</p>
+														</li>
+														<li>
+															<h5>Analyses and a business layer <span class="step-when">23 Oct 2026</span></h5>
+															<p>Added discount, moving-average, outlier, Pareto / ABC and purchase-gap analyses, then a one-page brief with KPI and data dictionaries, a trust score and recommendations.</p>
+														</li>
+														<li>
+															<h5>Statistics I could defend <span class="step-when">24 Oct 2026</span></h5>
+															<p>Confidence intervals on every headline change, an exact split of revenue into orders and order value, tie-safe RFM scores, and business rules that keep cancelled, test and other-currency rows out of every KPI.</p>
+														</li>
+														<li>
+															<h5>Proved on real databases <span class="step-when">24 Oct 2026</span></h5>
+															<p>GitHub Actions runs the exported project on PostgreSQL 16 and MySQL 8.4 on every push and compares every result with DuckDB. A database that fails to start fails the run instead of being skipped.</p>
+														</li>
+														<li>
+															<h5>Explainable and customizable <span class="step-when">25&ndash;29 Oct 2026</span></h5>
+															<p>The SQL behind every chart in the brief, recommendations that open the evidence they came from, and your own assumptions and KPIs as JSON. A test fails if any figure quoted in the docs stops matching what the code prints.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="autosql-issues" role="tabpanel" aria-labelledby="tab-autosql-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">SQL that ran fine in DuckDB broke on real databases: <code>ROUND(double, 1)</code> doesn&rsquo;t exist in PostgreSQL, <code>count / count</code> truncates to 0 there, and <code>lines</code> is a reserved word in MySQL.</td>
+																	<td data-label="How I dealt with it">Tested the exported project on live PostgreSQL and MySQL, and turned each difference into a rule the tests enforce: every division is guarded with <code>NULLIF</code>, PostgreSQL rounds on <code>numeric</code>, and reserved words are never used as aliases.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The data ended on 6 May, so the &ldquo;latest quarter&rdquo; looked like a 52.4% collapse.</td>
+																	<td data-label="How I dealt with it">Partial periods are shown but never compared. The real change between the last two complete quarters was +64.3%, and periods of different lengths are compared per day.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Noise reported as a result: order value up 8.3% was colored green, though its 95% interval ran from &minus;20% to +37%.</td>
+																	<td data-label="How I dealt with it">A confidence interval on every change, with a &ldquo;within normal variation&rdquo; label. A simulation on pure-noise data showed the unusual-period rule also fired too often, so it now needs a 99% prediction interval on both level and trend.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue"><code>NTILE(5)</code> split tied customers by their ID, so 34 of 89 customers got a frequency score decided by their ID rather than their orders.</td>
+																	<td data-label="How I dealt with it">Switched to <code>CEIL(5 &times; CUME_DIST())</code>, so customers with equal values always get equal scores.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">A one-million-row upload took about 15 seconds, because profiling ran a regular expression on every value.</td>
+																	<td data-label="How I dealt with it">Loading and profiling now work on distinct values and map the answers back, and a golden snapshot test proves the results stayed identical. About 6 seconds now.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="autosql-limits" role="tabpanel" aria-labelledby="tab-autosql-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>One fact table and one revenue formula: no cost or margin, no currency conversion, and no second fact table (returns or targets) in the same analysis.</li>
+														<li>Business rules are recognized by column names and values, so a rule hidden in a code (<code>type = 7</code>) is missed.</li>
+														<li>Calendar periods only: no fiscal years or 4-4-5 retail weeks.</li>
+														<li>The confidence intervals assume orders arrive independently, and each KPI tile is tested on its own, with no correction for testing several at once.</li>
+														<li>A driver that moved with revenue is reported as a candidate cause that &ldquo;needs a test&rdquo;, never as proof.</li>
+														<li>Uploads are read into memory, so size is limited by the machine, and there is no hosted version yet: it runs locally with Streamlit.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="autosql-next" role="tabpanel" aria-labelledby="tab-autosql-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Profile large CSVs with DuckDB&rsquo;s own reader, to go past the memory of one machine.</li>
+														<li>A read-only connection to a live database, alongside uploads.</li>
+														<li>Fiscal calendars and exchange rates, so a second currency is converted instead of left out.</li>
+														<li>A forecast for the next period, and a correction for testing several KPIs at once.</li>
+														<li>A hosted demo, so it can be tried without installing anything.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- DataMind -->
+										<article class="case-study project-card" id="datamind" aria-labelledby="datamind-title">
+											<p class="project-kicker">Exploratory Data Analysis &middot; React &middot; Live</p>
+											<h3 id="datamind-title">DataMind</h3>
+											<p class="project-summary">Drop in a CSV and get summary statistics, charts, correlations, segment comparisons, data-quality checks and a written report. It reads every row inside the browser, so nothing is uploaded to a server.</p>
+											<ul class="stats compact">
+												<li><strong>1 billion</strong><span>rows (a 13.8 GB file) analyzed in the browser in 8 min 36 s on 4 CPU cores</span></li>
+												<li><strong>5&times;</strong><span>faster scanning after reshaping the engine for the browser&rsquo;s compiler</span></li>
+												<li><strong>49</strong><span>automated tests that run before every deploy</span></li>
+											</ul>
+											<ul class="tags"><li>React 19</li><li>JavaScript</li><li>Web Workers</li><li>IndexedDB</li><li>Recharts</li><li>SVG</li><li>Jest</li><li>GitHub Actions</li><li>GitHub Pages</li></ul>
+											<ul class="actions">
+												<li><a href="https://joelraj18.github.io/datamind-playground2.0/" target="_blank" rel="noopener" class="button primary">Open the App<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/datamind-playground2.0" target="_blank" rel="noopener" class="button">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<p class="project-note muted">The sign-in screen creates a demo profile that stays in your browser: any email works. Then press &ldquo;Try a sample dataset&rdquo;.</p>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="DataMind write-up">
+													<button type="button" role="tab" id="tab-datamind-approach" aria-controls="datamind-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-datamind-journey" aria-controls="datamind-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-datamind-issues" aria-controls="datamind-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-datamind-limits" aria-controls="datamind-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-datamind-next" aria-controls="datamind-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="datamind-approach" role="tabpanel" aria-labelledby="tab-datamind-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Spreadsheets slow down around a million rows and notebooks need setup, so I built an analysis engine that streams the file and never holds it in memory.</p>
+													<ul>
+														<li><strong>One pass, mergeable summaries.</strong> Each worker keeps sums, counts, hash tables and sketches for its slice of the file. The slices simply add together, so the work splits across CPU cores without any coordination.</li>
+														<li><strong>Streams in 4 MB chunks.</strong> Memory stays flat whether the file is 1 MB or 13.8 GB.</li>
+														<li><strong>Honest accuracy.</strong> Counts, means, standard deviations, correlations and group means are exact. Medians and percentiles are exact up to about 2 million rows (and for whole numbers at any size); beyond that they come from a sketch accurate to 0.1% and are marked &ldquo;&asymp;&rdquo;.</li>
+														<li><strong>No server.</strong> React views, a dependency-free JavaScript engine in Web Workers, IndexedDB storage, and GitHub Actions that test, build and deploy to GitHub Pages.</li>
+														<li><strong>From statistics to answers.</strong> Plain-language insights, a decision summary, chart downloads (PNG, SVG, CSV) and a starter Jupyter notebook that keeps the real column names.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="datamind-journey" role="tabpanel" aria-labelledby="tab-datamind-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A one-component prototype <span class="step-when">Nov 2025</span></h5>
+															<p>A Create React App project with one large component, PapaParse for CSV parsing and Tailwind from a CDN, deployed to GitHub Pages.</p>
+														</li>
+														<li>
+															<h5>Big files crashed the tab <span class="step-when">Mar 2026</span></h5>
+															<p>I capped the analysis at the first 110,000 rows so large files would load, and wrote down a plan to move storage to IndexedDB.</p>
+														</li>
+														<li>
+															<h5>Redesign and modular code <span class="step-when">2 Oct 2026</span></h5>
+															<p>Split the single file into views, components and libraries, added an explanation tip to every statistic, moved saved datasets to IndexedDB, sampled evenly across the whole file, and automated test, build and deploy.</p>
+														</li>
+														<li>
+															<h5>Every row, at any size <span class="step-when">3 Oct 2026</span></h5>
+															<p>Replaced sampling with a parallel streaming engine, added a live progress panel with rows per second and a countdown, and added box, ECDF, Q-Q and scatter plots with downloads.</p>
+														</li>
+														<li>
+															<h5>Faster, then verified at scale <span class="step-when">3 Oct 2026</span></h5>
+															<p>Made scanning 5&times; faster, fixed a hang on high-cardinality text, and checked a billion-row run against an independent Python calculation.</p>
+														</li>
+														<li>
+															<h5>Plain language <span class="step-when">3&ndash;13 Oct 2026</span></h5>
+															<p>Rewrote the copy without jargon, showed readable column names and dates, and documented the project with measured results.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="datamind-issues" role="tabpanel" aria-labelledby="tab-datamind-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">The silent sample: statistics described only the first 110,000 rows, so a file sorted by date reported only its oldest data, and nothing warned about it.</td>
+																	<td data-label="How I dealt with it">Built the streaming engine so every row is read, and the app now says which numbers are exact and which are estimates.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Saved datasets disappeared on reload, because localStorage holds only about 5 MB.</td>
+																	<td data-label="How I dealt with it">Moved storage to IndexedDB with an automatic migration. Files up to 512 MB now survive a reload.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The same engine ran 15&times; slower in the browser than in Node.</td>
+																	<td data-label="How I dealt with it">Profiled it, split one huge per-row function into small ones the JIT compiler can optimize, and replaced <code>Map</code> with typed-array hash tables: one worker went from 5 to 24 MB/s.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">A text column with 60,000 unique values froze the app: after pruning, the hash table size wasn&rsquo;t a power of two, so probing never found a free slot.</td>
+																	<td data-label="How I dealt with it">A one-line rounding fix, a cap on tracking new values after three prunes, and a regression test that finishes in under a second.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The row estimate was about 5&times; too high, which pushed a 1M-row file out of exact mode.</td>
+																	<td data-label="How I dealt with it">Estimated bytes per row from every row in the first 1 MB instead of a 5,000-row sample: 1.04M estimated for a real 1.0M.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="datamind-limits" role="tabpanel" aria-labelledby="tab-datamind-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>Medians and percentiles beyond about 2 million rows are estimates (within 0.1%, marked &asymp;).</li>
+														<li>A quoted field that contains a line break forces a single worker, because the file can&rsquo;t be split safely.</li>
+														<li>The Predictive tab ranks columns with a heuristic score, not a cross-validated model.</li>
+														<li>CSV only, with ISO-style dates: formats like 31/01/2024, Excel and Parquet aren&rsquo;t read yet.</li>
+														<li>No filters or drill-down: the analysis always covers the whole file.</li>
+														<li>The sign-in is a local demo that keeps passwords in browser storage, which is fine for a demo but not for production.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="datamind-next" role="tabpanel" aria-labelledby="tab-datamind-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>A real model in the Predictive tab: cross-validated, with permutation importance.</li>
+														<li>Confidence intervals and effect sizes for segment comparisons, plus Spearman correlation.</li>
+														<li>Filters and drill-down, for example recomputing everything for one sales channel.</li>
+														<li>More date formats, and Excel and Parquet input.</li>
+														<li>Real authentication, or no sign-in at all.</li>
+														<li>An A/B test read-out tab with lift, a confidence interval and sample size.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- AutoML Explorer -->
+										<article class="case-study project-card" id="automl" aria-labelledby="automl-title">
+											<p class="project-kicker">Machine Learning &middot; Python &middot; Runs locally</p>
+											<h3 id="automl-title">AutoML Explorer</h3>
+											<p class="project-summary">Upload a CSV or Excel file and it decides whether the job is classification, regression or clustering, writes the Python as notebook cells, runs them live and explains every step, so the judgement behind each choice is visible.</p>
+											<ul class="stats compact">
+												<li><strong>0.884</strong><span>test macro F1 predicting cancellations on 36,275 hotel bookings (ROC-AUC 0.956), against a 0.402 baseline</span></li>
+												<li><strong>10,275</strong><span>near-duplicate rows it found hiding behind an ID column in the same data</span></li>
+												<li><strong>70 runs</strong><span>on 24 awkward datasets in the audit that hardened it, now backed by 45 tests</span></li>
+											</ul>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>statsmodels</li><li>LightGBM</li><li>XGBoost</li><li>imbalanced-learn</li><li>Streamlit</li><li>pytest</li></ul>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/automl-explorer" target="_blank" rel="noopener" class="button primary">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/automl-explorer/blob/main/examples/inn_hotels/INNHotels_cancellation_prediction.ipynb" target="_blank" rel="noopener" class="button">Worked Example<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="AutoML Explorer write-up">
+													<button type="button" role="tab" id="tab-automl-approach" aria-controls="automl-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-automl-journey" aria-controls="automl-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-automl-issues" aria-controls="automl-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-automl-limits" aria-controls="automl-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-automl-next" aria-controls="automl-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="automl-approach" role="tabpanel" aria-labelledby="tab-automl-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Most AutoML tools hand you a score with no reasoning. I wanted one that shows its judgement, so it generates readable code instead of hiding a library call.</p>
+													<ul>
+														<li><strong>Profile roles, not just types.</strong> Every column is classed as a number, category, date, ID, constant or free text, with a reason, so an ID is dropped instead of memorized.</li>
+														<li><strong>A transparent rule engine.</strong> Quality gates, then task, model and sampling. Every choice is recorded with what was found, why it matters and what happens next.</li>
+														<li><strong>Generate the code, then run it.</strong> What you see is exactly what ran, each finding is written by the code from the real results, and the whole analysis downloads as a Jupyter notebook.</li>
+														<li><strong>Honest evaluation.</strong> Imputation, scaling, resampling, tuning and the decision threshold all happen inside the training folds of a pipeline. The test set is touched once, against a baseline.</li>
+														<li><strong>Compare, don&rsquo;t assume.</strong> The rule-of-thumb model becomes one candidate among linear, tree, forest and boosting models, and cross-validation picks the winner.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="automl-journey" role="tabpanel" aria-labelledby="tab-automl-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A single-file app <span class="step-when">Starting point</span></h5>
+															<p>A Streamlit AutoML script, about 500 lines in all.</p>
+														</li>
+														<li>
+															<h5>Restructured into a package <span class="step-when">1 Oct 2026</span></h5>
+															<p>Split it into profiling, decision, narrative, code-generation and runner modules, with plain-English explanations, a decision trace, notebook export, caching and the first 21 tests.</p>
+														</li>
+														<li>
+															<h5>A real dataset <span class="step-when">1 Oct 2026</span></h5>
+															<p>Added the INN Hotels bookings project and taught the engine to suggest the target, spot look-alike rows and combine date parts. Added key drivers, model comparison, threshold tuning, OLS inference, odds ratios, PCA and hierarchical clustering.</p>
+														</li>
+														<li>
+															<h5>Specification and a first audit <span class="step-when">1&ndash;2 Oct 2026</span></h5>
+															<p>Wrote down every rule and threshold, fixed 7 bugs found on 10 datasets, added XGBoost, LightGBM and a resampling comparison, and let users choose: the engine decides, they pick the target, or there is no target.</p>
+														</li>
+														<li>
+															<h5>A thorough audit <span class="step-when">2 Oct 2026</span></h5>
+															<p>24 awkward datasets across every target mode (70 runs), with exported notebooks executed in Jupyter. Every crash was fixed with a regression test, and a leakage warning was added.</p>
+														</li>
+														<li>
+															<h5>Cross-platform and documented <span class="step-when">2&ndash;4 Oct 2026</span></h5>
+															<p>Fixed a macOS crash caused by a native library, and documented the project with measured results.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="automl-issues" role="tabpanel" aria-labelledby="tab-automl-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">Column names were pasted into the generated code, so a quote or <code>{x}</code> in a name broke it: a code-injection risk.</td>
+																	<td data-label="How I dealt with it">Names now reach the generated code only through <code>repr()</code> or runtime variables, with a test that tries hostile names.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Hidden duplicates: <code>Booking_ID</code> made every row unique, so my hand-made notebook reported 0 duplicates while 28% of rows had a twin.</td>
+																	<td data-label="How I dealt with it">Duplicates are checked with IDs ignored, and the model is also scored on test rows with no twin in training: 0.841 against 0.884, the number I would quote.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The original app said SMOTE was applied when it never was.</td>
+																	<td data-label="How I dealt with it">Resampling became a real, measured step inside the cross-validation folds, compared against class weights.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Tuning sometimes adopted settings that scored worse than the defaults.</td>
+																	<td data-label="How I dealt with it">Tuned settings are kept only if they beat the default cross-validated score.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">On macOS, LightGBM was &ldquo;installed&rdquo; but couldn&rsquo;t load (missing <code>libomp</code>), which crashed the run.</td>
+																	<td data-label="How I dealt with it">The engine really imports each optional library once. If that fails, the model is skipped and the decision trace says what to install.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="automl-limits" role="tabpanel" aria-labelledby="tab-automl-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>It runs locally only: no hosted app, Docker image or CI yet.</li>
+														<li>The train/test split is random, not time-aware, which flatters a model meant to predict future bookings.</li>
+														<li>Large files are sampled (50,000 rows for forests, 10,000 for comparison and tuning), and it hasn&rsquo;t been tested beyond 200,000 rows or about 20 columns.</li>
+														<li>Probabilities aren&rsquo;t calibrated, and there are no per-row (SHAP) explanations.</li>
+														<li>The cost-based decision threshold exists as code in the roadmap, not in the app.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="automl-next" role="tabpanel" aria-labelledby="tab-automl-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>A cost-based threshold in the app: the cost of a missed cancellation against a false alarm.</li>
+														<li>Time-aware validation and probability calibration.</li>
+														<li>SHAP explanations that answer &ldquo;why is this booking high risk?&rdquo;</li>
+														<li>A Docker image, a hosted app and CI running the tests on every push.</li>
+														<li>Reading from a SQL warehouse, and a run history to compare models and spot drift.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- WorkX -->
+										<article class="case-study project-card" id="workx" aria-labelledby="workx-title">
+											<p class="project-kicker">Product Analytics &middot; Workforce Planning &middot; Live</p>
+											<h3 id="workx-title">WorkX</h3>
+											<p class="project-summary">A planning and analytics suite for a product company. It forecasts contact volume and turns it into headcount, hiring and cost against budget, and it answers the weekly product questions: what drives revenue, where orders leak, who comes back, and whether an experiment worked. SQL and Excel labs run on the same data.</p>
+											<ul class="stats compact">
+												<li><strong>100,000</strong><span>simulated orders, rebuilt from a seed on every visit instead of stored</span></li>
+												<li><strong>~280</strong><span>unit tests on the planning and statistics maths</span></li>
+												<li><strong>35 s &rarr; 0.5 s</strong><span>for a SQL Lab subquery, by running independent subqueries once</span></li>
+											</ul>
+											<ul class="tags"><li>React 19</li><li>JavaScript</li><li>Tailwind CSS</li><li>Recharts</li><li>alasql</li><li>IndexedDB</li><li>Jest</li><li>Playwright</li><li>GitHub Pages</li></ul>
+											<ul class="actions">
+												<li><a href="https://joelraj18.github.io/Product-based-Analytics/" target="_blank" rel="noopener" class="button primary">Open the App<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/Product-based-Analytics" target="_blank" rel="noopener" class="button">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<p class="project-note muted">Sign-in creates a local profile in your browser, and the demo data loads on your first visit.</p>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="WorkX write-up">
+													<button type="button" role="tab" id="tab-workx-approach" aria-controls="workx-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-workx-journey" aria-controls="workx-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-workx-issues" aria-controls="workx-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-workx-limits" aria-controls="workx-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-workx-next" aria-controls="workx-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="workx-approach" role="tabpanel" aria-labelledby="tab-workx-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>I built the statistics myself (z-test, Welch&rsquo;s t-test, sample size, Erlang C, Holt-Winters) so that I can explain every number on screen.</p>
+													<ul>
+														<li><strong>Maths in small, pure modules.</strong> Forecasting, Erlang C, capacity, budget, KPIs and statistics are plain JavaScript functions with unit tests, kept apart from the React screens.</li>
+														<li><strong>The full planning loop.</strong> Volume history &rarr; forecast (the method with the lowest backtest WAPE) &rarr; required FTE &rarr; a hiring plan with attrition, training and ramp-up &rarr; cost against the budget &rarr; KPIs and root causes.</li>
+														<li><strong>Explicit metric definitions.</strong> A KPI dictionary, a North Star with guardrails, and a metric tree (customers &times; orders per customer &times; order value &times; keep rate) that multiplies back exactly.</li>
+														<li><strong>Honest comparisons.</strong> Partial months are never compared with full ones, in-flight orders stay out of the funnel, a sample ratio mismatch blocks an A/B result, and anomaly baselines never include the point being tested.</li>
+														<li><strong>Any orders file works.</strong> The analytics screens read one orders table through a column mapping, so an upload with a date, amount, status and customer column needs no code changes.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="workx-journey" role="tabpanel" aria-labelledby="tab-workx-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A 1,665-line prototype <span class="step-when">2 Oct 2026</span></h5>
+															<p>One React component holding a sales dashboard, a SQL lab, a data grid, cleaning tools, a task board and settings, several of which didn&rsquo;t work.</p>
+														</li>
+														<li>
+															<h5>An audit and a planning engine <span class="step-when">2 Oct 2026</span></h5>
+															<p>Built the planning engine (forecasts, Erlang C, headcount roll-forward, hiring recommender, cost against budget) as tested libraries, split the UI into modules, and fixed 16 issues found in a three-pass audit.</p>
+														</li>
+														<li>
+															<h5>Live, and friendly to beginners <span class="step-when">2&ndash;3 Oct 2026</span></h5>
+															<p>Fixed a blank GitHub Pages deploy, then added CSV and Excel uploads with validation, a Start Here tour, a glossary and graded SQL exercises.</p>
+														</li>
+														<li>
+															<h5>SQL and Excel labs <span class="step-when">3 Oct 2026</span></h5>
+															<p>Column previews, a schema diagram and graded SQL exercises (110 today), plus an Excel Lab running on a formula engine I wrote (115 functions, dynamic arrays, pivot tables) with 79 exercises today.</p>
+														</li>
+														<li>
+															<h5>Product Analytics <span class="step-when">3 Oct 2026</span></h5>
+															<p>A metric tree, funnel, cohorts and retention, RFM and CLV, A/B testing and anomaly detection, followed by an audit of the edge cases.</p>
+														</li>
+														<li>
+															<h5>Industry scale <span class="step-when">3&ndash;4 Oct 2026</span></h5>
+															<p>A 100,000-order sample from 28,880 customers (December 2024 to December 2026), with every screen timed and made fast at that size.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="workx-issues" role="tabpanel" aria-labelledby="tab-workx-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">The app crashed on load: <code>react</code> had resolved to 19.3.0 while <code>react-dom</code> stayed on 19.2.0.</td>
+																	<td data-label="How I dealt with it">Pinned both to the same exact version.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">SQL Lab failed on every query, even <code>SELECT * FROM orders</code>, and loaded its engine from a CDN at run time.</td>
+																	<td data-label="How I dealt with it">Bundled the SQL engine and registered every table in a fresh in-memory database for each run.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Data bugs: one empty CSV cell shifted every later value, real zeros were treated as missing, and a hidden &times;84.5 currency conversion inflated every figure.</td>
+																	<td data-label="How I dealt with it">A standards-compliant CSV parser with round-trip tests, an explicit missing-value check, and a currency setting with no hidden conversion.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Seasonal temp hires cost nothing to hire, which understated the demo plan&rsquo;s cost by &#8377;38 lakh.</td>
+																	<td data-label="How I dealt with it">Temp hires now carry the same recruiting and training cost, covered by a test.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">At 100,000 orders, a SQL subquery took about 35 s because it re-ran for every row, the Excel sheet took 1.6 s to load, and the sample was four times the 5 MB browser storage limit.</td>
+																	<td data-label="How I dealt with it">Independent subqueries run once (under 0.5 s), the sheet stores cells column by column (75 ms), and the sample is rebuilt from its seed instead of saved.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="workx-limits" role="tabpanel" aria-labelledby="tab-workx-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>Everything lives in one browser: sign-in is a local convenience profile, not real authentication, and backups are JSON files.</li>
+														<li>The order data is simulated from a seed, so the findings demonstrate the method, not a real company.</li>
+														<li>Product analytics works at a monthly grain, and the metric-tree attribution is descriptive, not causal.</li>
+														<li>Anomalies use a trailing z-score, which flags planned promotions and ignores weekly seasonality.</li>
+														<li>Customer lifetime value is a heuristic, and A/B tests are fixed-horizon, with no CUPED or sequential monitoring.</li>
+														<li>Uploads are limited to 20 MB per file.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="workx-next" role="tabpanel" aria-labelledby="tab-workx-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>CUPED variance reduction and sequential testing for A/B tests.</li>
+														<li>Probabilistic lifetime value (BG/NBD and Gamma-Gamma) and churn prediction.</li>
+														<li>Forecasts with external drivers such as price, promotions and holidays.</li>
+														<li>Causal impact for launches without a test, using difference-in-differences or a synthetic control.</li>
+														<li>A warehouse version with dbt models and a semantic layer, so the KPI dictionary becomes the single source of truth.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- Experiment Lab -->
+										<article class="case-study project-card" id="experiment-lab" aria-labelledby="experiment-lab-title">
+											<p class="project-kicker">A/B Testing &middot; Statistics &middot; Live</p>
+											<h3 id="experiment-lab-title">Experiment Lab</h3>
+											<p class="project-summary">Plan, analyze and archive A/B tests: sample size and power before launch, then a z-test or Welch&rsquo;s t-test with confidence intervals, a sample-ratio check and a plain-English verdict, plus CUPED and diagnostics for the traps that fool teams.</p>
+											<ul class="stats compact">
+												<li><strong>2 engines</strong><span>in-browser TypeScript and SciPy, parity-tested to agree within 10<sup>&minus;12</sup></span></li>
+												<li><strong>5</strong><span>diagnostics: Simpson&rsquo;s paradox, outliers, novelty effects, interference and switchback tests</span></li>
+												<li><strong>9</strong><span>practitioner stories computed live from the engine, every claim pinned by a test</span></li>
+											</ul>
+											<ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Recharts</li><li>Zustand</li><li>FastAPI</li><li>SciPy</li><li>statsmodels</li><li>Supabase</li><li>Vitest</li><li>pytest</li></ul>
+											<ul class="actions">
+												<li><a href="https://joelraj18.github.io/A-B-Statistical-Analysis/" target="_blank" rel="noopener" class="button primary">Open the App<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/A-B-Statistical-Analysis" target="_blank" rel="noopener" class="button">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Experiment Lab write-up">
+													<button type="button" role="tab" id="tab-experiment-lab-approach" aria-controls="experiment-lab-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-experiment-lab-journey" aria-controls="experiment-lab-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-experiment-lab-issues" aria-controls="experiment-lab-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-experiment-lab-limits" aria-controls="experiment-lab-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-experiment-lab-next" aria-controls="experiment-lab-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="experiment-lab-approach" role="tabpanel" aria-labelledby="tab-experiment-lab-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>A wrong p-value looks exactly like a right one, so I built two engines that have to agree.</p>
+													<ul>
+														<li><strong>Hybrid statistics.</strong> Every analysis runs on the device first (instant, and it validates the input), then asks a FastAPI service built on SciPy and statsmodels for the authoritative result when it is reachable. A badge says which engine produced each number.</li>
+														<li><strong>Double-precision maths in TypeScript.</strong> Cody&rsquo;s normal CDF, the AS 241 quantile and an incomplete-beta Student&rsquo;s t distribution, tested against SciPy reference values.</li>
+														<li><strong>Guardrails before verdicts.</strong> A sample ratio mismatch blocks the call, reading results before the planned sample size triggers a peeking warning, and a significant loss recommends a rollback.</li>
+														<li><strong>Local first.</strong> Experiments are saved in the browser. Magic-link sign-in and a cloud archive (Supabase with row-level security) are optional.</li>
+														<li><strong>Stories that can&rsquo;t drift.</strong> Nine personas follow an experiment from plan to decision, and every figure in their text is computed when the page renders and pinned by a test.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="experiment-lab-journey" role="tabpanel" aria-labelledby="tab-experiment-lab-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A one-file prototype <span class="step-when">2 Oct 2026</span></h5>
+															<p>A 1,054-line React component with a z-test, a local login and a history list.</p>
+														</li>
+														<li>
+															<h5>A typed foundation <span class="step-when">6 Oct 2026</span></h5>
+															<p>Replaced it with a Next.js project, exported as a static site for GitHub Pages, with strict TypeScript, ESLint and Vitest.</p>
+														</li>
+														<li>
+															<h5>Rebuilt the engine <span class="step-when">6 Oct 2026</span></h5>
+															<p>Double-precision distributions, exact critical values for any confidence level, Welch&rsquo;s t-test, sample size and power, CUPED, the SRM check and Wilson intervals, all with SciPy parity tests.</p>
+														</li>
+														<li>
+															<h5>A statistics service and storage <span class="step-when">6 Oct 2026</span></h5>
+															<p>A FastAPI service with input validation, Docker and pytest; a client that combines both engines; a local workspace with an optional Supabase archive.</p>
+														</li>
+														<li>
+															<h5>Interface and deployment <span class="step-when">6 Oct 2026</span></h5>
+															<p>Planner, analyzer, archive and guide screens with distribution, error-bar, interval and power charts, then CI and automatic deploys.</p>
+														</li>
+														<li>
+															<h5>Diagnostics and stories <span class="step-when">6&ndash;7 Oct 2026</span></h5>
+															<p>Segment, outlier, trend, interference and switchback analysis in both engines, then nine persona stories with a guided walkthrough.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="experiment-lab-issues" role="tabpanel" aria-labelledby="tab-experiment-lab-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">The prototype&rsquo;s z-test used the wrong standard error for its test statistic, and only knew the critical values for 90%, 95% and 99% confidence.</td>
+																	<td data-label="How I dealt with it">The pooled standard error for the test and the unpooled one for the interval, as the method requires, with exact critical values for any confidence level.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Its normal-distribution approximation was accurate to only about 10<sup>&minus;7</sup>.</td>
+																	<td data-label="How I dealt with it">Replaced it with double-precision algorithms, checked against SciPy to about 10<sup>&minus;12</sup>.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The prototype stored passwords in plain text in the browser.</td>
+																	<td data-label="How I dealt with it">The new version re-analyzes saved experiments with the corrected engine, imports them, and deletes the password store. Sign-in moved to an optional magic link.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The statistics service template returned server errors on NumPy booleans, lost precision on very small p-values, accepted any origin with credentials, and flipped the sign of the CUPED t statistic.</td>
+																	<td data-label="How I dealt with it">Fixed each one, using survival functions for tail probabilities and an explicit list of allowed origins, then added input validation and a pytest suite.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Numbers were formatted differently by Node and by browsers, which broke page hydration.</td>
+																	<td data-label="How I dealt with it">Wrote a compact number and money formatter that doesn&rsquo;t depend on the platform.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="experiment-lab-limits" role="tabpanel" aria-labelledby="tab-experiment-lab-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>Two variants at a time: no multi-arm tests.</li>
+														<li>Fixed-horizon frequentist tests: it warns about peeking, but has no sequential or Bayesian analysis.</li>
+														<li>No correction when many metrics or segments are tested; the guide asks for one primary metric instead.</li>
+														<li>The analyzer takes summary numbers (visitors and conversions, or mean, standard deviation and users); raw rows are used only for CUPED and the diagnostics.</li>
+														<li>The public site runs the in-browser engine only; the SciPy service and the cloud archive need their own hosting and keys.</li>
+														<li>Business figures in the stories, such as traffic and order value, are illustrative assumptions.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="experiment-lab-next" role="tabpanel" aria-labelledby="tab-experiment-lab-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Sequential testing with always-valid p-values, so results can be watched safely while a test runs.</li>
+														<li>Tests with more than two variants, with a multiple-comparison correction such as Holm.</li>
+														<li>Host the SciPy service, so the live site gets the authoritative engine too.</li>
+														<li>Raw per-user uploads for the main analysis, and ratio metrics with the delta method.</li>
+														<li>A Bayesian read-out (probability to beat control, expected loss) next to the frequentist one.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- RAG AI Studio -->
+										<article class="case-study project-card" id="rag-studio" aria-labelledby="rag-studio-title">
+											<p class="project-kicker">Generative AI &middot; Retrieval &middot; Live</p>
+											<h3 id="rag-studio-title">RAG AI Studio</h3>
+											<p class="project-summary">Chat with any document: manuals, policies, contracts, papers or reports. Every answer cites the pages it used and shows how long each step took, how well grounded it is and how far to trust it. It runs entirely in the browser, so your files never leave your machine.</p>
+											<ul class="stats compact">
+												<li><strong>4&times;</strong><span>smaller vector storage with int8 quantization (about 21 MB down to 5.4 MB for 14,000 chunks)</span></li>
+												<li><strong>31 &rarr; 4.5 MB</strong><span>deploy size after dropping an unused 26 MB runtime file</span></li>
+												<li><strong>3.6 &rarr; 5.0</strong><span>groundedness out of 5 in my original notebook, without and with retrieval</span></li>
+											</ul>
+											<ul class="tags"><li>React</li><li>Vite</li><li>JavaScript</li><li>Web Workers</li><li>transformers.js</li><li>WebGPU</li><li>BM25</li><li>IndexedDB</li><li>pdf.js</li><li>Vitest</li><li>Hugging Face</li></ul>
+											<ul class="actions">
+												<li><a href="https://joelraj18.github.io/RAG-AI-Project/" target="_blank" rel="noopener" class="button primary">Open the App<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/RAG-AI-Project" target="_blank" rel="noopener" class="button">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<p class="project-note muted">Works without any key in the free Extractive mode. A free Hugging Face token, or your own API key, adds a full language model.</p>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="RAG AI Studio write-up">
+													<button type="button" role="tab" id="tab-rag-studio-approach" aria-controls="rag-studio-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-rag-studio-journey" aria-controls="rag-studio-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-rag-studio-issues" aria-controls="rag-studio-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-rag-studio-limits" aria-controls="rag-studio-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-rag-studio-next" aria-controls="rag-studio-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="rag-studio-approach" role="tabpanel" aria-labelledby="tab-rag-studio-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>It started as my Colab notebook on clinical decision support with the Merck Manual, where retrieval lifted groundedness from 3.6 to 5.0 out of 5. I rebuilt it as a free website that works on any document.</p>
+													<ul>
+														<li><strong>Ingestion off the main thread.</strong> Files are parsed (PDF, Word, HTML, Markdown, text), cleaned of watermarks and running headers, split into section-aware chunks of 400 tokens with a 50-token overlap, and indexed with BM25 in a Web Worker.</li>
+														<li><strong>Hybrid retrieval.</strong> BM25 and embedding similarity merged with Reciprocal Rank Fusion, with optional reranking, neighbor expansion, HyDE and a corrective retry when grounding is weak.</li>
+														<li><strong>Evaluation on every answer.</strong> LLM-as-a-judge groundedness and relevance, a sentence-level claim-support map, citation accuracy, a confidence rating and a timing breakdown. An Evaluation Lab reports hit@k, recall@k and MRR.</li>
+														<li><strong>Bring your own model.</strong> Free options (extractive, in-browser, Hugging Face, a local Ollama) or your own key for Claude, DeepSeek, OpenAI, Gemini, Groq, Mistral or OpenRouter.</li>
+														<li><strong>Privacy by design.</strong> Documents and indexes stay in the browser&rsquo;s IndexedDB, a cloud model sees only the excerpts behind each answer, API keys stay in memory, and Confidential mode blocks anything that would leave the device.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="rag-studio-journey" role="tabpanel" aria-labelledby="tab-rag-studio-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A Colab notebook <span class="step-when">Starting point</span></h5>
+															<p>RAG over the Merck Manual, comparing a plain LLM with five retrieval configurations, each judged for groundedness and relevance.</p>
+														</li>
+														<li>
+															<h5>MediRAG Studio <span class="step-when">5 Oct 2026</span></h5>
+															<p>Turned the notebook into a serverless website: PDF ingestion in the browser, BM25 and background embeddings, free model options, per-answer evaluation, and an Evaluation Lab that reproduces the notebook&rsquo;s comparison. Deployed to GitHub Pages and Hugging Face Spaces.</p>
+														</li>
+														<li>
+															<h5>Any document, much lighter <span class="step-when">5 Oct 2026</span></h5>
+															<p>Generalized it to six document types (General, Medical, Legal, Technical, Academic, Finance), added collections and more file formats, and overhauled speed and storage.</p>
+														</li>
+														<li>
+															<h5>Keys and credits <span class="step-when">5 Oct 2026</span></h5>
+															<p>Kept API tokens in memory only, then audited the free and PRO Hugging Face experience so nothing spends credits without the user knowing.</p>
+														</li>
+														<li>
+															<h5>Redesign <span class="step-when">5 Oct 2026</span></h5>
+															<p>A clean, store-style interface with dark mode and a mobile layout, plus the fixes found in a full audit.</p>
+														</li>
+														<li>
+															<h5>More providers and a privacy mode <span class="step-when">5 Oct 2026</span></h5>
+															<p>Claude, DeepSeek and other key-based providers, a plain statement of what leaves the device, and Confidential mode.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="rag-studio-issues" role="tabpanel" aria-labelledby="tab-rag-studio-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">The whole chat session was written to IndexedDB on every streamed token.</td>
+																	<td data-label="How I dealt with it">It is saved only when an answer changes phase: about 5 writes per answer.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Float32 vectors took about 21 MB for 14,000 chunks and were rewritten every 15 seconds.</td>
+																	<td data-label="How I dealt with it">int8 vectors with a per-row scale, saved in 1,024-row shards: 4&times; smaller, searched with a bounded min-heap.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Big books froze the page while they were cleaned, chunked and indexed.</td>
+																	<td data-label="How I dealt with it">Moved ingestion into a Web Worker, with compact typed-array postings for BM25.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Starter questions quietly spent Hugging Face credits, and the token check ran a billed generation.</td>
+																	<td data-label="How I dealt with it">Starter questions now come from section titles (AI-written ones are opt-in), the token check uses a free endpoint, and a usage meter shows calls and tokens.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">A background refresh could rewind an answer that was still streaming.</td>
+																	<td data-label="How I dealt with it">Sessions reload only when the active collection changes.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="rag-studio-limits" role="tabpanel" aria-labelledby="tab-rag-studio-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>The embedding model (23&ndash;34 MB) downloads on first use, and embedding a 4,000-page book without a GPU is slow, although keyword search works in the meantime.</li>
+														<li>Groundedness is measured against the retrieved passages, not against the truth, so a retrieval miss can still score well.</li>
+														<li>Scanned, image-only PDFs can&rsquo;t be indexed yet, because there is no OCR.</li>
+														<li>A collection is limited by one browser&rsquo;s storage, and stored documents aren&rsquo;t encrypted by the app.</li>
+														<li>Some providers block calls made straight from a web page; OpenRouter is the workaround.</li>
+														<li>Answers support research and decisions; they don&rsquo;t replace professional judgement.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="rag-studio-next" role="tabpanel" aria-labelledby="tab-rag-studio-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>OCR for scanned PDFs.</li>
+														<li>An answer cache for repeated questions, to save time and credits.</li>
+														<li>Table-aware chunking, and CSV and Excel loaders.</li>
+														<li>An optional server mode with a vector database, for collections too big for one browser.</li>
+														<li>Stronger evaluation: NLI-based faithfulness, a judge that differs from the answering model, and generated question sets.</li>
+														<li>Shareable collections and multilingual embeddings.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
+										<!-- This portfolio -->
+										<article class="case-study project-card" id="portfolio" aria-labelledby="portfolio-title">
+											<p class="project-kicker">Website &middot; HTML &amp; CSS &middot; Live</p>
+											<h3 id="portfolio-title">This Portfolio</h3>
+											<p class="project-summary">The site you are reading: a static portfolio on GitHub Pages that presents my experience, how I work end to end, and my projects by track.</p>
+											<ul class="stats compact">
+												<li><strong>8</strong><span>pages: home, about, five analysis tracks and this one</span></li>
+												<li><strong>6</strong><span>step-by-step playbooks behind the approach on the About page</span></li>
+												<li><strong>7</strong><span>projects documented on this page, each with its live app or source code</span></li>
+											</ul>
+											<ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Accessibility</li><li>Responsive Design</li><li>GitHub Pages</li></ul>
+											<ul class="actions">
+												<li><a href="index.html" class="button primary">Home Page</a></li>
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io" target="_blank" rel="noopener" class="button">Source Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Portfolio write-up">
+													<button type="button" role="tab" id="tab-portfolio-approach" aria-controls="portfolio-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-portfolio-journey" aria-controls="portfolio-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-portfolio-issues" aria-controls="portfolio-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-portfolio-limits" aria-controls="portfolio-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-portfolio-next" aria-controls="portfolio-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="portfolio-approach" role="tabpanel" aria-labelledby="tab-portfolio-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>A portfolio should load fast, read well on any device and be honest about what is finished, so I kept it static and put the effort into content and accessibility.</p>
+													<ul>
+														<li><strong>Static on GitHub Pages.</strong> Plain HTML pages on HTML5 UP&rsquo;s Forty template, with my own stylesheet layered on top so the template&rsquo;s files change as little as possible, and a small script for the tabs.</li>
+														<li><strong>Content from my resume and real work.</strong> An experience timeline, skills and certifications, and an approach that runs through six stages, from the question and KPIs to the decision, with worked examples in SQL, Python, DAX and Excel.</li>
+														<li><strong>One layout for every track.</strong> Each project page shares the same structure: what the track covers, the skills it uses, and its case studies.</li>
+														<li><strong>Accessible by default.</strong> A keyboard-friendly menu and tabs, visible focus, readable contrast over images, reduced motion, and pages that still work without JavaScript or on paper.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="portfolio-journey" role="tabpanel" aria-labelledby="tab-portfolio-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A template and a page per tool <span class="step-when">Oct 2025</span></h5>
+															<p>Started from the Forty template and created pages for Python, R, SQL, Excel, Tableau and Power BI in GitHub&rsquo;s web editor.</p>
+														</li>
+														<li>
+															<h5>Rebuilt around my own content <span class="step-when">Oct 2026</span></h5>
+															<p>Replaced the starter content with my resume (experience, skills, certifications and photo), gave every project page one layout, dropped the empty R page, and added the Tools &amp; Websites track.</p>
+														</li>
+														<li>
+															<h5>How I work <span class="step-when">Oct 2026</span></h5>
+															<p>Added the approach architecture to the About page, linking six stages to step-by-step playbooks with worked examples and quality gates.</p>
+														</li>
+														<li>
+															<h5>Accessibility and polish <span class="step-when">Oct 2026</span></h5>
+															<p>Keyboard support, focus outlines, contrast fixes, reduced motion, forced colors, styles for no-JavaScript and print, a 404 page, a sitemap and meta descriptions.</p>
+														</li>
+														<li>
+															<h5>Projects documented <span class="step-when">30 Oct 2026</span></h5>
+															<p>Published these seven cards, each with its approach, history, issues, limitations and next steps.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="portfolio-issues" role="tabpanel" aria-labelledby="tab-portfolio-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">The menu relied on a hover-only dropdown, which didn&rsquo;t work on phones.</td>
+																	<td data-label="How I dealt with it">Replaced it with a plain list that works with touch and the keyboard.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">White text over the template&rsquo;s pastel photos was hard to read.</td>
+																	<td data-label="How I dealt with it">A navy layer behind the text on tiles and banners.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The GitHub icon didn&rsquo;t show.</td>
+																	<td data-label="How I dealt with it">It belongs to Font Awesome&rsquo;s brands set, not the solid one; fixed on every page.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Wide tables scrolled sideways on phones.</td>
+																	<td data-label="How I dealt with it">On small screens each row becomes a labeled card.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The 404 page broke on nested URLs, because GitHub Pages serves it at any path.</td>
+																	<td data-label="How I dealt with it">Its links and assets use root-absolute paths.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="portfolio-limits" role="tabpanel" aria-labelledby="tab-portfolio-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>The menu, contact and footer are repeated in every page, so a change has to be made in each file.</li>
+														<li>The Python, SQL, Power BI, Tableau and Excel case studies are still being written up.</li>
+														<li>The project cards are text only, and the page images are template photos rather than screenshots of my work.</li>
+														<li>No automated checks for broken links, HTML errors or accessibility run on each push.</li>
+														<li>The template still depends on jQuery.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="portfolio-next" role="tabpanel" aria-labelledby="tab-portfolio-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Publish the full case studies, starting with hotel cancellations, visa approvals and customer segmentation.</li>
+														<li>A screenshot or short demo clip on each project card.</li>
+														<li>Share the header, menu and footer through Jekyll includes, which GitHub Pages builds natively.</li>
+														<li>Link, HTML and accessibility checks in GitHub Actions.</li>
+														<li>Replace the template&rsquo;s jQuery with a few lines of plain JavaScript.</li>
+													</ul>
+												</section>
+											</div>
+										</article>
+
 									</div>
 
 									<ul class="actions pager">
@@ -172,6 +1072,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/portfolio.js"></script>
 
 	</body>
 </html>
