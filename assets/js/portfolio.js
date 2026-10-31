@@ -133,3 +133,80 @@
 	});
 
 })();
+
+/*
+	Screenshot viewer on the Tools page. A screenshot link opens the full image in a dialog
+	with its caption, and the arrows (or the Left and Right keys) step through that project's screens.
+	Without JavaScript, or without <dialog> support, the link simply opens the image.
+*/
+
+(function() {
+
+	if (!document.querySelector('.watch a.shot') || typeof HTMLDialogElement !== 'function')
+		return;
+
+	var dialog = document.createElement('dialog'),
+		shots = [],
+		index = 0;
+
+	dialog.className = 'lightbox';
+	dialog.setAttribute('aria-labelledby', 'lightbox-caption');
+	dialog.innerHTML =
+		'<button type="button" class="lightbox-close" aria-label="Close">&times;</button>' +
+		'<figure><img alt="" /><figcaption id="lightbox-caption"></figcaption></figure>' +
+		'<div class="lightbox-nav">' +
+			'<span class="lightbox-count"></span>' +
+			'<button type="button" class="lightbox-prev" aria-label="Previous screen">&larr;</button>' +
+			'<button type="button" class="lightbox-next" aria-label="Next screen">&rarr;</button>' +
+		'</div>';
+	document.body.appendChild(dialog);
+
+	var image = dialog.querySelector('img'),
+		caption = dialog.querySelector('figcaption'),
+		count = dialog.querySelector('.lightbox-count');
+
+	function show(i) {
+		var link, thumb, source;
+
+		index = (i + shots.length) % shots.length;
+		link = shots[index];
+		thumb = link.querySelector('img');
+		source = link.querySelector('.shot-caption') || link.parentNode.querySelector('.shot-caption');
+
+		image.src = link.getAttribute('href');
+		image.alt = thumb ? thumb.alt : '';
+		caption.innerHTML = source ? source.innerHTML : '';
+		count.textContent = (index + 1) + ' / ' + shots.length;
+	}
+
+	document.addEventListener('click', function(event) {
+		var link = event.target.closest ? event.target.closest('.watch a.shot') : null;
+
+		// Let modified clicks (new tab / window) behave natively.
+			if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.button > 0)
+				return;
+
+		event.preventDefault();
+		shots = Array.prototype.slice.call(link.closest('.watch').querySelectorAll('a.shot'));
+		show(shots.indexOf(link));
+		dialog.showModal();
+	});
+
+	dialog.querySelector('.lightbox-prev').addEventListener('click', function() { show(index - 1); });
+	dialog.querySelector('.lightbox-next').addEventListener('click', function() { show(index + 1); });
+	dialog.querySelector('.lightbox-close').addEventListener('click', function() { dialog.close(); });
+
+	dialog.addEventListener('keydown', function(event) {
+		if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+			event.preventDefault();
+			show(index + (event.key === 'ArrowLeft' ? -1 : 1));
+		}
+	});
+
+	// A click on the backdrop, outside the dialog's content, closes it.
+		dialog.addEventListener('click', function(event) {
+			if (event.target === dialog)
+				dialog.close();
+		});
+
+})();

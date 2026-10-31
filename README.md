@@ -11,7 +11,7 @@ Built on the [Forty](https://html5up.net/forty) template by HTML5 UP (CCA 3.0).
 | `index.html` | Landing page: pitch, highlights and the six project tracks |
 | `about.html` | Profile, experience, skills, approach architecture and step-by-step playbooks, certifications |
 | `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track |
-| `tools.html` | Tools and websites: an index, then one card per project with Approach, From the Start, Issues & Fixes, Limitations and Future Improvements tabs |
+| `tools.html` | Tools and websites: a video-style index, then one card per project with screenshots and Approach, From the Start, Issues & Fixes, Limitations and Future Improvements tabs |
 | `404.html` | Not-found page (uses root-absolute paths because GitHub Pages serves it at any URL) |
 
 Custom styles live in `assets/css/portfolio.css` and the tabs on the About and Tools pages in `assets/js/portfolio.js`; `main.css` and `main.js` are the template files (with small accessibility fixes). The menu, contact and footer blocks are identical on every page, so change them everywhere at once.
@@ -60,4 +60,5 @@ The image is optional; every result should be stated against a baseline (for cla
 1. Copy one `<article class="case-study project-card">` inside `<div class="case-studies">` and give it a new `id`.
 2. Use that id as the prefix of every tab and panel id in the card (`tab-<id>-approach` controls `<id>-approach`, and so on), so each card's tabs stay independent. A panel can be linked directly, e.g. `tools.html#datamind-issues`.
 3. Add a matching entry to the `project-index` list in the Overview section. Index entries and cards take their accent color from their position, so keep both lists in the same order.
-4. State every figure the way the project's own docs measured it, and put the live link first when there is one.
+4. Screenshots: four 16:9 WebP files per project in `images/tools/`, each at 1440×810 (`<id>-1.webp`) and 640×360 (`<id>-1-sm.webp`). The first is the card's main preview and the index thumbnail, the other three are the screens beside it. Each gets alt text describing what it shows and a caption explaining why it matters. Selecting a screenshot opens it full size (viewer in `assets/js/portfolio.js`); without JavaScript the link opens the image.
+5. State every figure the way the project's own docs measured it, and put the live link first when there is one.
