@@ -8,7 +8,7 @@ Built on the [Forty](https://html5up.net/forty) template by HTML5 UP (CCA 3.0).
 
 | Page | Purpose |
 | --- | --- |
-| `index.html` | Landing page: pitch, highlights and the six project tracks |
+| `index.html` | Landing page: pitch and the six project tracks |
 | `about.html` | Profile, experience, skills, approach architecture and step-by-step playbooks, certifications |
 | `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track |
 | `tools.html` | Tools and websites: a video-style index, then one card per project with screenshots and Approach, From the Start, Issues & Fixes, Limitations and Future Improvements tabs |

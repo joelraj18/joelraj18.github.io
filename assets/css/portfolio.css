@@ -155,14 +155,15 @@
 
 /* Tiles (home) */
 
-	/* Navy layer above the pastel overlay for text contrast; stays on hover. */
-	.tiles article:before {
-		z-index: 1;
+	/* The template's bright pastel overlay (85% over a 25% navy tint) is kept as is;
+	   a soft shadow keeps the white text readable on the lighter colors. */
+	.tiles article header h2,
+	.tiles article header p {
+		text-shadow: 0 1px 2px rgba(36, 41, 67, 0.35), 0 0 1.25em rgba(36, 41, 67, 0.3);
 	}
 
-	.tiles article:after {
-		background-color: rgba(36, 41, 67, 0.52);
-		z-index: 2;
+	.tiles article header.major > :first-child:after {
+		box-shadow: 0 1px 2px rgba(36, 41, 67, 0.3);
 	}
 
 	.tiles article h2 {
@@ -181,7 +182,7 @@
 
 		}
 
-/* Stats (home) */
+/* Stats */
 
 	.stats {
 		display: grid;
@@ -1559,7 +1560,7 @@
 			padding: 0.1em 0.4em;
 		}
 
-	/* Key figures, a smaller version of the home page stats. */
+	/* Key figures, a smaller version of the stats tiles. */
 	.stats.compact {
 		gap: 1em;
 		margin: 0 0 1.5em 0;
