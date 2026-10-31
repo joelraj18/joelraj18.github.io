@@ -1067,10 +1067,12 @@
 			color: #242943;
 		}
 
-	/* Index: a grid of video cards, the info under each thumbnail, linking to the full card below. */
+	/* Index: video cards with the info under each thumbnail, linking to the full card below.
+	   The six tools fill a 3 x 2 grid; the last entry (this site) spans the row, its thumbnail one column wide. */
 	.project-index {
+		--index-gap: 1.25em;
 		display: grid;
-		gap: 2em 1.25em;
+		gap: 2.25em var(--index-gap);
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		list-style: none;
 		margin: 0;
@@ -1094,6 +1096,23 @@
 				.project-index a:hover .project-name {
 					color: #9bf1ff;
 				}
+
+		.project-index > li:last-child {
+			border-top: solid 1px rgba(212, 212, 255, 0.1);
+			grid-column: 1 / -1;
+			padding-top: 2.25em;
+		}
+
+			.project-index > li:last-child a {
+				align-items: center;
+				column-gap: var(--index-gap);
+				display: grid;
+				grid-template-columns: calc((100% - 2 * var(--index-gap)) / 3) minmax(0, 1fr);
+			}
+
+			.project-index > li:last-child .video-info {
+				margin-top: 0;
+			}
 
 		.video-info {
 			display: flex;
@@ -1144,6 +1163,10 @@
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
+				.project-index > li:last-child a {
+					grid-template-columns: calc((100% - var(--index-gap)) / 2) minmax(0, 1fr);
+				}
+
 		}
 
 		/* Phones: a compact list, thumbnail beside the text. */
@@ -1154,11 +1177,17 @@
 				grid-template-columns: 1fr;
 			}
 
-				.project-index a {
+				.project-index a,
+				.project-index > li:last-child a {
 					align-items: start;
 					display: grid;
 					gap: 0.85em;
 					grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+				}
+
+				.project-index > li:last-child {
+					border-top: 0;
+					padding-top: 0;
 				}
 
 				.project-index .video-info {
@@ -1171,12 +1200,16 @@
 
 		}
 
-	/* Card screens: the main preview with its caption, and three more screens beside it. */
+	/* Card screens: the main preview with its caption, and three more screens beside it.
+	   With 3 : 2 columns the preview is (3/2) x (9/16) = 27/32 as tall as the side column is wide,
+	   so the side list takes that aspect ratio: its three rows split the preview's height evenly and
+	   line up with its top and bottom edges at every width. */
 	.watch {
+		align-items: start;
 		display: grid;
 		gap: 1.25em 1.5em;
-		grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
-		margin: 0 0 2em 0;
+		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+		margin: 0 0 2.5em 0;
 	}
 
 		.watch a {
@@ -1188,6 +1221,31 @@
 				color: inherit !important;
 			}
 
+		/* "Opens full size": always shown on the main preview, on hover or focus for the others. */
+		.watch .thumb:after {
+			background-color: rgba(16, 18, 30, 0.8);
+			border-radius: 4px;
+			color: #ffffff;
+			content: '\f065';
+			content: '\f065' / '';
+			font-family: 'Font Awesome 5 Free';
+			font-size: 0.7em;
+			font-weight: 900;
+			line-height: 1;
+			opacity: 0;
+			padding: 0.55em;
+			position: absolute;
+			right: 0.6em;
+			top: 0.6em;
+			transition: opacity 0.2s ease-in-out;
+		}
+
+			.watch-main .thumb:after,
+			.watch a:hover .thumb:after,
+			.watch a:focus-visible .thumb:after {
+				opacity: 1;
+			}
+
 		.watch-main {
 			margin: 0;
 		}
@@ -1196,11 +1254,24 @@
 				display: block;
 			}
 
+			/* A caption with a bold lead-in, quieter than the project title below it. */
 			.watch-main figcaption {
-				font-size: 0.9em;
-				line-height: 1.55;
-				margin-top: 0.9em;
+				color: rgba(244, 244, 255, 0.7);
+				font-size: 0.85em;
+				line-height: 1.6;
+				margin-top: 0.85em;
+				max-width: 44em;
 			}
+
+				.watch-main figcaption strong {
+					color: #ffffff;
+					display: inline;
+					margin: 0;
+				}
+
+					.watch-main figcaption strong:after {
+						content: '.';
+					}
 
 		.watch strong,
 		.lightbox figcaption strong {
@@ -1210,23 +1281,27 @@
 		}
 
 		.up-next {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
+			aspect-ratio: 32 / 27;
+			display: grid;
+			gap: 0.9em;
+			grid-template-rows: repeat(3, minmax(0, 1fr));
 			list-style: none;
 			margin: 0;
 			padding: 0;
 		}
 
 			.up-next > li {
+				min-height: 0;
 				padding: 0;
 			}
 
 			.up-next a {
 				align-items: start;
+				column-gap: 0.85em;
 				display: grid;
-				gap: 0.85em;
-				grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+				grid-template-columns: auto minmax(0, 1fr);
+				grid-template-rows: minmax(0, 1fr);
+				height: 100%;
 			}
 
 				.up-next a:hover strong {
@@ -1235,16 +1310,30 @@
 
 			.up-next .thumb {
 				border-radius: 6px;
+				height: 100%;
+				width: auto;
 			}
 
+			/* Title on its own line, then the caption; clamped so a row never grows past its screen. */
 			.up-next-text {
+				-webkit-box-orient: vertical;
+				display: -webkit-box;
 				font-size: 0.8em;
+				-webkit-line-clamp: 5;
+				line-clamp: 5;
 				line-height: 1.45;
+				overflow: hidden;
 			}
 
 				.up-next-text strong {
+					display: inline;
 					line-height: 1.3;
 				}
+
+					.up-next-text strong:after {
+						content: '\A';
+						white-space: pre;
+					}
 
 			.watch code,
 			.lightbox code {
@@ -1253,24 +1342,41 @@
 				padding: 0 0.3em;
 			}
 
-		@media screen and (max-width: 980px) {
+		/* Below 1140px the side column is too narrow for its captions: the screens move under the preview. */
+		@media screen and (max-width: 1140px) {
 
 			.watch {
 				grid-template-columns: 1fr;
 			}
 
 				.up-next {
-					display: grid;
+					aspect-ratio: auto;
 					gap: 1.25em;
 					grid-template-columns: repeat(3, minmax(0, 1fr));
+					grid-template-rows: none;
 				}
 
 					.up-next a {
 						grid-template-columns: 1fr;
+						grid-template-rows: auto;
+						height: auto;
+						row-gap: 0.7em;
+					}
+
+					.up-next .thumb {
+						height: auto;
+						width: 100%;
+					}
+
+					.up-next-text {
+						display: block;
+						-webkit-line-clamp: none;
+						line-clamp: none;
 					}
 
 		}
 
+		/* Phones: each screen beside its caption. */
 		@media screen and (max-width: 736px) {
 
 			.up-next {
@@ -1279,6 +1385,8 @@
 			}
 
 				.up-next a {
+					align-items: start;
+					column-gap: 0.85em;
 					grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
 				}
 
