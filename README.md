@@ -10,7 +10,7 @@ Built on the [Forty](https://html5up.net/forty) template by HTML5 UP (CCA 3.0).
 | --- | --- |
 | `index.html` | Landing page: pitch and the six project tracks |
 | `about.html` | Profile, experience, skills, approach architecture and step-by-step playbooks, certifications |
-| `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track. Python holds thirteen in four groups (End-to-End Projects, AI Projects, Business Analytics, Statistics & Machine Learning), SQL four, Excel two and Tableau one; Power BI still shows its coming-next block |
+| `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track. Python holds twelve in four groups (End-to-End Projects, AI Projects, Business Analytics, Classification & Clustering), SQL four, Excel two and Tableau one; Power BI still shows its coming-next block |
 | `tools.html` | Tools and websites: a video-style index, then one card per project with screenshots and Approach, From the Start, Issues & Fixes, Limitations and Future Improvements tabs |
 | `404.html` | Not-found page (uses root-absolute paths because GitHub Pages serves it at any URL) |
 
