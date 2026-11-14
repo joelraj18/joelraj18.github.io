@@ -322,7 +322,7 @@ cohort before choosing a price or retention fix.</code></pre>
 													</li>
 													<li>
 														<h4>Lead with the answer</h4>
-														<p>I write findings top-down (the pyramid principle): the recommendation first, then the reasons, then the evidence. From my New Wheels analysis: <em>Recommendation</em>, pilot a 25-day shipping SLA with a randomly chosen half of customers, and roll it out to everyone if, at the planned sample size, average rating improves without raising shipping cost per order. <em>Why</em>, revenue fell 39% across the quarters analyzed while average shipping time rose 60%, from 28 to 45 days. <em>Evidence</em>, the quarterly KPI query in the SQL tab; the pilot, designed in the Statistics tab, tests whether the SLA causes the improvement.</p>
+														<p>I write findings top-down (the pyramid principle): the recommendation first, then the reasons, then the evidence. From my New Wheels analysis: <em>Recommendation</em>, pilot a 25-day shipping SLA with a randomly chosen half of customers, and roll it out to everyone if, at the planned sample size, average rating improves without raising shipping cost per order. <em>Why</em>, net revenue fell 52.5% from the first quarter to the fourth while average shipping time tripled, from 57 to 174 days. <em>Evidence</em>, the quarterly KPI query in the SQL tab; the pilot, designed in the Statistics tab, tests whether the SLA causes the improvement.</p>
 														<ul class="tags"><li>Pyramid Principle</li><li>Executive Summary</li><li>Data Storytelling</li></ul>
 													</li>
 												</ol>
@@ -334,7 +334,7 @@ cohort before choosing a price or retention fix.</code></pre>
 												<p class="lead">I write SQL that someone else can read, rerun and trust: understand the grain first, validate before aggregating, and build complex logic in small, testable steps.</p>
 												<div class="callout">
 													<h4>Where I Have Applied This</h4>
-													<p><strong>New Wheels, revenue &amp; operations analysis:</strong> queried 1,000 orders from 984 customers across 49 U.S. states to track quarterly revenue, orders and ratings. Linked a 39% revenue decline to a 60% rise in shipping time over the same quarters (28 to 45 days) and proposed a 25-day shipping SLA, to be confirmed with a controlled test (see Statistics &amp; A/B Testing).</p>
+													<p><strong>New Wheels, revenue &amp; operations analysis:</strong> queried 1,000 orders from 994 customers across 49 U.S. states to track quarterly revenue, orders and ratings. Linked a 52.5% fall in net revenue to shipping times that tripled over the same quarters (57 to 174 days) and proposed a 25-day shipping SLA, to be confirmed with a controlled test (see Statistics &amp; A/B Testing, and the <a href="sql.html#new-wheels">full case study</a>).</p>
 												</div>
 												<ol class="steps">
 													<li>
@@ -415,9 +415,9 @@ ORDER  BY quarter_number;</code></pre>
 												<div class="callout">
 													<h4>Where I Have Applied This</h4>
 													<ul>
-														<li><strong>INN Hotels, booking cancellations:</strong> 36,275 bookings with a 32.8% cancellation rate, so always predicting &ldquo;not canceled&rdquo; already scores 67.2% accuracy. Compared logistic regression with decision trees; a pruned tree reached 83% test accuracy against that 67.2% baseline (F1 and recall for cancellations are in the full case study) and surfaced lead time, room price and special requests as the key drivers, leading to a recommendation for automated reminder emails.</li>
-														<li><strong>EasyVisa, visa approval prediction:</strong> 25,480 applications, roughly two certified for every one denied. Applied SMOTE to the training data only, benchmarked five tree-based models and selected Gradient Boosting on F1; education, wage and job experience emerged as the main drivers of approval.</li>
-														<li><strong>AllLife Bank, customer segmentation:</strong> 660 credit-card customers grouped into three segments with K-Means (k chosen from the elbow curve and silhouette scores) and cross-checked with hierarchical clustering, leading to a recommendation of digital onboarding for branch-reliant customers and self-service channels for a segment averaging 6.9 support calls.</li>
+														<li><strong>INN Hotels, booking cancellations:</strong> 36,275 bookings with a 32.8% cancellation rate, so always predicting &ldquo;not canceled&rdquo; already scores 67.2% accuracy. Compared logistic regression with decision trees; a depth-5 pre-pruned tree reached 82.3% test accuracy against that 67.2% baseline (F1 0.69 and recall 0.59 on cancellations; cost-complexity pruning raised them to 0.81 and 0.79, see the <a href="python.html#inn-hotels">full case study</a>) and surfaced lead time, room price and special requests as the key drivers, leading to a recommendation for automated reminder emails.</li>
+														<li><strong>EasyVisa, visa approval prediction:</strong> 25,480 applications, roughly two certified for every one denied. Applied SMOTE to the training data only, benchmarked five tree-based models and selected Gradient Boosting on F1 (0.61 on denied applications, with recall 0.68); education, wage and job experience emerged as the main drivers of approval (<a href="python.html#easyvisa">full case study</a>).</li>
+														<li><strong>AllLife Bank, customer segmentation:</strong> 660 credit-card customers grouped into three segments with K-Means (k chosen from silhouette and Calinski-Harabasz scores) and cross-checked with hierarchical clustering, leading to a recommendation of digital onboarding for branch-reliant customers and self-service channels for a segment averaging 6.9 support calls (<a href="python.html#alllife-bank">full case study</a>).</li>
 													</ul>
 												</div>
 												<ol class="steps">
@@ -443,7 +443,7 @@ ORDER  BY quarter_number;</code></pre>
 													</li>
 													<li>
 														<h4>Set a baseline before any model</h4>
-														<p>A majority-class <code>DummyClassifier</code> for classification, and the median or last period&rsquo;s value for regression. Every result is reported next to that baseline: 83% accuracy only means something next to the 67.2% that always answering &ldquo;not canceled&rdquo; already scores.</p>
+														<p>A majority-class <code>DummyClassifier</code> for classification, and the median or last period&rsquo;s value for regression. Every result is reported next to that baseline: 82% accuracy only means something next to the 67.2% that always answering &ldquo;not canceled&rdquo; already scores.</p>
 														<ul class="tags"><li>DummyClassifier</li><li>Naive Baseline</li><li>Lift Over Baseline</li></ul>
 													</li>
 													<li>
@@ -637,7 +637,7 @@ grid.fit(X_train, y_train)  # test set is scored once, at the end</code></pre>
 													<h4>Where I Have Applied This</h4>
 													<ul>
 														<li><strong>WebClox (Power BI &amp; Tableau):</strong> design interactive dashboards that track operational KPIs and give leadership live visibility into performance.</li>
-														<li><strong>Car insurance claims (Tableau):</strong> built a six-part interactive story with calculated fields, parameters and an executive KPI dashboard. The analysis showed that SUVs and blue-collar drivers account for the highest claims, which led to a recommendation for risk-based premium pricing.</li>
+														<li><strong>Car insurance claims (Tableau):</strong> built a six-part interactive story with calculated fields, parameters and an executive KPI dashboard. The analysis showed that SUVs and blue-collar drivers account for the highest claims, which led to a recommendation for risk-based premium pricing (<a href="tableau.html#car-insurance">full case study</a>).</li>
 													</ul>
 												</div>
 												<ol class="steps">

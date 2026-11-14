@@ -9,13 +9,13 @@
 		<title>Excel | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Excel case studies by Joel Raj Vemuri are being published here, built with Power Query, PivotTables, lookups and slicer-driven dashboards." />
+		<meta name="description" content="Excel case studies by Joel Raj Vemuri: an FMCG peer benchmark with NPV, IRR and Monte Carlo simulation, and a driver-based Hindustan Unilever model with scenarios, built from live formulas." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/excel.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Excel | Joel Raj Vemuri" />
-		<meta property="og:description" content="Excel case studies by Joel Raj Vemuri are being published here, built with Power Query, PivotTables, lookups and slicer-driven dashboards." />
+		<meta property="og:description" content="Excel case studies: an FMCG peer benchmark with NPV, IRR and Monte Carlo simulation, and a driver-based Hindustan Unilever model with scenarios, built from live formulas." />
 		<meta property="og:url" content="https://joelraj18.github.io/excel.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -84,7 +84,7 @@
 									<header class="major">
 										<h2>What This Track Covers</h2>
 									</header>
-									<p>Workbooks in this track clean data with Power Query, analyze it with lookup and conditional-aggregation functions and PivotTables, and present the result as a slicer-driven dashboard.</p>
+									<p>Workbooks in this track clean data with Power Query, analyze it with lookup and conditional-aggregation functions and PivotTables, and present the result as a slicer-driven dashboard. Financial models add NPV and IRR, scenario switches and Monte Carlo simulation, with a checks sheet that ties every result to an independent calculation.</p>
 									<ul class="tags">
 										<li>Power Query</li>
 										<li>Excel Tables</li>
@@ -94,6 +94,9 @@
 										<li>PivotTables</li>
 										<li>PivotCharts</li>
 										<li>What-If Analysis</li>
+										<li>NPV / IRR</li>
+										<li>Scenario Analysis</li>
+										<li>Monte Carlo Simulation</li>
 										<li>Conditional Formatting</li>
 									</ul>
 									<ul class="actions">
@@ -108,14 +111,71 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
+									<p>Both models live in a 39-sheet practice workbook built from live formulas, where a Checks sheet compares 477 results with an independent Python calculation.</p>
 
-									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
-									<div class="coming-next">
-										<h3>First Case Study Coming Soon</h3>
-										<p>Excel case studies will be published here, each with the business question, the workbook structure, the key formulas and the checks behind the numbers. Until then, my Excel approach shows the formulas and checks I use.</p>
-										<ul class="actions">
-											<li><a href="about.html#approach-excel" class="button primary">See the Excel Examples</a></li>
-										</ul>
+									<!-- Publishing a project: add an <article> inside <div class="case-studies"> (template in README.md), newest first. -->
+									<div class="case-studies">
+
+										<!-- Financial Analytics of Indian FMCG Companies -->
+										<article class="case-study" id="financial-analytics" aria-labelledby="financial-analytics-title">
+											<figure class="case-figure">
+												<a href="images/projects/financial-analytics.webp">
+													<img src="images/projects/financial-analytics.webp" srcset="images/projects/financial-analytics-sm.webp 800w, images/projects/financial-analytics.webp 1350w" sizes="(max-width: 736px) 92vw, 960px" alt="Five-year revenue growth against FY26 operating margin for seven Indian FMCG companies: Colgate-Palmolive has the highest margin, 31%, with 4.5% growth, while Marico and Nestl&eacute; India grow fastest, near 11%" width="1350" height="832" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Growth versus profitability</strong> Margins and returns vary far more across the seven peers than growth does.</figcaption>
+											</figure>
+											<p class="project-kicker">Business Analytics &middot; Financial Analytics</p>
+											<h3 id="financial-analytics-title" class="case-title">Financial Analytics of Indian FMCG Companies</h3>
+											<ul class="tags"><li>Excel</li><li>SUMIFS</li><li>INDEX-MATCH</li><li>NPV / IRR / PMT</li><li>Monte Carlo Simulation</li><li>DuPont Analysis</li><li>CAPM</li><li>Python (pandas)</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Management needs a consistent view of how peers perform, and a disciplined way to judge a capital project: a &#8377;600 crore plant.</dd>
+												<dt>Data</dt>
+												<dd>Twelve years (FY2015&ndash;FY2026) of profit and loss, balance sheet, cash flow and ratio data for seven listed FMCG companies, including HUL, Nestl&eacute; India and Britannia, reshaped into one 2,990-row long table.</dd>
+												<dt>Approach</dt>
+												<dd>A peer benchmark (growth, margins, ROE, ROCE, cash conversion cycle) built with SUMIFS over the long table, with DuPont analysis and one-off items normalized; a ten-year plant model with NPV, IRR and PMT; then a z-score scorecard, a Monte Carlo simulation (RAND with NORM.INV) and a CAPM cost of capital from published inputs.</dd>
+												<dt>Result</dt>
+												<dd>HUL&rsquo;s reported FY26 profit growth of +41% becomes about &minus;5% once a one-off &#8377;4,611 crore demerger gain is removed. The plant&rsquo;s NPV is &#8377;217 crore (IRR 18.2%) at an 11% hurdle, which sits inside the 10.7&ndash;12.0% CAPM range; simulation lowers the expected NPV to &#8377;150 crore, with a 5.6% chance of a loss.</dd>
+												<dt>Recommendation</dt>
+												<dd>Report adjusted earnings beside reported earnings whenever one-offs exceed 5% of profit before tax, benchmark peers on ROCE and cash conversion rather than growth alone, and approve the plant with a contingency and a review if its EBITDA margin is below 15% in year two.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/deliverables/BA_Projects_Practice_Workbook.xlsx" target="_blank" rel="noopener" class="button primary">Excel Workbook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p1_financial_analytics.py" target="_blank" rel="noopener" class="button">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- FMCG Driver-Based Model for Hindustan Unilever -->
+										<article class="case-study" id="fmcg-model" aria-labelledby="fmcg-model-title">
+											<figure class="case-figure">
+												<a href="images/projects/fmcg-model.webp">
+													<img src="images/projects/fmcg-model.webp" srcset="images/projects/fmcg-model-sm.webp 800w, images/projects/fmcg-model.webp 1256w" sizes="(max-width: 736px) 92vw, 960px" alt="Price waterfall for a &#8377;100 pack: GST &#8377;15.3, retailer margin &#8377;12.7, distributor margin &#8377;4.3 and trade schemes &#8377;3.4 leave &#8377;64.3 of net realization and &#8377;35.6 of gross margin" width="1256" height="878" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Where &#8377;100 of MRP goes</strong> Only about 64% of what a shopper pays reaches the company.</figcaption>
+											</figure>
+											<p class="project-kicker">Business Analytics &middot; Financial Modeling</p>
+											<h3 id="fmcg-model-title" class="case-title">FMCG Driver-Based Model for Hindustan Unilever</h3>
+											<ul class="tags"><li>Excel</li><li>Scenario Switch (CHOOSE)</li><li>INDEX</li><li>Driver-Based Forecasting</li><li>Price Elasticity</li><li>Monte Carlo Simulation</li><li>Reverse DCF</li><li>Python</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>How much revenue and profit can Hindustan Unilever (HUL) deliver over five years, and what do the GST 2.0 rate cut and input costs mean for it?</dd>
+												<dt>Data</dt>
+												<dd>HUL&rsquo;s annual results for FY2015&ndash;FY2026 and quarterly results to September 2026, the GST 2.0 rates, and published ranges for trade margins.</dd>
+												<dt>Approach</dt>
+												<dd>Pack-level unit economics, a price waterfall from MRP to net realization, and a driver-based P&amp;L for FY27E&ndash;FY31E: an inputs sheet, a CHOOSE scenario switch for base, bull and bear, and a constant-elasticity volume response. Then a Monte Carlo simulation with correlated drivers, a backtest of planning rules on HUL&rsquo;s history and a reverse DCF against the share price.</dd>
+												<dt>Result</dt>
+												<dd>Passing on the full GST cut lowers the MRP by 11% without changing what HUL earns per pack, and at an elasticity of &minus;0.5 volume rises about 6%. Base-case revenue is &#8377;71,022 crore in FY27E and &#8377;95,289 crore in FY31E. One point of material cost moves FY31E EBITDA by about &#8377;950 crore, as much as 1.1 points of extra volume growth every year.</dd>
+												<dt>Recommendation</dt>
+												<dd>Pass GST cuts through price on larger packs and through grammage on &#8377;5 and &#8377;10 packs, protect gross margin with hedging and forward buying, and plan costs on the P10 outcome (FY31E profit of about &#8377;13,600 crore) while setting targets on the base case.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/deliverables/BA_Projects_Practice_Workbook.xlsx" target="_blank" rel="noopener" class="button primary">Excel Workbook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p3_fmcg_model.py" target="_blank" rel="noopener" class="button">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
 									</div>
 
 									<ul class="actions pager">

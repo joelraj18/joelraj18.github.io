@@ -9,13 +9,13 @@
 		<title>Tableau | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Tableau work by Joel Raj Vemuri: interactive dashboards and data stories built with calculated fields and parameters." />
+		<meta name="description" content="Tableau case study by Joel Raj Vemuri: a six-part interactive story on car insurance claims, with calculated fields, parameters and an executive dashboard published on Tableau Public." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/tableau.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Tableau | Joel Raj Vemuri" />
-		<meta property="og:description" content="Tableau work by Joel Raj Vemuri: interactive dashboards and data stories built with calculated fields and parameters." />
+		<meta property="og:description" content="A Tableau case study: a six-part interactive story on car insurance claims, from customer demographics to risk-based pricing, on Tableau Public." />
 		<meta property="og:url" content="https://joelraj18.github.io/tableau.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -91,6 +91,9 @@
 										<li>Story Points</li>
 										<li>KPI Dashboards</li>
 										<li>Data Visualization</li>
+										<li>Pareto Charts</li>
+										<li>Treemaps</li>
+										<li>Tableau Public</li>
 									</ul>
 									<ul class="actions">
 										<li><a href="about.html#approach-bi" class="button next">My Dashboard Approach</a></li>
@@ -105,16 +108,40 @@
 										<h2>Case Studies</h2>
 									</header>
 
-									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
-									<div class="coming-next">
-										<h3>Coming Next</h3>
-										<p>Full write-ups are being added one at a time. Each covers the business question, the data, the dashboard design and key calculated fields, the insight and the recommendation, with a link to the live Tableau Public view.</p>
-										<ul class="alt">
-											<li><strong>Car Insurance Claims Dashboard</strong>: a six-part interactive story and executive KPI dashboard on what drives claims</li>
-										</ul>
-										<ul class="actions">
-											<li><a href="about.html#approach-bi" class="button primary">Read the Project Summary</a></li>
-										</ul>
+									<!-- Publishing a project: add an <article> inside <div class="case-studies"> (template in README.md), newest first. -->
+									<div class="case-studies">
+
+										<!-- Car Insurance Claims Dashboard -->
+										<article class="case-study" id="car-insurance" aria-labelledby="car-insurance-title">
+											<figure class="case-figure">
+												<a href="images/projects/car-insurance.webp">
+													<img src="images/projects/car-insurance.webp" srcset="images/projects/car-insurance-sm.webp 800w, images/projects/car-insurance.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Tableau dashboard: a Pareto chart of claim amount by occupation led by blue-collar drivers at $3.89 million (34.3% of claims), average claim by risk category ($2,300 medium, $2,234 high, $986 low), and a treemap of total claims by car type led by SUVs at $3.70 million" width="1800" height="834" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Where the claims money goes</strong> The financial-risk view of the story: claims by occupation, risk category and car type.</figcaption>
+											</figure>
+											<p class="project-kicker">Data Visualization &middot; Insurance</p>
+											<h3 id="car-insurance-title" class="case-title">Car Insurance Claims Dashboard</h3>
+											<ul class="tags"><li>Tableau</li><li>Calculated Fields</li><li>Parameters</li><li>Story Points</li><li>Pareto Chart</li><li>Treemap</li><li>Bubble Chart</li><li>Interactive Dashboard</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>A car insurer wants to know who claims, how often and how much, to support underwriting, pricing and risk management.</dd>
+												<dt>Data</dt>
+												<dd>7,647 policyholders with 21 fields: driver demographics, income and education, vehicle type, value and age, claims in the past five years and the current claim amount, $11.3 million in total.</dd>
+												<dt>Approach</dt>
+												<dd>A six-part Tableau story: customer demographics, claim behavior, financial risk, vehicle value, an executive dashboard, and a summary with recommendations. Calculated fields for driver age group and risk category, parameters for education level and a metric selector, and eight chart types, including Pareto, treemap, bubble and highlight table.</dd>
+												<dt>Result</dt>
+												<dd>Blue-collar drivers account for $3.89M (34.3%) of all claims and SUVs for $3.70M (32.6%). Medium- and high-risk policyholders average $2,300 and $2,234 in claims, more than twice the $986 of low-risk ones, and claims per driver over five years range from 0.70 for lawyers to 0.90 for students.</dd>
+												<dt>Recommendation</dt>
+												<dd>Move to risk-based premiums that weigh occupation, vehicle type and vehicle age, strengthen underwriting and fraud checks for the higher-risk segments, review pricing for high-value vehicles, and give underwriting, pricing and management teams the interactive dashboard.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://public.tableau.com/app/profile/joel.raj8153/viz/Car_Insurance_Claims_Analysis_Project/CarInsuranceClaimsAnalysisFromCustomerInsightstoBusinessRecommendations" target="_blank" rel="noopener" class="button primary">Live Version<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="projects/car-insurance/Car_Insurance_Claims_Dashboard.pdf" target="_blank" rel="noopener" class="button">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="projects/car-insurance/Car_Insurance_Claims_Data.xlsx" download class="button">Dataset (Excel)</a></li>
+											</ul>
+										</article>
+
 									</div>
 
 									<ul class="actions pager">
