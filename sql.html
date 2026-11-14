@@ -9,13 +9,13 @@
 		<title>SQL | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="SQL work by Joel Raj Vemuri: data validation, KPI queries with CTEs and window functions, and root-cause analysis." />
+		<meta name="description" content="SQL case studies by Joel Raj Vemuri: data warehouses that run unchanged on SQLite, PostgreSQL and MySQL, with validation, star schemas and reconciliation, and a P&amp;L rebuilt from a raw ledger." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/sql.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="SQL | Joel Raj Vemuri" />
-		<meta property="og:description" content="SQL work by Joel Raj Vemuri: data validation, KPI queries with CTEs and window functions, and root-cause analysis." />
+		<meta property="og:description" content="SQL case studies: portable data warehouses with validation, star schemas and reconciliation, and a consolidated P&amp;L rebuilt from a raw general ledger." />
 		<meta property="og:url" content="https://joelraj18.github.io/sql.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -84,10 +84,11 @@
 									<header class="major">
 										<h2>What This Track Covers</h2>
 									</header>
-									<p>Projects in this track answer business questions directly from relational data: validating the data first, building KPIs with CTEs and aggregations, tracking trends with window functions, and drilling down to the driver behind a change.</p>
+									<p>Projects in this track answer business questions directly from relational data: validating the data first, building KPIs with CTEs and aggregations, tracking trends with window functions, and drilling down to the driver behind a change. The scripts are written to run unchanged on more than one database engine, and every table is reconciled to its source before a number is reported.</p>
 									<ul class="tags">
 										<li>MySQL</li>
 										<li>PostgreSQL</li>
+										<li>SQLite</li>
 										<li>Joins</li>
 										<li>CTEs</li>
 										<li>Subqueries</li>
@@ -96,6 +97,9 @@
 										<li>Date Functions</li>
 										<li>Aggregations</li>
 										<li>Root-Cause Analysis</li>
+										<li>Star Schema</li>
+										<li>Data Validation</li>
+										<li>Reconciliation</li>
 									</ul>
 									<ul class="actions">
 										<li><a href="about.html#approach-sql" class="button next">My SQL Approach</a></li>
@@ -109,6 +113,100 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
+									<p>Three data layers that check the data before reporting it: two run unchanged on several database engines, and one rebuilds a profit and loss statement from a raw general ledger, to the cent.</p>
+
+									<div class="case-studies">
+
+										<!-- Agent Bonus Data Warehouse -->
+										<article class="case-study" id="bonus-sql" aria-labelledby="bonus-sql-title">
+											<figure class="case-figure">
+												<a href="images/projects/bonus-sql.webp">
+													<img src="images/projects/bonus-sql.webp" srcset="images/projects/bonus-sql-sm.webp 800w, images/projects/bonus-sql.webp 1320w" sizes="(max-width: 736px) 92vw, 960px" alt="Twin pairs from the two loads of the file: income in the second load is always exactly &#8377;3,457 higher, while the bonus is drawn again, with a correlation of only 0.35" width="1320" height="680" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>The file is two loads of the same customers</strong> Validation queries showed that customer 7000000 + n is the twin of 7002260 + n in all 2,260 pairs.</figcaption>
+											</figure>
+											<p class="project-kicker">End-to-End Project &middot; Insurance</p>
+											<h3 id="bonus-sql-title" class="case-title">Agent Bonus Data Warehouse</h3>
+											<ul class="tags"><li>SQLite</li><li>PostgreSQL</li><li>MySQL 8</li><li>CTEs</li><li>Window Functions</li><li>CASE WHEN</li><li>Star Schema</li><li>Data Validation</li><li>Reconciliation</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Before predicting agent bonuses, prove the data can be trusted and build the KPI layer that the models, the Excel dashboard and Power BI all read.</dd>
+												<dt>Data</dt>
+												<dd>4,520 customer records from an Excel extract, loaded into a raw table and reconciled to control totals taken from the source.</dd>
+												<dt>Approach</dt>
+												<dd>Six portable scripts (schema, validate, clean, star, KPIs, predictions) that run unchanged on SQLite, PostgreSQL 16 and MySQL 8: 22 audit checks written to an audit table; a star schema with 11 dimensions; KPI views with medians from ROW_NUMBER and COUNT windows, NTILE quartiles, LAG and RANK; and a scored fact table built with a LEFT JOIN instead of an engine-specific UPDATE.</dd>
+												<dt>Result</dt>
+												<dd>Every engine gives the same answer: 22 audit checks (18 pass, 4 flagged for review, 0 fail), 42 of 42 reconciliation checks, and all 12 tables and both prediction views identical to SQLite. The flags are findings: 2,887 records with an &ldquo;age&rdquo; under 18, 1,029 labels outside the reference list (such as &ldquo;Fe male&rdquo;), and the twin loads. A business-rule check confirms every bonus sits within 100 to 200 rupees of cover per bonus rupee.</dd>
+												<dt>Recommendation</dt>
+												<dd>Keep twins on the same side of every train and test split, fix the labels at source, ask the data owner what the Age field means, and point Power BI straight at the MySQL or PostgreSQL warehouse, which holds exactly the columns of the report&rsquo;s fact table.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Bonus-Prediction-for-Insurance-Agents/tree/HEAD/sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="python.html#bonus-prediction" class="button">Full Case Study</a></li>
+											</ul>
+										</article>
+
+										<!-- FMCG Supply Chain Data Layer -->
+										<article class="case-study" id="supply-chain-sql" aria-labelledby="supply-chain-sql-title">
+											<figure class="case-figure">
+												<a href="images/projects/supply-chain-sql.webp">
+													<img src="images/projects/supply-chain-sql.webp" srcset="images/projects/supply-chain-sql-sm.webp 800w, images/projects/supply-chain-sql.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Star schema with a warehouse-by-quarter fact table in the middle, joined to warehouse, region and period dimensions, and a forecast fact table beside it" width="1800" height="959" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>One fact table at warehouse-by-quarter grain</strong> New quarters append to the period dimension without changing the model.</figcaption>
+											</figure>
+											<p class="project-kicker">End-to-End Project &middot; FMCG</p>
+											<h3 id="supply-chain-sql-title" class="case-title">FMCG Supply Chain Data Layer</h3>
+											<ul class="tags"><li>PostgreSQL</li><li>SQLite</li><li>MySQL 8</li><li>CTEs</li><li>Window Functions</li><li>NULLIF</li><li>Star Schema</li><li>Data Quality Rules</li><li>Reconciliation</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Turn a raw file of 25,000 warehouses into a trusted model extract, and answer the business questions in SQL.</dd>
+												<dt>Data</dt>
+												<dd>One row per warehouse for the latest three months: 24 fields covering location, capacity, ownership, certification, staffing, incidents and tons shipped.</dd>
+												<dt>Approach</dt>
+												<dd>Seven portable scripts: a staging table with no constraints, so problems reach the checks instead of failing the load; a quality view with one row per rule (severity, actual, expected, status); a star schema; reconciliation in total and by zone; a model-extract view that Python reads; and nine named business queries using RANK, running shares and a portable median.</dd>
+												<dt>Result</dt>
+												<dd>21 quality rules (17 pass, 4 informational, 0 fail) and 15 of 15 reconciliation checks, identical on PostgreSQL 16 and SQLite. The second engine caught what the first hid: missing certificates were written as the text &ldquo;NA&rdquo;, which pandas silently read as missing but PostgreSQL loaded as a grade, for 908 warehouses.</dd>
+												<dt>Recommendation</dt>
+												<dd>Keep each rule in one place: staging stores the raw token on every engine, the checks count it, and the star schema converts it with NULLIF. Readers list their missing-value tokens explicitly instead of trusting library defaults.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Supply-Chain-Management/tree/HEAD/sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="python.html#supply-chain" class="button">Full Case Study</a></li>
+											</ul>
+										</article>
+
+										<!-- Consolidated P&L from a Raw General Ledger -->
+										<article class="case-study" id="pl-sql" aria-labelledby="pl-sql-title">
+											<figure class="case-figure">
+												<a href="images/projects/pl-sql.webp">
+													<img src="images/projects/pl-sql.webp" srcset="images/projects/pl-sql-sm.webp 800w, images/projects/pl-sql.webp 1222w" sizes="(max-width: 736px) 92vw, 960px" alt="Net sales by entity, FY2011 to FY2013: $20.0M, $31.6M and $40.0M, with France, Germany and Australia added as new entities" width="1222" height="758" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Growth from new entities</strong> Most of the headline growth came from entities added in FY2012 and FY2013, not from the existing business.</figcaption>
+											</figure>
+											<p class="project-kicker">Business Analytics &middot; Finance</p>
+											<h3 id="pl-sql-title" class="case-title">Consolidated P&amp;L from a Raw General Ledger</h3>
+											<ul class="tags"><li>SQL</li><li>SQLite</li><li>CTEs</li><li>Joins</li><li>CASE WHEN</li><li>Currency Translation</li><li>Consolidation</li><li>Python (pandas)</li><li>Excel</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Finance has a raw ledger extract but no reliable P&amp;L to answer &ldquo;How profitable are we, where, and against budget?&rdquo;</dd>
+												<dt>Data</dt>
+												<dd>Microsoft&rsquo;s AdventureWorksDW sample: 39,409 ledger postings across 14 organizations, a 99-account chart of accounts, actual and budget scenarios, and daily exchange rates.</dd>
+												<dt>Approach</dt>
+												<dd>Profiled the ledger, mapped posting dates to fiscal periods (including a year-end &ldquo;period 13&rdquo;), mapped 35 accounts to 21 P&amp;L lines, translated four currencies at each posting date&rsquo;s average rate and eliminated intercompany sales. The consolidated P&amp;L is one SQL query: a CTE that joins the ledger to the period, entity, rate and account maps, with CASE expressions for the signs.</dd>
+												<dt>Result</dt>
+												<dd>The query matches the pandas P&amp;L to the cent in all three years, and net income also ties to the official account-hierarchy roll-up. Like-for-like FY2013 sales grew 7.1%, against 26.6% reported, and FY2011 EBIT missed its budget by $1.91 million (25.8%).</dd>
+												<dt>Recommendation</dt>
+												<dd>Report like-for-like growth separately from growth that comes from new entities, make budgets flex with volume, and run the pipeline after each month-end close, reviewing the exceptions it flags.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/sql/p2_pl.sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+									</div>
 
 									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
 									<div class="coming-next">

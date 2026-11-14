@@ -9,13 +9,13 @@
 		<title>Python &amp; Machine Learning | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Python and machine learning work by Joel Raj Vemuri: data cleaning, feature engineering, classification and clustering projects with business recommendations." />
+		<meta name="description" content="Python and machine learning case studies by Joel Raj Vemuri: two end-to-end projects in insurance and supply chain, five AI projects in vision, NLP and healthcare, and forecasting and marketing-mix models, each with results against a baseline." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/python.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Python &amp; Machine Learning | Joel Raj Vemuri" />
-		<meta property="og:description" content="Python and machine learning work by Joel Raj Vemuri: data cleaning, feature engineering, classification and clustering projects with business recommendations." />
+		<meta property="og:description" content="Nine Python and machine learning case studies, from end-to-end insurance and supply chain projects to computer vision, NLP and forecasting, each with results against a baseline." />
 		<meta property="og:url" content="https://joelraj18.github.io/python.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -84,25 +84,33 @@
 									<header class="major">
 										<h2>What This Track Covers</h2>
 									</header>
-									<p>Projects in this track take a business question from raw data to a recommendation: cleaning and exploring the data with Pandas, engineering features, then building, tuning and evaluating regression, classification and clustering models with Scikit-learn against a clear baseline.</p>
+									<p>Projects in this track take a business question from raw data to a recommendation: cleaning and exploring the data with Pandas, engineering features, then building, tuning and evaluating regression, classification and clustering models with Scikit-learn against a clear baseline. They also cover deep learning for images and text, time-series forecasting, and the checks that show a result will hold up after launch: leakage, confidence intervals, tests on outside data and drift monitoring.</p>
 									<ul class="tags">
 										<li>Pandas</li>
 										<li>NumPy</li>
 										<li>Matplotlib</li>
 										<li>Seaborn</li>
 										<li>Scikit-learn</li>
+										<li>TensorFlow / Keras</li>
 										<li>Feature Engineering</li>
 										<li>Linear Regression</li>
 										<li>Logistic Regression</li>
 										<li>Decision Trees</li>
 										<li>Random Forest</li>
 										<li>Gradient Boosting</li>
+										<li>XGBoost</li>
+										<li>LightGBM</li>
+										<li>CNNs &amp; Transfer Learning</li>
+										<li>NLP (TF-IDF)</li>
+										<li>YOLOv8</li>
+										<li>Time-Series Forecasting</li>
 										<li>SMOTE</li>
 										<li>K-Means</li>
 										<li>Hierarchical Clustering</li>
 										<li>Cross-Validation</li>
 										<li>F1 / Recall</li>
 										<li>RMSE / MAE</li>
+										<li>Drift Monitoring</li>
 									</ul>
 									<ul class="actions">
 										<li><a href="about.html#approach-ml" class="button next">My ML Approach</a></li>
@@ -116,8 +124,307 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
+									<p>Nine projects in three groups. Each states the problem, the data, the approach, the result against a baseline and the recommendation, with a link to the code.</p>
+									<ul class="jump-links" aria-label="Case study groups">
+										<li><a href="#end-to-end">End-to-End Projects</a></li>
+										<li><a href="#ai-projects">AI Projects</a></li>
+										<li><a href="#business-analytics">Business Analytics</a></li>
+									</ul>
 
-									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
+									<!-- End-to-End Projects -->
+									<h3 id="end-to-end" class="case-group">End-to-End Projects</h3>
+									<p class="case-group-intro">Two complete projects, each taken from the business question to a decision: a SQL data layer checked on several database engines, models judged against simple baselines, an Excel dashboard and a Power BI kit, and a sized experiment to prove the result.</p>
+									<div class="case-studies">
+
+										<!-- Bonus Prediction for Insurance Agents -->
+										<article class="case-study" id="bonus-prediction" aria-labelledby="bonus-prediction-title">
+											<figure class="case-figure">
+												<a href="images/projects/bonus-prediction.webp">
+													<img src="images/projects/bonus-prediction.webp" srcset="images/projects/bonus-prediction-sm.webp 800w, images/projects/bonus-prediction.webp 1320w" sizes="(max-width: 736px) 92vw, 960px" alt="Scatter plot of agent bonus against the policy&rsquo;s sum assured: every record lies between two lines, a bonus of 0.5% and of 1.0% of cover" width="1320" height="760" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Bonus is a commission on cover</strong> Every one of the 4,520 bonuses lies between 0.5% and 1.0% of the policy&rsquo;s sum assured, so policy size drives it.</figcaption>
+											</figure>
+											<p class="project-kicker">Regression &amp; Classification &middot; Insurance</p>
+											<h4 id="bonus-prediction-title" class="case-title">Bonus Prediction for Insurance Agents</h4>
+											<ul class="tags"><li>Python</li><li>SQL</li><li>scikit-learn</li><li>XGBoost</li><li>Random Forest</li><li>Gradient Boosting</li><li>Classification</li><li>Cost-Based Thresholds</li><li>CUPED</li><li>Excel</li><li>Power BI</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>A life insurer wants to predict the monthly bonus it pays each field agent, understand what drives it, and decide which agents to enroll in engagement and upskilling programs.</dd>
+												<dt>Data</dt>
+												<dd>4,520 customer records with policy, customer and agent fields. Checks in SQL proved the file is two loads of the same 2,260 customers (customer 7000000 + n is the twin of 7002260 + n), so every split keeps twins together.</dd>
+												<dt>Approach</dt>
+												<dd>A portable SQL warehouse for validation, cleaning and KPIs; grouped cross-validation against three baselines; regularized regression, nearest neighbors, single trees and ensembles up to XGBoost, with the final model chosen by a one-standard-error rule; two classification flags with thresholds set by program costs; drift checks (PSI) and an experiment design.</dd>
+												<dt>Result</dt>
+												<dd>On 904 unseen records the final model, an average of XGBoost, random forest and gradient boosting, scores RMSE &#8377;537 and MAPE 10.1% (R&sup2; 0.872), against &#8377;635 for linear regression, &#8377;896 for the commission rule and &#8377;1,534 for the naive median. Total bonus lands within 0.40%. The engagement flag catches 96.6% of top-quartile records (F1 0.88; PR AUC 0.964 against 0.25 by chance).</dd>
+												<dt>Recommendation</dt>
+												<dd>Flag 1,401 records for engagement and 1,382 for upskilling. Add service quality to the scheme, since records with a complaint earn &#8377;4,109 against &#8377;4,065 without one. Test any change with the model&rsquo;s prediction as a CUPED covariate, which cuts the trial from 729 to 101 agents per arm.</dd>
+												<dt>Deliverables</dt>
+												<dd>A SQL warehouse that runs on SQLite, PostgreSQL and MySQL, two executed notebooks, an Excel KPI dashboard (17 of 17 measures tested), a Power BI kit with 19 DAX measures and a page-by-page report spec, and a 56-page report.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Bonus-Prediction-for-Insurance-Agents" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/Bonus-Prediction-for-Insurance-Agents/blob/HEAD/notebooks/BonusRegression.ipynb" target="_blank" rel="noopener" class="button">Regression Notebook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- FMCG Supply Chain Optimization -->
+										<article class="case-study" id="supply-chain" aria-labelledby="supply-chain-title">
+											<figure class="case-figure">
+												<a href="images/projects/supply-chain.webp">
+													<img src="images/projects/supply-chain.webp" srcset="images/projects/supply-chain-sm.webp 800w, images/projects/supply-chain.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Stacked bars of tons short and tons in excess across 5,000 test warehouses: the current rule mismatches 48.0 million tons, the forecast plus safety stock 3.8 million" width="1800" height="883" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>93% less mismatch than the current rule</strong> A backtest on 5,000 warehouses the model never saw. The buffer adds excess on purpose, because a short ton costs three times more than an extra one.</figcaption>
+											</figure>
+											<p class="project-kicker">Forecasting &amp; Inventory Planning &middot; FMCG</p>
+											<h4 id="supply-chain-title" class="case-title">FMCG Supply Chain Optimization</h4>
+											<ul class="tags"><li>Python</li><li>SQL</li><li>LightGBM</li><li>XGBoost</li><li>Stacking</li><li>SHAP</li><li>Conformal Intervals</li><li>Newsvendor Model</li><li>Classification</li><li>Power Analysis</li><li>Excel</li><li>Power BI</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>How many tons of instant noodles should an FMCG company ship to each of its 25,000 warehouses, and where can advertising lift demand?</dd>
+												<dt>Data</dt>
+												<dd>A three-month snapshot of 25,000 warehouses with 24 fields (location, capacity, ownership, certification, staffing, incidents) and no sales, dates or costs. Shipped tons stand in for demand, and today&rsquo;s rule, the average for each zone and capacity size, is rebuilt from the brief.</dd>
+												<dt>Approach</dt>
+												<dd>A portable SQL data layer with 21 quality rules; leakage-safe pipelines; baselines, nine models, tuning and one-standard-error selection; a newsvendor safety buffer at a 75% service level (a short ton costs 3&times; an excess one); a fallback model for when storage issues are not yet reported; and a second model that flags high-volume warehouses.</dd>
+												<dt>Result</dt>
+												<dd>Tuned LightGBM misses by 852 tons (RMSE) on 5,000 unseen warehouses, against 11,655 for the current rule (R&sup2; 0.995). Shipping the forecast plus the buffer cuts the tons mismatch by 93% versus the rule, with a 99.4% fill rate against 78.2%. From planning inputs alone, the high-volume flag reaches average precision 0.714 against 0.25 by chance and catches 78% of high-volume warehouses (F1 0.65).</dd>
+												<dt>Recommendation</dt>
+												<dd>Ship the forecast plus a size-based buffer, keep the fallback model in the plan, and test advertising in a controlled geo experiment rather than shifting budget, because regions do not differ once warehouse traits are known. The pilot needs 850 warehouses per arm for 80% power.</dd>
+												<dt>Deliverables</dt>
+												<dd>A shipping plan for every warehouse, two executed notebooks, an Excel KPI dashboard, a Power BI kit with 17 DAX measures and their expected values, a stratified pilot assignment and a full report.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Supply-Chain-Management" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/Supply-Chain-Management/blob/HEAD/notebooks/01_supply_chain_regression.ipynb" target="_blank" rel="noopener" class="button">Regression Notebook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+									</div>
+
+									<!-- AI Projects -->
+									<h3 id="ai-projects" class="case-group">AI Projects</h3>
+									<p class="case-group-intro">Five machine-learning projects on public datasets. Each was built, improved, and then audited the way a reviewer would challenge it: data leakage, confidence intervals, significance tests, tests on outside data, and drift monitoring that needs no labels.</p>
+									<div class="case-studies">
+
+										<!-- Breast Cancer Diagnosis -->
+										<article class="case-study" id="breast-cancer" aria-labelledby="breast-cancer-title">
+											<figure class="case-figure">
+												<a href="images/projects/breast-cancer.webp">
+													<img src="images/projects/breast-cancer.webp" srcset="images/projects/breast-cancer-sm.webp 800w, images/projects/breast-cancer.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Confusion matrix on the held-out test set at threshold 0.22 (69 benign correct, 3 false alarms, 1 missed cancer, 41 cancers caught) beside the ROC curve with AUC 0.996" width="1800" height="717" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>41 of 42 cancers caught</strong> The held-out test set at the cost-based threshold of 0.22, beside the ROC curve.</figcaption>
+											</figure>
+											<p class="project-kicker">Classification &middot; Healthcare</p>
+											<h4 id="breast-cancer-title" class="case-title">Breast Cancer Diagnosis</h4>
+											<ul class="tags"><li>Python</li><li>scikit-learn</li><li>Logistic Regression (L1)</li><li>Cross-Validation</li><li>Cost-Based Threshold</li><li>Decision Curve Analysis</li><li>Bootstrap Intervals</li><li>Drift Monitoring</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Can 30 measurements of cell nuclei from a needle-biopsy image flag malignant tumors reliably enough to support a clinician?</dd>
+												<dt>Data</dt>
+												<dd>Breast Cancer Wisconsin (Diagnostic), UCI: 569 patients, 37% malignant, with 114 held out for a single final test.</dd>
+												<dt>Approach</dt>
+												<dd>Eight models in scaled pipelines under five-fold cross-validation. A transparent L1 logistic regression, statistically tied with the SVM, with its threshold chosen on training folds to minimize cost when a missed cancer costs 10&times; an unnecessary biopsy. Then an audit: bootstrap and Wilson intervals, decision-curve analysis, tumor-size slices and a drift monitor that needs no labels.</dd>
+												<dt>Result</dt>
+												<dd>ROC-AUC 0.996 (95% CI 0.989&ndash;1.000). At the chosen threshold, recall is 97.6% (41 of 42 cancers) with F1 0.95 and specificity 95.8%, against a majority-class baseline that catches no cancers at 62.6% accuracy.</dd>
+												<dt>Recommendation</dt>
+												<dd>Use it as decision support that flags cases for biopsy or a second read, never as a diagnosis. It adds net benefit over &ldquo;biopsy everyone&rdquo; at every threshold from 0.02 to 0.60, but its misses are small tumors, so re-validate it before another lab&rsquo;s measurements are used.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/AI-Projects/tree/HEAD/projects/01_breast_cancer" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/AI-Projects/blob/HEAD/projects/01_breast_cancer/MODEL_CARD.md" target="_blank" rel="noopener" class="button">Model Card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- Fake News Detection -->
+										<article class="case-study" id="fake-news" aria-labelledby="fake-news-title">
+											<figure class="case-figure">
+												<a href="images/projects/fake-news.webp">
+													<img src="images/projects/fake-news.webp" srcset="images/projects/fake-news-sm.webp 800w, images/projects/fake-news.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Held-out accuracy by approach: majority baseline 52.3%, a one-line &ldquo;(Reuters)&rdquo; rule 99.5%, cleaned models 98.8 to 99.3%, the model on a new source 55.3%, and trained on both sources 86.1%" width="1800" height="747" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>From a suspicious 99% to honest numbers</strong> A one-line rule scored 99.5% until source fingerprints were removed; a new source then showed the real limit.</figcaption>
+											</figure>
+											<p class="project-kicker">NLP Classification &middot; Media</p>
+											<h4 id="fake-news-title" class="case-title">Fake News Detection</h4>
+											<ul class="tags"><li>Python</li><li>NLP</li><li>TF-IDF</li><li>Linear SVM</li><li>Logistic Regression</li><li>Sentence Embeddings</li><li>McNemar Test</li><li>Drift Monitoring</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Can word patterns separate fake from real news, and does that hold on a news source the model has never seen?</dd>
+												<dt>Data</dt>
+												<dd>The ISOT Fake News dataset (University of Victoria), 38,285 articles after cleaning, and 6,219 articles from the McIntire dataset as a second source.</dd>
+												<dt>Approach</dt>
+												<dd>Found that the rule &ldquo;contains (Reuters)&rdquo; alone scores 99.5%, so stripped datelines, photo credits, links and handles and removed 6,613 duplicate or near-empty articles. Compared four linear models on TF-IDF, then tested on a time split and on the new source, with sentence embeddings, McNemar tests and a score-drift alarm.</dd>
+												<dt>Result</dt>
+												<dd>98.9% accuracy in-domain (95% CI 98.7&ndash;99.2), with F1 0.988 and recall 98.5% on fake articles, against 52.3% for the majority class. On the new source accuracy falls to 55%; training on both sources lifts it to 86%.</dd>
+												<dt>Recommendation</dt>
+												<dd>Use it only as a triage signal that ranks articles for human fact-checkers, never for automatic takedowns, and watch score drift: on the new source the population stability index jumped to 2.05 (above 0.25 means act), an alarm that fires before a single article is labeled.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/AI-Projects/tree/HEAD/projects/02_fake_news" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/AI-Projects/blob/HEAD/projects/02_fake_news/MODEL_CARD.md" target="_blank" rel="noopener" class="button">Model Card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- Handwritten Digit Recognition -->
+										<article class="case-study" id="digit-recognition" aria-labelledby="digit-recognition-title">
+											<figure class="case-figure">
+												<a href="images/projects/digit-recognition.webp">
+													<img src="images/projects/digit-recognition.webp" srcset="images/projects/digit-recognition-sm.webp 800w, images/projects/digit-recognition.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Accuracy of four models on MNIST, USPS and Semeion digits with naive resizing and with MNIST-style preprocessing, beside recall by digit on new handwriting, where Semeion&rsquo;s 1s and 9s fall to 61% and 68%" width="1800" height="608" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Other people&rsquo;s handwriting</strong> Preprocessing decides how well the model reads handwriting it never saw, and the 148 KB model generalizes best.</figcaption>
+											</figure>
+											<p class="project-kicker">Computer Vision &middot; Document Processing</p>
+											<h4 id="digit-recognition-title" class="case-title">Handwritten Digit Recognition</h4>
+											<ul class="tags"><li>Python</li><li>TensorFlow / Keras</li><li>CNN</li><li>Batch Normalization</li><li>Data Augmentation</li><li>Ensembles</li><li>TensorFlow Lite</li><li>External Validation</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>How far does each step from logistic regression to a CNN take accuracy, and does the model read handwriting it was not trained on?</dd>
+												<dt>Data</dt>
+												<dd>MNIST (54,000 training, 6,000 validation and 10,000 test images), with USPS postal digits (2,007) and Semeion forms from Italy (1,593) as outside tests.</dd>
+												<dt>Approach</dt>
+												<dd>Logistic regression, then an MLP, a CNN, and a CNN with batch normalization and augmentation; robustness tests on shifted digits; ensembles and a compact model quantized to TensorFlow Lite; McNemar tests; and one shared preprocessing module, so training and serving cannot drift apart.</dd>
+												<dt>Result</dt>
+												<dd>99.35% on the MNIST test set (95% CI 99.19&ndash;99.51), against 92.54% for logistic regression, and 98.99% on digits shifted by 4 pixels, where the CNN without augmentation drops to 86.76%. On new handwriting: USPS 97.5% and Semeion 88.6%, or 91.9% with the 148 KB model.</dd>
+												<dt>Recommendation</dt>
+												<dd>Ship the 148 KB model for phone use, keep MNIST-style preprocessing in the serving path (a naive resize costs 6 points on USPS and 16 on Semeion), and send predictions below 70% confidence to manual entry.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/AI-Projects/tree/HEAD/projects/03_digit_recognition" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/AI-Projects/blob/HEAD/projects/03_digit_recognition/MODEL_CARD.md" target="_blank" rel="noopener" class="button">Model Card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- License Plate Detection and Reading -->
+										<article class="case-study" id="license-plates" aria-labelledby="license-plates-title">
+											<figure class="case-figure">
+												<a href="images/projects/license-plates.webp">
+													<img src="images/projects/license-plates.webp" srcset="images/projects/license-plates-sm.webp 800w, images/projects/license-plates.webp 905w" sizes="(max-width: 736px) 92vw, 960px" alt="Detector recall by image source on the full test set and with near-duplicate images removed: parking camera 99.8%, motorbike 100%, web and street photos 83.6%, all images 97.6% both ways" width="905" height="890" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Leakage found, score unchanged</strong> 57 test images were copies of training photos; without them recall stays at 97.6%.</figcaption>
+											</figure>
+											<p class="project-kicker">Object Detection &amp; OCR &middot; Transport</p>
+											<h4 id="license-plates-title" class="case-title">License Plate Detection and Reading</h4>
+											<ul class="tags"><li>Python</li><li>YOLOv8</li><li>OpenCV</li><li>EasyOCR</li><li>Transfer Learning</li><li>IoU / mAP</li><li>Bootstrap Intervals</li><li>Drift Monitoring</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Classical computer vision or a trained detector, and can the plate be read as well as found?</dd>
+												<dt>Data</dt>
+												<dd>The Vehicle Registration Plates dataset (Roboflow, CC BY 4.0): 3,000 training images and a test set of 882 images with 902 plates from parking cameras, motorbikes and street photos.</dd>
+												<dt>Approach</dt>
+												<dd>Haar-cascade and edge-contour baselines against YOLOv8n fine-tuned within a 1.5-hour CPU budget; EasyOCR on four enhanced crops with a plate-grammar corrector; then a near-duplicate leakage audit, image-level bootstrap intervals and an end-to-end success rate.</dd>
+												<dt>Result</dt>
+												<dd>YOLOv8n finds 97.6% of plates (95% CI 96.5&ndash;98.7) at 95.3% precision (F1 0.96, mAP50 0.982), against 29.2% recall for the Haar cascade. Reading is the bottleneck: about 16% of cars get an exactly correct plate, and 41% a reading within one character of a watch-list entry.</dd>
+												<dt>Recommendation</dt>
+												<dd>Detection is solved, so invest next in an OCR model trained on plate crops rather than a bigger detector, use a group-aware split so all copies of a photo stay on one side, and give each camera its own drift reference.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/AI-Projects/tree/HEAD/projects/04_license_plate" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/AI-Projects/blob/HEAD/projects/04_license_plate/MODEL_CARD.md" target="_blank" rel="noopener" class="button">Model Card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- COVID-19 Detection from Chest X-rays -->
+										<article class="case-study" id="covid-xray" aria-labelledby="covid-xray-title">
+											<figure class="case-figure">
+												<a href="images/projects/covid-xray.webp">
+													<img src="images/projects/covid-xray.webp" srcset="images/projects/covid-xray-sm.webp 800w, images/projects/covid-xray.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Grad-CAM heat maps on six chest X-rays: on the COVID-19 films the heat sits on the lungs, while two normal films are decided by the abdomen and the neck" width="1800" height="655" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Is it looking at the lungs?</strong> Grad-CAM shows some normal films decided by the abdomen or the neck, a sign that the model learned shortcuts.</figcaption>
+											</figure>
+											<p class="project-kicker">Medical Imaging &middot; Education Only</p>
+											<h4 id="covid-xray-title" class="case-title">COVID-19 Detection from Chest X-rays</h4>
+											<ul class="tags"><li>Python</li><li>TensorFlow / Keras</li><li>MobileNetV2</li><li>Transfer Learning</li><li>Grad-CAM</li><li>Shortcut Probes</li><li>External Validation</li><li>Calibration</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Can a CNN tell COVID-19, normal and pneumonia chest X-rays apart, and is it looking at the lungs?</dd>
+												<dt>Data</dt>
+												<dd>Chest X-ray (Covid-19 &amp; Pneumonia), Kaggle: 4,372 training films and a 1,288-film test set (116 COVID-19), plus 201 adult films from another collection as an outside test.</dd>
+												<dt>Approach</dt>
+												<dd>A CNN from scratch, then MobileNetV2 frozen and fine-tuned, with class weights and a COVID-19 threshold chosen on validation data; shortcut probes (image metadata alone, lungs hidden); Grad-CAM; an outside test that breaks the confound; Wilson intervals and calibration.</dd>
+												<dt>Result</dt>
+												<dd>96.1% test accuracy and COVID-19 recall of 93.1% (95% CI 87.0&ndash;96.5) at 100% precision (F1 0.96). But image metadata alone scores 93.5%, and 86% of adult non-COVID pneumonia films from another collection were called COVID-19: the dataset ties the diagnosis to the source and the patients&rsquo; age.</dd>
+												<dt>Recommendation</dt>
+												<dd>Not deployable, and stated as such. A credible version needs patient-level splits, the same hospitals and age range for every class, and a test on a hospital that contributed no training data.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/AI-Projects/tree/HEAD/projects/05_covid_xray" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/AI-Projects/blob/HEAD/projects/05_covid_xray/MODEL_CARD.md" target="_blank" rel="noopener" class="button">Model Card<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+									</div>
+
+									<!-- Business Analytics -->
+									<h3 id="business-analytics" class="case-group">Business Analytics</h3>
+									<p class="case-group-intro">Predictive and prescriptive analytics on public data, with every model judged only on data it did not see. Three more projects from the same set are on the <a href="excel.html">Excel</a> and <a href="sql.html">SQL</a> pages.</p>
+									<div class="case-studies">
+
+										<!-- Grocery Demand Forecasting -->
+										<article class="case-study" id="demand-forecasting" aria-labelledby="demand-forecasting-title">
+											<figure class="case-figure">
+												<a href="images/projects/demand-forecasting.webp">
+													<img src="images/projects/demand-forecasting.webp" srcset="images/projects/demand-forecasting-sm.webp 800w, images/projects/demand-forecasting.webp 1222w" sizes="(max-width: 736px) 92vw, 960px" alt="Monthly US grocery-store sales from 2022 with a 24-month holdout: the seasonal naive forecast misses by 3.6%, nominal Holt-Winters by 1.5% and the combination by 1.2%, then a 12-month forecast with a shaded range" width="1222" height="852" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Holdout test and 12-month forecast</strong> Models fitted on January 2010 to August 2024, then scored on the next 24 months.</figcaption>
+											</figure>
+											<p class="project-kicker">Time-Series Forecasting &middot; Grocery Retail</p>
+											<h4 id="demand-forecasting-title" class="case-title">Grocery Demand Forecasting</h4>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li><li>Holt-Winters</li><li>SARIMA</li><li>Rolling-Origin Evaluation</li><li>Forecast Combination</li><li>MAPE / Bias</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>Planners need a reliable 12-month demand forecast and to know how far to trust it.</dd>
+												<dt>Data</dt>
+												<dd>US Census Bureau monthly grocery-store sales from January 1992 to August 2026 (416 months), with the BLS food-at-home price index, both from FRED.</dd>
+												<dt>Approach</dt>
+												<dd>Seasonal indices and naive benchmarks, a regression with month dummies, and Holt-Winters on nominal and inflation-adjusted sales, scored on a 24-month holdout. Then eight rolling forecast origins, SARIMA, a check of the 95% range, calendar effects and a gradient-boosting benchmark.</dd>
+												<dt>Result</dt>
+												<dd>On the holdout, combining two Holt-Winters models scored 1.18% MAPE (bias +0.09%), against 3.62% for the seasonal naive forecast. Across eight origins that winner ranked fifth, so the final method is Holt-Winters plus SARIMA: 1.57% average MAPE against 2.22% for gradient boosting, with its 95% range verified.</dd>
+												<dt>Recommendation</dt>
+												<dd>Plan on the forecast of $938.7 billion for the next 12 months (+2.4%), staff and stock for the December peak (+4.7%) and February trough (&minus;7.7%), hold safety stock of about 2.6&ndash;4.5% of monthly demand, and retrain when bias exceeds &plusmn;2% for three months running.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p4_demand_forecasting.py" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- Marketing-Mix Modeling and Budget Optimization -->
+										<article class="case-study" id="marketing-mix" aria-labelledby="marketing-mix-title">
+											<figure class="case-figure">
+												<a href="images/projects/marketing-mix.webp">
+													<img src="images/projects/marketing-mix.webp" srcset="images/projects/marketing-mix-sm.webp 800w, images/projects/marketing-mix.webp 1420w" sizes="(max-width: 736px) 92vw, 960px" alt="Predicted sales per market at the same $201k budget: current mix 14.7k units, moving newspaper money to TV and radio 18.7k (+27%), optimized mix 20.5k (+40%)" width="1420" height="688" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Same budget, better mix</strong> Spend is capped at the highest levels observed, so the model is never used outside its data.</figcaption>
+											</figure>
+											<p class="project-kicker">Regression &amp; Optimization &middot; Marketing</p>
+											<h4 id="marketing-mix-title" class="case-title">Marketing-Mix Modeling and Budget Optimization</h4>
+											<ul class="tags"><li>Python</li><li>statsmodels</li><li>SciPy</li><li>Multiple Regression</li><li>Interaction Terms</li><li>Cross-Validation</li><li>Constrained Optimization</li><li>Bootstrap</li><li>Adstock &amp; Saturation</li><li>Power Analysis</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>With a fixed budget of about $200,900 per market, how should spend be split across TV, radio and newspaper?</dd>
+												<dt>Data</dt>
+												<dd>The Advertising dataset from <em>An Introduction to Statistical Learning</em> (200 markets), plus weekly marketing-mix data with published true parameters to test adstock and saturation.</dd>
+												<dt>Approach</dt>
+												<dd>Four regressions compared on five-fold cross-validated error, adding a TV &times; radio interaction and diminishing returns to TV; marginal return per channel; constrained optimization within the observed spend range. Then regression diagnostics, a bootstrap of the uplift, a profit-maximizing budget, an adstock-and-saturation model and a sample size for the market test.</dd>
+												<dt>Result</dt>
+												<dd>The best model cuts cross-validated error by 73% against a plain TV and radio regression (R&sup2; 0.993). At the current mix, $1,000 more radio returns about 211 units against 39 for TV, and reallocating the same budget lifts predicted sales by 40% (90% bootstrap interval 39.0&ndash;40.2%).</dd>
+												<dt>Recommendation</dt>
+												<dd>Phase out newspaper, raise radio toward $50k per market while holding TV near $150k, and confirm with a geo experiment before scaling: with a pre-period covariate, 24 markets per group can detect a 10% lift.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p5_marketing_mix.py" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+									</div>
+
+									<!-- Publishing a project: add it to its group's <div class="case-studies"> above (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
 									<div class="coming-next">
 										<h3>Coming Next</h3>
 										<p>Full write-ups with code are being added one at a time. Each covers the business problem, the data, the approach, the result against a baseline, and the recommendation.</p>

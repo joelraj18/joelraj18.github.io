@@ -956,7 +956,85 @@
 				margin-bottom: 0;
 			}
 
+			/* The title is an h3, or an h4 on pages that group their case studies under h3 headings. */
+			.case-study .case-title {
+				font-size: 1.35em;
+				line-height: 1.35;
+				margin: 0 0 0.6em 0;
+			}
+
+			/* A chart from the project on a white panel (the charts are drawn on white), linking to the full-size image.
+			   Tall charts are capped in height and centered, so every panel spans the card. */
+			.case-figure {
+				margin: 0 0 1.75em 0;
+			}
+
+				.case-figure > a {
+					background-color: #ffffff;
+					border-bottom: 0;
+					border-radius: 6px;
+					cursor: zoom-in;
+					display: block;
+					padding: 0.75em;
+					text-align: center;
+					transition: box-shadow 0.2s ease-in-out;
+				}
+
+					.case-figure > a:hover {
+						box-shadow: 0 0 0 2px #9bf1ff;
+					}
+
+				.case-figure img {
+					display: inline-block;
+					height: auto;
+					max-height: 24em;
+					max-width: 100%;
+					vertical-align: top;
+					width: auto;
+				}
+
+				/* A caption with a bold lead-in, as on the Tools page. */
+				.case-figure figcaption {
+					color: rgba(244, 244, 255, 0.7);
+					font-size: 0.85em;
+					line-height: 1.6;
+					margin-top: 0.85em;
+					max-width: 44em;
+				}
+
+					.case-figure figcaption strong:after {
+						content: '.';
+					}
+
+		/* Groups of case studies on one page (End-to-End, AI Projects, Business Analytics). */
+		.case-group {
+			border-top: solid 1px rgba(212, 212, 255, 0.1);
+			font-size: 1.5em;
+			line-height: 1.35;
+			margin: 1em 0 0.5em 0;
+			padding-top: 1.5em;
+			scroll-margin-top: 3.5em;
+		}
+
+			.case-studies + .case-group {
+				margin-top: 2.5em;
+			}
+
+		.case-group-intro {
+			color: rgba(244, 244, 255, 0.75);
+			margin: 0 0 2em 0;
+			max-width: 42em;
+		}
+
 		@media screen and (max-width: 736px) {
+
+			.case-figure > a {
+				padding: 0.5em;
+			}
+
+			.case-group {
+				font-size: 1.3em;
+			}
 
 			.case-study {
 				padding: 1.5em 1.25em;
