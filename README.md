@@ -10,11 +10,11 @@ Built on the [Forty](https://html5up.net/forty) template by HTML5 UP (CCA 3.0).
 | --- | --- |
 | `index.html` | Landing page: pitch and the six project tracks |
 | `about.html` | Profile, experience, skills, approach architecture and step-by-step playbooks, certifications |
-| `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track. Python holds nine (End-to-End Projects, AI Projects and Business Analytics groups), SQL three and Excel two; Power BI and Tableau still show their coming-next block |
+| `python.html`, `sql.html`, `powerbi.html`, `tableau.html`, `excel.html` | Case studies for each analysis track. Python holds twelve in four groups (End-to-End Projects, AI Projects, Business Analytics, Classification & Clustering), SQL four, Excel two and Tableau one; Power BI still shows its coming-next block |
 | `tools.html` | Tools and websites: a video-style index, then one card per project with screenshots and Approach, From the Start, Issues & Fixes, Limitations and Future Improvements tabs |
 | `404.html` | Not-found page (uses root-absolute paths because GitHub Pages serves it at any URL) |
 
-Custom styles live in `assets/css/portfolio.css` and the tabs on the About and Tools pages in `assets/js/portfolio.js`; case-study charts are in `images/projects/` and Tools page screenshots in `images/tools/`; `main.css` and `main.js` are the template files (with small accessibility fixes). The menu, contact and footer blocks are identical on every page, so change them everywhere at once.
+Custom styles live in `assets/css/portfolio.css` and the tabs on the About and Tools pages in `assets/js/portfolio.js`; case-study charts are in `images/projects/`, Tools page screenshots in `images/tools/`, and notebooks for projects that have no repository of their own in `projects/<id>/` (link them through GitHub's notebook viewer, `https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/<id>/<file>.ipynb`); `main.css` and `main.js` are the template files (with small accessibility fixes). The menu, contact and footer blocks are identical on every page, so change them everywhere at once.
 
 Approach tabs can be linked directly: `about.html#approach-kpi`, `#approach-sql`, `#approach-ml`, `#approach-stats`, `#approach-bi`, `#approach-excel`.
 
@@ -44,7 +44,7 @@ Case studies live in the "Case Studies" section of each track page: one `<articl
 			<dt>Approach</dt>
 			<dd>Cleaning, feature engineering, logistic regression vs. pruned decision tree.</dd>
 			<dt>Result</dt>
-			<dd>83% test accuracy against a 67.2% majority-class baseline; F1 0.xx and recall 0.xx on cancellations.</dd>
+			<dd>82.3% test accuracy against a 67.2% majority-class baseline; F1 0.69 and recall 0.59 on cancellations.</dd>
 			<dt>Recommendation</dt>
 			<dd>Automated reminder emails for high-risk bookings.</dd>
 		</dl>

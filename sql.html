@@ -113,7 +113,7 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
-									<p>Three data layers that check the data before reporting it: two run unchanged on several database engines, and one rebuilds a profit and loss statement from a raw general ledger, to the cent.</p>
+									<p>Four projects that check the data before reporting it: two data layers that run unchanged on several database engines, a profit and loss statement rebuilt from a raw general ledger to the cent, and a root-cause analysis of falling revenue.</p>
 
 									<div class="case-studies">
 
@@ -206,18 +206,35 @@
 											</ul>
 										</article>
 
-									</div>
+										<!-- Revenue & Operations Analysis (New Wheels) -->
+										<article class="case-study" id="new-wheels" aria-labelledby="new-wheels-title">
+											<figure class="case-figure">
+												<a href="images/projects/new-wheels.webp">
+													<img src="images/projects/new-wheels.webp" srcset="images/projects/new-wheels-sm.webp 800w, images/projects/new-wheels.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Four bar charts by quarter of 2018: orders fall from 310 to 199, net revenue from $18.03 million to $8.57 million and the average rating from 3.55 to 2.40, while average days to ship rise from 57.2 to 174.1" width="1800" height="582" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Shipping slowed, and everything followed</strong> Quarterly results from the MySQL queries: as shipping times tripled, ratings, orders and revenue fell together.</figcaption>
+											</figure>
+											<p class="project-kicker">Root-Cause Analysis &middot; Automotive Retail</p>
+											<h3 id="new-wheels-title" class="case-title">Revenue &amp; Operations Analysis (New Wheels)</h3>
+											<ul class="tags"><li>MySQL</li><li>Joins</li><li>CTEs</li><li>Window Functions</li><li>CASE WHEN</li><li>Date Functions</li><li>Aggregations</li><li>Root-Cause Analysis</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>New Wheels, an online seller of pre-owned cars, saw sales and customer ratings slide through 2018. The CEO needed a quarterly view of the business and the reason behind the decline.</dd>
+												<dt>Data</dt>
+												<dd>A MySQL database of 1,000 orders placed in 2018 by 984 customers in 49 US states, with customer, product and order tables, customer feedback and order and ship dates.</dd>
+												<dt>Approach</dt>
+												<dd>Ten business questions answered in SQL: joins and CTEs, CASE mappings from feedback to a 1&ndash;5 rating, <code>RANK()</code> for the favorite vehicle maker in each state, <code>LAG()</code> for quarter-over-quarter change, and <code>DATEDIFF</code> for days to ship.</dd>
+												<dt>Result</dt>
+												<dd>From the first quarter to the fourth, orders fell 35.8% (310 to 199) and net revenue 52.5% ($18.03M to $8.57M), while the average time to ship tripled from 57 to 174 days. The average rating fell from 3.55 to 2.40 as Bad and Very Bad feedback rose from 22% to 60% of responses.</dd>
+												<dt>Recommendation</dt>
+												<dd>Treat shipping as the root cause: enforce a 25-day shipping SLA with logistics partners, collect feedback within days of delivery instead of each quarter, and pilot the SLA with a random half of customers to confirm it lifts ratings before rolling it out.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="about.html#approach-sql" class="button primary">See the SQL</a></li>
+											</ul>
+										</article>
 
-									<!-- Publishing a project: add it inside <div class="case-studies"> above this block (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
-									<div class="coming-next">
-										<h3>Coming Next</h3>
-										<p>Full write-ups with code are being added one at a time. Each covers the business problem, the data, the approach, the result against a baseline, and the recommendation.</p>
-										<ul class="alt">
-											<li><strong>Revenue &amp; Operations Analysis (New Wheels)</strong>: quarterly revenue, orders and ratings across 1,000 orders, and the likely driver of a 39% revenue decline</li>
-										</ul>
-										<ul class="actions">
-											<li><a href="about.html#approach-sql" class="button primary">Read the Project Summary</a></li>
-										</ul>
 									</div>
 
 									<ul class="actions pager">

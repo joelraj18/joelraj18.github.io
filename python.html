@@ -9,13 +9,13 @@
 		<title>Python &amp; Machine Learning | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Python and machine learning case studies by Joel Raj Vemuri: two end-to-end projects in insurance and supply chain, five AI projects in vision, NLP and healthcare, and forecasting and marketing-mix models, each with results against a baseline." />
+		<meta name="description" content="Python and machine learning case studies by Joel Raj Vemuri: two end-to-end projects in insurance and supply chain, five AI projects in vision, NLP and healthcare, forecasting and marketing-mix models, and classification and clustering projects, each with results against a baseline." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/python.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Python &amp; Machine Learning | Joel Raj Vemuri" />
-		<meta property="og:description" content="Nine Python and machine learning case studies, from end-to-end insurance and supply chain projects to computer vision, NLP and forecasting, each with results against a baseline." />
+		<meta property="og:description" content="Twelve Python and machine learning case studies, from end-to-end insurance and supply chain projects to computer vision, NLP, forecasting, classification and clustering, each with results against a baseline." />
 		<meta property="og:url" content="https://joelraj18.github.io/python.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -124,12 +124,15 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
-									<p>Nine projects in three groups. Each states the problem, the data, the approach, the result against a baseline and the recommendation, with a link to the code.</p>
+									<p>Twelve projects in four groups. Each states the problem, the data, the approach, the result against a baseline and the recommendation, with a link to the code.</p>
 									<ul class="jump-links" aria-label="Case study groups">
 										<li><a href="#end-to-end">End-to-End Projects</a></li>
 										<li><a href="#ai-projects">AI Projects</a></li>
 										<li><a href="#business-analytics">Business Analytics</a></li>
+										<li><a href="#classification-clustering">Classification &amp; Clustering</a></li>
 									</ul>
+
+									<!-- Publishing a project: add it to its group's <div class="case-studies"> below (template in README.md). -->
 
 									<!-- End-to-End Projects -->
 									<h3 id="end-to-end" class="case-group">End-to-End Projects</h3>
@@ -424,18 +427,95 @@
 
 									</div>
 
-									<!-- Publishing a project: add it to its group's <div class="case-studies"> above (template in README.md), remove it from the list below, and delete this block once the list is empty. -->
-									<div class="coming-next">
-										<h3>Coming Next</h3>
-										<p>Full write-ups with code are being added one at a time. Each covers the business problem, the data, the approach, the result against a baseline, and the recommendation.</p>
-										<ul class="alt">
-											<li><strong>Booking Cancellation Prediction (INN Hotels)</strong>: logistic regression and decision trees on 36,275 hotel bookings</li>
-											<li><strong>Visa Approval Prediction (EasyVisa)</strong>: tree-based ensembles with SMOTE on 25,480 visa applications</li>
-											<li><strong>Customer Segmentation (AllLife Bank)</strong>: K-Means and hierarchical clustering on 660 credit-card customers</li>
-										</ul>
-										<ul class="actions">
-											<li><a href="about.html#approach-ml" class="button primary">Read the Project Summaries</a></li>
-										</ul>
+									<!-- Classification & Clustering -->
+									<h3 id="classification-clustering" class="case-group">Classification &amp; Clustering</h3>
+									<p class="case-group-intro">Supervised and unsupervised learning on business data: which hotel bookings will be canceled, which visa applications will be certified, and how a bank&rsquo;s credit-card customers fall into segments.</p>
+									<div class="case-studies">
+
+										<!-- Booking Cancellation Prediction (INN Hotels) -->
+										<article class="case-study" id="inn-hotels" aria-labelledby="inn-hotels-title">
+											<figure class="case-figure">
+												<a href="images/projects/inn-hotels.webp">
+													<img src="images/projects/inn-hotels.webp" srcset="images/projects/inn-hotels-sm.webp 800w, images/projects/inn-hotels.webp 1189w" sizes="(max-width: 736px) 92vw, 960px" alt="Feature importance in the pre-pruned decision tree: lead time dominates at about 0.55, followed by the number of special requests, the offline market segment and the average room price" width="1189" height="790" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Lead time drives cancellations</strong> Feature importance in the pre-pruned tree, whose first split is a lead time of 151.5 days.</figcaption>
+											</figure>
+											<p class="project-kicker">Classification &middot; Hospitality</p>
+											<h4 id="inn-hotels-title" class="case-title">Booking Cancellation Prediction (INN Hotels)</h4>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>statsmodels</li><li>Logistic Regression</li><li>Decision Trees</li><li>Pruning</li><li>Threshold Tuning</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>INN Hotels, a hotel group in Portugal, loses revenue when bookings are canceled late. Which bookings are likely to cancel, and which policies would cut the losses?</dd>
+												<dt>Data</dt>
+												<dd>36,275 bookings from 2017 and 2018 with 19 fields, such as lead time, room price, market segment and special requests; 32.8% were canceled. A 70/30 split keeps 10,883 bookings for testing.</dd>
+												<dt>Approach</dt>
+												<dd>Exploratory analysis of cancellations by lead time, segment, price and month; logistic regression with multicollinearity and p-value checks and a threshold tuned on the ROC and precision-recall curves; then decision trees, unpruned, pre-pruned to depth 5 and cost-complexity pruned.</dd>
+												<dt>Result</dt>
+												<dd>Always predicting &ldquo;not canceled&rdquo; scores 67.2% on the test set. Logistic regression at a 0.42 threshold reaches 80% accuracy with F1 0.69 on cancellations. A depth-5 pre-pruned tree with 28 leaves reaches 82.3% (precision 0.82, recall 0.59, F1 0.69), and cost-complexity pruning lifts recall to 0.79 and F1 to 0.81 (87.7% accuracy), at the cost of a 1,774-leaf tree.</dd>
+												<dt>Recommendation</dt>
+												<dd>Send automated reconfirmation emails before arrival to high-risk bookings (lead times beyond about 151 days with no special requests), refund less on online and high-price cancellations, cap stays at five days outside the corporate segment, and start a loyalty program, since repeat guests rarely cancel.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/inn-hotels/Booking_Cancellation_Prediction.ipynb" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- Visa Approval Prediction (EasyVisa) -->
+										<article class="case-study" id="easyvisa" aria-labelledby="easyvisa-title">
+											<figure class="case-figure">
+												<a href="images/projects/easyvisa.webp">
+													<img src="images/projects/easyvisa.webp" srcset="images/projects/easyvisa-sm.webp 800w, images/projects/easyvisa.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Certification rate by applicant profile: from 34.0% for high-school applicants to 87.2% for doctorates, 56.1% without job experience against 74.5% with it, and 34.6% for hourly wages against 69.9% for yearly wages, around an overall rate of 66.8%" width="1800" height="662" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Education, experience and wage drive approval</strong> Share of the 25,480 applications certified, by applicant profile; the dashed line is the overall rate.</figcaption>
+											</figure>
+											<p class="project-kicker">Classification &middot; Immigration</p>
+											<h4 id="easyvisa-title" class="case-title">Visa Approval Prediction (EasyVisa)</h4>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>SMOTE</li><li>Gradient Boosting</li><li>Random Forest</li><li>AdaBoost</li><li>Hyperparameter Tuning</li><li>F1 / Recall</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>The US Office of Foreign Labor Certification processed about 776,000 employer applications in 2016. Which visa applications are likely to be certified, and which applicant profiles drive the decision, so reviewers can shortlist faster?</dd>
+												<dt>Data</dt>
+												<dd>25,480 applications with ten applicant and employer fields: continent, education, job experience, training needs, employer size and age, region, prevailing wage and its unit, and full-time status. 66.8% were certified, so always predicting &ldquo;certified&rdquo; is right two times in three.</dd>
+												<dt>Approach</dt>
+												<dd>Fixed 33 negative employee counts and put every wage on a yearly scale; stratified 80/20 split. Compared decision tree, random forest, bagging, AdaBoost and gradient boosting with class weights, on SMOTE-oversampled and on undersampled training data, then tuned the leaders with randomized search and five-fold cross-validation, choosing by F1 on denied applications.</dd>
+												<dt>Result</dt>
+												<dd>Gradient boosting trained on SMOTE data scored F1 0.61 on denied applications (precision 0.56, recall 0.68) at 71.4% accuracy, against F1 0.56 for the same model without SMOTE and no denials caught by the majority-class baseline. Tuning raised accuracy to 74.1% but cut F1 to 0.56, so the untuned SMOTE model was kept.</dd>
+												<dt>Recommendation</dt>
+												<dd>Use the model as a pre-screen that sends low-probability applications to a second manual review, and guide employers toward the profiles that clear most often: postgraduate degrees (78.6&ndash;87.2% certified against 34.0% for high school), prior experience (74.5% against 56.1%) and yearly rather than hourly wages (69.9% against 34.6%).</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/easyvisa/EasyVisa.ipynb" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
+
+										<!-- Customer Segmentation (AllLife Bank) -->
+										<article class="case-study" id="alllife-bank" aria-labelledby="alllife-bank-title">
+											<figure class="case-figure">
+												<a href="images/projects/alllife-bank.webp">
+													<img src="images/projects/alllife-bank.webp" srcset="images/projects/alllife-bank-sm.webp 800w, images/projects/alllife-bank.webp 1790w" sizes="(max-width: 736px) 92vw, 960px" alt="Silhouette, Calinski-Harabasz and Davies-Bouldin scores for 2 to 9 clusters: silhouette is 0.57 at k=2 and 0.52 at k=3, Calinski-Harabasz peaks at k=3 at about 833, and Davies-Bouldin rises sharply after k=3" width="1790" height="515" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Why three segments</strong> Calinski-Harabasz peaks at three clusters while the silhouette score stays above 0.5; past three, every measure gets worse.</figcaption>
+											</figure>
+											<p class="project-kicker">Clustering &middot; Banking</p>
+											<h4 id="alllife-bank-title" class="case-title">Customer Segmentation (AllLife Bank)</h4>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>SciPy</li><li>K-Means</li><li>Hierarchical Clustering</li><li>Silhouette Score</li><li>Customer Segmentation</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>AllLife Bank wants to grow its credit-card base and improve service. How do its customers differ in spending power and in how they contact the bank, and how should marketing and service respond?</dd>
+												<dt>Data</dt>
+												<dd>660 credit-card customers with five fields: average credit limit, number of cards, and the number of branch visits, online visits and calls to the bank.</dd>
+												<dt>Approach</dt>
+												<dd>Scaled the features, then compared K-Means for k = 2 to 9 on silhouette, Calinski-Harabasz and Davies-Bouldin scores; cross-checked with hierarchical clustering (cophenetic correlation for each linkage, Ward dendrogram) and profiled each segment.</dd>
+												<dt>Result</dt>
+												<dd>Three segments: 386 branch-reliant customers (average credit limit 33,800, 3.5 branch visits); 50 premium digital customers (average limit 141,000, 8.7 cards, 10.9 online visits); and 224 phone-dependent customers with low limits (12,200) and 6.9 calls each. The silhouette score is 0.52 at k = 3, and Ward clustering puts 659 of the 660 customers in the same segments.</dd>
+												<dt>Recommendation</dt>
+												<dd>Offer premium cards and digital-first service to the 50 high-value customers, bring branch-reliant customers onto digital onboarding, and fix the service issues behind the phone-heavy segment with better self-service, since its 6.9 calls per customer are the main support cost.</dd>
+											</dl>
+										</article>
+
 									</div>
 
 									<ul class="actions pager">
