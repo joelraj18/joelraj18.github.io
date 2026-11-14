@@ -9,13 +9,13 @@
 		<title>Python &amp; Machine Learning | Joel Raj Vemuri</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Python and machine learning case studies by Joel Raj Vemuri: two end-to-end projects in insurance and supply chain, five AI projects in vision, NLP and healthcare, forecasting and marketing-mix models, and classification and clustering projects, each with results against a baseline." />
+		<meta name="description" content="Python and machine learning case studies by Joel Raj Vemuri: two end-to-end projects in insurance and supply chain, five AI projects in vision, NLP and healthcare, forecasting and marketing-mix models, and statistics, classification and clustering projects, each with results against a baseline." />
 		<meta name="theme-color" content="#242943" />
 		<link rel="canonical" href="https://joelraj18.github.io/python.html" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Joel Raj Vemuri" />
 		<meta property="og:title" content="Python &amp; Machine Learning | Joel Raj Vemuri" />
-		<meta property="og:description" content="Twelve Python and machine learning case studies, from end-to-end insurance and supply chain projects to computer vision, NLP, forecasting, classification and clustering, each with results against a baseline." />
+		<meta property="og:description" content="Thirteen Python and machine learning case studies, from end-to-end insurance and supply chain projects to computer vision, NLP, forecasting, statistics, classification and clustering, each with results against a baseline." />
 		<meta property="og:url" content="https://joelraj18.github.io/python.html" />
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
@@ -124,12 +124,12 @@
 									<header class="major">
 										<h2>Case Studies</h2>
 									</header>
-									<p>Twelve projects in four groups. Each states the problem, the data, the approach, the result against a baseline and the recommendation, with a link to the code.</p>
+									<p>Thirteen projects in four groups. Each states the problem, the data, the approach, the result against a baseline and the recommendation, with a link to the code.</p>
 									<ul class="jump-links" aria-label="Case study groups">
 										<li><a href="#end-to-end">End-to-End Projects</a></li>
 										<li><a href="#ai-projects">AI Projects</a></li>
 										<li><a href="#business-analytics">Business Analytics</a></li>
-										<li><a href="#classification-clustering">Classification &amp; Clustering</a></li>
+										<li><a href="#statistics-ml">Statistics &amp; Machine Learning</a></li>
 									</ul>
 
 									<!-- Publishing a project: add it to its group's <div class="case-studies"> below (template in README.md). -->
@@ -427,10 +427,39 @@
 
 									</div>
 
-									<!-- Classification & Clustering -->
-									<h3 id="classification-clustering" class="case-group">Classification &amp; Clustering</h3>
-									<p class="case-group-intro">Supervised and unsupervised learning on business data: which hotel bookings will be canceled, which visa applications will be certified, and how a bank&rsquo;s credit-card customers fall into segments.</p>
+									<!-- Statistics & Machine Learning -->
+									<h3 id="statistics-ml" class="case-group">Statistics &amp; Machine Learning</h3>
+									<p class="case-group-intro">Statistics and machine learning on business data: who buys which car, which hotel bookings will be canceled, which visa applications will be certified, and how a bank&rsquo;s credit-card customers fall into segments.</p>
 									<div class="case-studies">
+
+										<!-- Car Buyer Analysis (Austo) -->
+										<article class="case-study" id="austo-automobile" aria-labelledby="austo-automobile-title">
+											<figure class="case-figure">
+												<a href="images/projects/austo-automobile.webp">
+													<img src="images/projects/austo-automobile.webp" srcset="images/projects/austo-automobile-sm.webp 800w, images/projects/austo-automobile.webp 1489w" sizes="(max-width: 736px) 92vw, 960px" alt="Vehicle type by gender: women chose SUVs in 52.6% of purchases, sedans in 42.9% and hatchbacks in 4.6%, while men chose hatchbacks in 45.3%, sedans in 44.8% and SUVs in 9.9%" width="1489" height="590" loading="lazy" />
+													<span class="visually-hidden"> (opens the full-size chart)</span>
+												</a>
+												<figcaption><strong>Women buy SUVs; men mostly don&rsquo;t</strong> Share and count of each vehicle type by gender across 1,581 buyers.</figcaption>
+											</figure>
+											<p class="project-kicker">Exploratory Analysis &middot; Automotive</p>
+											<h4 id="austo-automobile-title" class="case-title">Car Buyer Analysis (Austo)</h4>
+											<ul class="tags"><li>Python</li><li>pandas</li><li>Matplotlib</li><li>Seaborn</li><li>Exploratory Data Analysis</li><li>Cross-Tabulation</li><li>Conditional Probability</li><li>Outlier Analysis</li></ul>
+											<dl>
+												<dt>Problem</dt>
+												<dd>A car company wants to know who buys which kind of car (hatchback, sedan or SUV) and how much they spend, and to test claims its sales team makes, such as that salaried men are easier to sell an SUV than a sedan.</dd>
+												<dt>Data</dt>
+												<dd>1,581 buyers with 14 fields: age, gender, profession, marital status, education, dependents, personal and home loans, salary, partner&rsquo;s job and salary, and the type and price of the car bought.</dd>
+												<dt>Approach</dt>
+												<dd>Fixed gender typos and missing values, explored distributions, outliers (IQR), correlations and group differences, then answered six business questions with cross-tabulations and conditional probabilities.</dd>
+												<dt>Result</dt>
+												<dd>Women chose SUVs in 52.6% of purchases against 9.9% for men, and paid more on average (47,705 against 32,416). A salaried buyer chooses a sedan with probability 44.2%, and the SUV claim fails: 13.4% of salaried men bought an SUV against 45.4% a sedan. A working partner made no real difference to the price paid (35,267 with one, 36,000 without).</dd>
+												<dt>Recommendation</dt>
+												<dd>Aim SUV campaigns at women, sell salaried men on sedans rather than SUVs, and don&rsquo;t target buyers by partner income, which did not change what they spent.</dd>
+											</dl>
+											<ul class="actions">
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/austo-automobile/Austo_Automobile_Analysis.ipynb" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+											</ul>
+										</article>
 
 										<!-- Booking Cancellation Prediction (INN Hotels) -->
 										<article class="case-study" id="inn-hotels" aria-labelledby="inn-hotels-title">
@@ -458,6 +487,7 @@
 											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/inn-hotels/Booking_Cancellation_Prediction.ipynb" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="projects/inn-hotels/Booking_Cancellation_Prediction.pdf" target="_blank" rel="noopener" class="button">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
 										</article>
 
@@ -487,6 +517,8 @@
 											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/easyvisa/EasyVisa.ipynb" target="_blank" rel="noopener" class="button primary">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="projects/easyvisa/Visa_Approval_Prediction.pdf" target="_blank" rel="noopener" class="button">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/easyvisa/EasyVisa.csv" target="_blank" rel="noopener" class="button">Dataset (CSV)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
 										</article>
 
@@ -514,6 +546,10 @@
 												<dt>Recommendation</dt>
 												<dd>Offer premium cards and digital-first service to the 50 high-value customers, bring branch-reliant customers onto digital onboarding, and fix the service issues behind the phone-heavy segment with better self-service, since its 6.9 calls per customer are the main support cost.</dd>
 											</dl>
+											<ul class="actions">
+												<li><a href="projects/alllife-bank/Customer_Segmentation.pdf" target="_blank" rel="noopener" class="button primary">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="projects/alllife-bank/Customer_Segmentation.xlsx" download class="button">Dataset (Excel)</a></li>
+											</ul>
 										</article>
 
 									</div>

@@ -222,7 +222,7 @@
 												<dt>Problem</dt>
 												<dd>New Wheels, an online seller of pre-owned cars, saw sales and customer ratings slide through 2018. The CEO needed a quarterly view of the business and the reason behind the decline.</dd>
 												<dt>Data</dt>
-												<dd>A MySQL database of 1,000 orders placed in 2018 by 984 customers in 49 US states, with customer, product and order tables, customer feedback and order and ship dates.</dd>
+												<dd>A MySQL database of 1,000 orders placed in 2018 by 994 customers in 49 US states, in four tables (customers, orders, products and shippers), with customer feedback and order and ship dates.</dd>
 												<dt>Approach</dt>
 												<dd>Ten business questions answered in SQL: joins and CTEs, CASE mappings from feedback to a 1&ndash;5 rating, <code>RANK()</code> for the favorite vehicle maker in each state, <code>LAG()</code> for quarter-over-quarter change, and <code>DATEDIFF</code> for days to ship.</dd>
 												<dt>Result</dt>
@@ -231,7 +231,9 @@
 												<dd>Treat shipping as the root cause: enforce a 25-day shipping SLA with logistics partners, collect feedback within days of delivery instead of each quarter, and pilot the SLA with a random half of customers to confirm it lifts ratings before rolling it out.</dd>
 											</dl>
 											<ul class="actions">
-												<li><a href="about.html#approach-sql" class="button primary">See the SQL</a></li>
+												<li><a href="projects/new-wheels/Revenue_Operations_Analysis.pdf" target="_blank" rel="noopener" class="button primary">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/new-wheels/new_wheels_project_dumpfile.sql" target="_blank" rel="noopener" class="button">Database Dump<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+												<li><a href="images/projects/new-wheels-erd.webp" target="_blank" rel="noopener" class="button">Schema (ERD)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
 										</article>
 
