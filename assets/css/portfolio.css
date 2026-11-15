@@ -1457,6 +1457,11 @@
 
 		}
 
+	/* The kicker and title lead the card; the screens follow. */
+	.case-study.project-card > h3 + .watch {
+		margin-top: 1.5em;
+	}
+
 	.project-summary {
 		font-size: 1.05em;
 		margin: 0 0 1.5em 0;
@@ -1595,8 +1600,8 @@
 
 		}
 
-/* Project cards on the track pages (python, sql, excel, tableau): the Tools page card and index,
-   with a badge for the collection each project belongs to. */
+/* Project cards on the track pages (python, sql, excel, tableau): the Tools page card and index, with a label
+   for the collection each project belongs to. The label sits in the text, so it never covers a screen. */
 
 	/* Accents cycle through the six template colors, however many projects a page has. */
 	.track-index > li:nth-child(6n+1), .track-cards > .project-card:nth-child(6n+1) { --accent: #6fc3df; }
@@ -1606,21 +1611,28 @@
 	.track-index > li:nth-child(6n+5), .track-cards > .project-card:nth-child(6n+5) { --accent: #8ea9e8; }
 	.track-index > li:nth-child(6n), .track-cards > .project-card:nth-child(6n) { --accent: #87c5a4; }
 
-	/* The Tools index gives its last entry (this site) a full row; on track pages every entry is alike. */
-	.track-index > li:last-child {
+	/* The Tools index gives its last entry (this site) a full row. On track pages every entry is alike,
+	   except on a page with a single project, which keeps that full-row layout. */
+	.track-index:not(.is-single) > li:last-child {
 		border-top: 0;
 		grid-column: auto;
 		padding-top: 0;
 	}
 
-		.track-index > li:last-child a {
+		.track-index:not(.is-single) > li:last-child a {
 			display: block;
 		}
 
-		.track-index > li:last-child .video-info {
+		.track-index:not(.is-single) > li:last-child .video-info {
 			margin-top: 0.9em;
 		}
 
+	.track-index.is-single > li:last-child {
+		border-top: 0;
+		padding-top: 0;
+	}
+
+	/* Two or four projects: two per row. */
 	@media screen and (min-width: 481px) {
 
 		.track-index.is-pairs {
@@ -1645,22 +1657,47 @@
 
 	}
 
-	/* Collection badges: a colored dot, like the red one on Live. */
-	.thumb-badge.is-ai:before,
-	.thumb-badge.is-ba:before,
-	.thumb-badge.is-ds:before {
-		border-radius: 50%;
-		content: '';
-		display: inline-block;
-		height: 0.65em;
-		margin-right: 0.45em;
-		vertical-align: 0;
-		width: 0.65em;
+	/* Collection label: a colored dot and the collection's name, above the name in the index and at the
+	   start of each card's kicker line. */
+	.collection {
+		align-items: center;
+		border: solid 1px rgba(212, 212, 255, 0.25);
+		border-radius: 2em;
+		color: #ffffff;
+		display: inline-flex;
+		font-size: 0.65em;
+		font-weight: 600;
+		gap: 0.5em;
+		letter-spacing: 0.12em;
+		line-height: 1;
+		padding: 0.45em 0.8em 0.45em 0.65em;
+		text-transform: uppercase;
+		white-space: nowrap;
 	}
 
-		.thumb-badge.is-ai:before { background-color: #b9aef2; }
-		.thumb-badge.is-ba:before { background-color: #f2c98f; }
-		.thumb-badge.is-ds:before { background-color: #8ee0b5; }
+		.collection:before {
+			background-color: var(--collection);
+			border-radius: 50%;
+			content: '';
+			flex: 0 0 auto;
+			height: 0.7em;
+			width: 0.7em;
+		}
+
+		.collection.is-ai { --collection: #b9aef2; }
+		.collection.is-ba { --collection: #f2c98f; }
+		.collection.is-ds { --collection: #8ee0b5; }
+
+		.video-text .collection {
+			align-self: flex-start;
+			margin-bottom: 0.35em;
+		}
+
+		.project-kicker .collection {
+			font-size: 0.85em;
+			margin: 0 0.9em 0.35em 0;
+			vertical-align: 0.1em;
+		}
 
 /* Previous / next track navigation (project pages) */
 
