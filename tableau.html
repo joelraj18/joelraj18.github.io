@@ -20,6 +20,7 @@
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
 		<meta name="twitter:card" content="summary" />
+		<script>document.documentElement.className += ' js';</script>
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -108,38 +109,97 @@
 										<h2>Case Studies</h2>
 									</header>
 
-									<!-- Publishing a project: add an <article> inside <div class="case-studies"> (template in README.md), newest first. -->
-									<div class="case-studies">
+									<!-- Adding a project: copy one <article>, give it a new id prefix for its tabs and panels, add its four screens to images/projects/ and, on pages with an index, add it to the index above (README.md). -->
+									<div class="case-studies track-cards">
 
 										<!-- Car Insurance Claims Dashboard -->
-										<article class="case-study" id="car-insurance" aria-labelledby="car-insurance-title">
-											<figure class="case-figure">
-												<a href="images/projects/car-insurance.webp">
-													<img src="images/projects/car-insurance.webp" srcset="images/projects/car-insurance-sm.webp 800w, images/projects/car-insurance.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Tableau dashboard: a Pareto chart of claim amount by occupation led by blue-collar drivers at $3.89 million (34.3% of claims), average claim by risk category ($2,300 medium, $2,234 high, $986 low), and a treemap of total claims by car type led by SUVs at $3.70 million" width="1800" height="834" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>Where the claims money goes</strong> The financial-risk view of the story: claims by occupation, risk category and car type.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="car-insurance" aria-labelledby="car-insurance-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/car-insurance-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/car-insurance-1.webp" srcset="images/projects/car-insurance-1-sm.webp 640w, images/projects/car-insurance-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Tableau dashboard: a Pareto chart of claim amount by occupation led by blue-collar drivers at $3.89 million (34.3% of claims), average claim by risk category ($2,300 medium, $2,234 high, $986 low), and a treemap of total claims by car type led by SUVs at $3.70 million" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ds">Data Science</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>Where the claims money goes</strong> The financial-risk view of the story: claims by occupation, risk category and car type.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More Car Insurance Claims Dashboard screens">
+													<li>
+														<a href="images/projects/car-insurance-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/car-insurance-2-thumb.webp" alt="Claim Behavior page: average claim frequency by vehicle age, a bubble chart of claim frequency by occupation from 0.70 for lawyers to 0.90 for students, and claim amounts by car use and gender" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Claim behavior</strong> Claim frequency by vehicle age and occupation, from 0.70 for lawyers to 0.90 for students.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/car-insurance-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/car-insurance-3-thumb.webp" alt="Vehicle Value page: a highlight table of average vehicle value by car type and marital status, led by panel trucks, and a treemap of total claims by car type, led by SUVs at $3.70M" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Vehicle value</strong> Panel trucks are worth the most; SUVs carry the most claims ($3.70M).</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/car-insurance-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/car-insurance-4-thumb.webp" alt="Executive dashboard combining vehicle value by car type, claim frequency by occupation, total claims by car type and a Pareto chart of claims by occupation, where blue-collar drivers account for 34.34%" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Executive dashboard</strong> Four views on one page, with filters for education level and the metric shown.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">Data Visualization &middot; Insurance</p>
-											<h3 id="car-insurance-title" class="case-title">Car Insurance Claims Dashboard</h3>
+											<h3 id="car-insurance-title">Car Insurance Claims Dashboard</h3>
+											<p class="project-summary">Shows a car insurer who claims, how often and how much, to support underwriting, pricing and risk management. A six-part interactive Tableau story with calculated fields, parameters and eight chart types, ending in an executive dashboard and recommendations.</p>
+											<ul class="stats compact">
+												<li><strong>$11.33M</strong><span>in claims across 7,647 policyholders</span></li>
+												<li><strong>34.3%</strong><span>of all claims from blue-collar drivers ($3.89M); SUVs account for 32.6%</span></li>
+												<li><strong>$2,300 vs $986</strong><span>average claims of medium-risk against low-risk policyholders</span></li>
+											</ul>
 											<ul class="tags"><li>Tableau</li><li>Calculated Fields</li><li>Parameters</li><li>Story Points</li><li>Pareto Chart</li><li>Treemap</li><li>Bubble Chart</li><li>Interactive Dashboard</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>A car insurer wants to know who claims, how often and how much, to support underwriting, pricing and risk management.</dd>
-												<dt>Data</dt>
-												<dd>7,647 policyholders with 21 fields: driver demographics, income and education, vehicle type, value and age, claims in the past five years and the current claim amount, $11.3 million in total.</dd>
-												<dt>Approach</dt>
-												<dd>A six-part Tableau story: customer demographics, claim behavior, financial risk, vehicle value, an executive dashboard, and a summary with recommendations. Calculated fields for driver age group and risk category, parameters for education level and a metric selector, and eight chart types, including Pareto, treemap, bubble and highlight table.</dd>
-												<dt>Result</dt>
-												<dd>Blue-collar drivers account for $3.89M (34.3%) of all claims and SUVs for $3.70M (32.6%). Medium- and high-risk policyholders average $2,300 and $2,234 in claims, more than twice the $986 of low-risk ones, and claims per driver over five years range from 0.70 for lawyers to 0.90 for students.</dd>
-												<dt>Recommendation</dt>
-												<dd>Move to risk-based premiums that weigh occupation, vehicle type and vehicle age, strengthen underwriting and fraud checks for the higher-risk segments, review pricing for high-value vehicles, and give underwriting, pricing and management teams the interactive dashboard.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://public.tableau.com/app/profile/joel.raj8153/viz/Car_Insurance_Claims_Analysis_Project/CarInsuranceClaimsAnalysisFromCustomerInsightstoBusinessRecommendations" target="_blank" rel="noopener" class="button primary">Live Version<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="projects/car-insurance/Car_Insurance_Claims_Dashboard.pdf" target="_blank" rel="noopener" class="button">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="projects/car-insurance/Car_Insurance_Claims_Data.xlsx" download class="button">Dataset (Excel)</a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Car Insurance Claims Dashboard write-up">
+													<button type="button" role="tab" id="tab-car-insurance-approach" aria-controls="car-insurance-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-car-insurance-journey" aria-controls="car-insurance-journey" aria-selected="false">From the Start</button>
+												</div>
+												<section class="tab-panel" id="car-insurance-approach" role="tabpanel" aria-labelledby="tab-car-insurance-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>A car insurer wants to know who claims, how often and how much, to support underwriting, pricing and risk management.</p>
+													<ul>
+														<li><strong>Data.</strong> 7,647 policyholders with 21 fields: driver demographics, income and education, vehicle type, value and age, claims in the past five years and the current claim amount, $11.3 million in total.</li>
+														<li><strong>Method.</strong> A six-part Tableau story: customer demographics, claim behavior, financial risk, vehicle value, an executive dashboard, and a summary with recommendations. Calculated fields for driver age group and risk category, parameters for education level and a metric selector, and eight chart types, including Pareto, treemap, bubble and highlight table.</li>
+														<li><strong>Result.</strong> Blue-collar drivers account for $3.89M (34.3%) of all claims and SUVs for $3.70M (32.6%). Medium- and high-risk policyholders average $2,300 and $2,234 in claims, more than twice the $986 of low-risk ones, and claims per driver over five years range from 0.70 for lawyers to 0.90 for students.</li>
+														<li><strong>Recommendation.</strong> Move to risk-based premiums that weigh occupation, vehicle type and vehicle age, strengthen underwriting and fraud checks for the higher-risk segments, review pricing for high-value vehicles, and give underwriting, pricing and management teams the interactive dashboard.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="car-insurance-journey" role="tabpanel" aria-labelledby="tab-car-insurance-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Customer demographics</h5>
+															<p>Who the policyholders are: age group, education and income.</p>
+														</li>
+														<li>
+															<h5>Claim behavior</h5>
+															<p>How often each group claims, by occupation and vehicle age.</p>
+														</li>
+														<li>
+															<h5>Financial risk</h5>
+															<p>Where the money goes: a Pareto chart by occupation, risk categories and a treemap.</p>
+														</li>
+														<li>
+															<h5>Vehicle value</h5>
+															<p>Average vehicle value by car type and marital status, and total claims by car type.</p>
+														</li>
+														<li>
+															<h5>Executive dashboard and summary</h5>
+															<p>The key views on one interactive page, then a summary with recommendations for underwriting, pricing and risk management.</p>
+														</li>
+													</ol>
+												</section>
+											</div>
 										</article>
 
 									</div>
@@ -212,6 +272,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/portfolio.js"></script>
 
 	</body>
 </html>
