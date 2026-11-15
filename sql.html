@@ -20,6 +20,7 @@
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
 		<meta name="twitter:card" content="summary" />
+		<script>document.documentElement.className += ' js';</script>
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,127 +115,547 @@
 										<h2>Case Studies</h2>
 									</header>
 									<p>Four projects that check the data before reporting it: two data layers that run unchanged on several database engines, a profit and loss statement rebuilt from a raw general ledger to the cent, and a root-cause analysis of falling revenue.</p>
+									<ul class="project-index track-index is-pairs">
+										<li>
+											<a href="#bonus-sql">
+												<span class="thumb">
+													<img src="images/projects/bonus-sql-1-thumb.webp" alt="" width="640" height="360" loading="lazy" />
+													<span class="thumb-badge is-ds">Data Science</span>
+												</span>
+												<span class="video-info">
+													<span class="video-avatar" aria-hidden="true"><span class="icon solid fa-database"></span></span>
+													<span class="video-text">
+														<span class="project-name">Agent Bonus Data Warehouse</span>
+														<span class="project-desc">Six portable SQL scripts that prove the data and build the KPI layer</span>
+														<span class="project-meta">SQLite &middot; PostgreSQL &middot; MySQL 8</span>
+													</span>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#supply-chain-sql">
+												<span class="thumb">
+													<img src="images/projects/supply-chain-sql-1-thumb.webp" alt="" width="640" height="360" loading="lazy" />
+													<span class="thumb-badge is-ds">Data Science</span>
+												</span>
+												<span class="video-info">
+													<span class="video-avatar" aria-hidden="true"><span class="icon solid fa-project-diagram"></span></span>
+													<span class="video-text">
+														<span class="project-name">FMCG Supply Chain Data Layer</span>
+														<span class="project-desc">Turns 25,000 raw warehouse rows into a trusted model extract</span>
+														<span class="project-meta">PostgreSQL &middot; SQLite &middot; MySQL 8</span>
+													</span>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#pl-sql">
+												<span class="thumb">
+													<img src="images/projects/pl-sql-1-thumb.webp" alt="" width="640" height="360" loading="lazy" />
+													<span class="thumb-badge is-ba">Business Analytics</span>
+												</span>
+												<span class="video-info">
+													<span class="video-avatar" aria-hidden="true"><span class="icon solid fa-file-invoice-dollar"></span></span>
+													<span class="video-text">
+														<span class="project-name">Consolidated P&amp;L from a Raw General Ledger</span>
+														<span class="project-desc">A consolidated P&amp;L rebuilt from a raw general ledger, matched to the cent</span>
+														<span class="project-meta">SQL &middot; SQLite &middot; Python</span>
+													</span>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#new-wheels">
+												<span class="thumb">
+													<img src="images/projects/new-wheels-1-thumb.webp" alt="" width="640" height="360" loading="lazy" />
+													<span class="thumb-badge is-ds">Data Science</span>
+												</span>
+												<span class="video-info">
+													<span class="video-avatar" aria-hidden="true"><span class="icon solid fa-car-side"></span></span>
+													<span class="video-text">
+														<span class="project-name">Revenue &amp; Operations Analysis (New Wheels)</span>
+														<span class="project-desc">Finds why a used-car seller&rsquo;s revenue and ratings fell through 2018</span>
+														<span class="project-meta">MySQL &middot; Window Functions &middot; CTEs</span>
+													</span>
+												</span>
+											</a>
+										</li>
+									</ul>
 
-									<div class="case-studies">
+									<!-- Adding a project: copy one <article>, give it a new id prefix for its tabs and panels, add its four screens to images/projects/ and, on pages with an index, add it to the index above (README.md). -->
+									<div class="case-studies track-cards">
 
 										<!-- Agent Bonus Data Warehouse -->
-										<article class="case-study" id="bonus-sql" aria-labelledby="bonus-sql-title">
-											<figure class="case-figure">
-												<a href="images/projects/bonus-sql.webp">
-													<img src="images/projects/bonus-sql.webp" srcset="images/projects/bonus-sql-sm.webp 800w, images/projects/bonus-sql.webp 1320w" sizes="(max-width: 736px) 92vw, 960px" alt="Twin pairs from the two loads of the file: income in the second load is always exactly &#8377;3,457 higher, while the bonus is drawn again, with a correlation of only 0.35" width="1320" height="680" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>The file is two loads of the same customers</strong> Validation queries showed that customer 7000000 + n is the twin of 7002260 + n in all 2,260 pairs.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="bonus-sql" aria-labelledby="bonus-sql-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/bonus-sql-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/bonus-sql-1.webp" srcset="images/projects/bonus-sql-1-sm.webp 640w, images/projects/bonus-sql-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Twin pairs from the two loads of the file: income in the second load is always exactly &#8377;3,457 higher, while the bonus is drawn again, with a correlation of only 0.35" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ds">Data Science</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>The file is two loads of the same customers</strong> Validation queries showed that customer 7000000 + n is the twin of 7002260 + n in all 2,260 pairs.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More Agent Bonus Data Warehouse screens">
+													<li>
+														<a href="images/projects/bonus-sql-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/bonus-sql-2-thumb.webp" alt="Diagram titled Data flow from the Excel source to decisions: the 4,520-row sales sheet is landed as is, audited with 22 checks, cleaned, modeled as a star schema with KPI views, read by the Python pipeline and sent back as dashboards, documents and predictions" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>From source to decisions</strong> Raw, audit, clean and mart layers feed the models, dashboards and predictions.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/bonus-sql-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/bonus-sql-3-thumb.webp" alt="Diagram titled Star schema in the mart layer: the factbonus table, one row per customer record, joined to designation, zone, channel, cover band, income band, load and other dimensions, next to the audit tables" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Star schema</strong> One fact table and 11 dimensions, including which load each record came from.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/bonus-sql-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/bonus-sql-4-thumb.webp" alt="Chart titled The file changes character exactly halfway: two loads, not one, plotted by row position in the file" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Two loads, not one</strong> The file changes character exactly halfway: customer 7000000 + n is the twin of 7002260 + n.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">End-to-End Project &middot; Insurance</p>
-											<h3 id="bonus-sql-title" class="case-title">Agent Bonus Data Warehouse</h3>
+											<h3 id="bonus-sql-title">Agent Bonus Data Warehouse</h3>
+											<p class="project-summary">Before any model, six SQL scripts prove the agent bonus data can be trusted and build the KPI layer that the models, the Excel dashboard and Power BI all read. The same scripts run unchanged on SQLite, PostgreSQL 16 and MySQL 8, and every engine returns identical tables.</p>
+											<ul class="stats compact">
+												<li><strong>22</strong><span>audit checks written to an audit table: 18 pass, 4 flagged for review, 0 fail</span></li>
+												<li><strong>42 / 42</strong><span>reconciliation checks pass on every engine</span></li>
+												<li><strong>3 engines</strong><span>SQLite, PostgreSQL 16 and MySQL 8 return all 12 tables identical</span></li>
+											</ul>
 											<ul class="tags"><li>SQLite</li><li>PostgreSQL</li><li>MySQL 8</li><li>CTEs</li><li>Window Functions</li><li>CASE WHEN</li><li>Star Schema</li><li>Data Validation</li><li>Reconciliation</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>Before predicting agent bonuses, prove the data can be trusted and build the KPI layer that the models, the Excel dashboard and Power BI all read.</dd>
-												<dt>Data</dt>
-												<dd>4,520 customer records from an Excel extract, loaded into a raw table and reconciled to control totals taken from the source.</dd>
-												<dt>Approach</dt>
-												<dd>Six portable scripts (schema, validate, clean, star, KPIs, predictions) that run unchanged on SQLite, PostgreSQL 16 and MySQL 8: 22 audit checks written to an audit table; a star schema with 11 dimensions; KPI views with medians from ROW_NUMBER and COUNT windows, NTILE quartiles, LAG and RANK; and a scored fact table built with a LEFT JOIN instead of an engine-specific UPDATE.</dd>
-												<dt>Result</dt>
-												<dd>Every engine gives the same answer: 22 audit checks (18 pass, 4 flagged for review, 0 fail), 42 of 42 reconciliation checks, and all 12 tables and both prediction views identical to SQLite. The flags are findings: 2,887 records with an &ldquo;age&rdquo; under 18, 1,029 labels outside the reference list (such as &ldquo;Fe male&rdquo;), and the twin loads. A business-rule check confirms every bonus sits within 100 to 200 rupees of cover per bonus rupee.</dd>
-												<dt>Recommendation</dt>
-												<dd>Keep twins on the same side of every train and test split, fix the labels at source, ask the data owner what the Age field means, and point Power BI straight at the MySQL or PostgreSQL warehouse, which holds exactly the columns of the report&rsquo;s fact table.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/Bonus-Prediction-for-Insurance-Agents/tree/HEAD/sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="python.html#bonus-prediction" class="button">Full Case Study</a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Agent Bonus Data Warehouse write-up">
+													<button type="button" role="tab" id="tab-bonus-sql-approach" aria-controls="bonus-sql-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-bonus-sql-journey" aria-controls="bonus-sql-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-bonus-sql-issues" aria-controls="bonus-sql-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-bonus-sql-limits" aria-controls="bonus-sql-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-bonus-sql-next" aria-controls="bonus-sql-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="bonus-sql-approach" role="tabpanel" aria-labelledby="tab-bonus-sql-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Before predicting agent bonuses, prove the data can be trusted and build the KPI layer that the models, the Excel dashboard and Power BI all read.</p>
+													<ul>
+														<li><strong>Data.</strong> 4,520 customer records from an Excel extract, loaded into a raw table and reconciled to control totals taken from the source.</li>
+														<li><strong>Method.</strong> Six portable scripts (schema, validate, clean, star, KPIs, predictions) that run unchanged on SQLite, PostgreSQL 16 and MySQL 8: 22 audit checks written to an audit table; a star schema with 11 dimensions; KPI views with medians from ROW_NUMBER and COUNT windows, NTILE quartiles, LAG and RANK; and a scored fact table built with a LEFT JOIN instead of an engine-specific UPDATE.</li>
+														<li><strong>Result.</strong> Every engine gives the same answer: 22 audit checks (18 pass, 4 flagged for review, 0 fail), 42 of 42 reconciliation checks, and all 12 tables and both prediction views identical to SQLite. The flags are findings: 2,887 records with an &ldquo;age&rdquo; under 18, 1,029 labels outside the reference list (such as &ldquo;Fe male&rdquo;), and the twin loads. A business-rule check confirms every bonus sits within 100 to 200 rupees of cover per bonus rupee.</li>
+														<li><strong>Recommendation.</strong> Keep twins on the same side of every train and test split, fix the labels at source, ask the data owner what the Age field means, and point Power BI straight at the MySQL or PostgreSQL warehouse, which holds exactly the columns of the report&rsquo;s fact table.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="bonus-sql-journey" role="tabpanel" aria-labelledby="tab-bonus-sql-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>A data layer on PostgreSQL <span class="step-when">3 Nov 2026</span></h5>
+															<p>Schema, validation and cleaning scripts, with every check written to an audit table.</p>
+														</li>
+														<li>
+															<h5>Star schema and KPI views <span class="step-when">3 Nov 2026</span></h5>
+															<p>Medians from ROW_NUMBER and COUNT windows, NTILE quartiles, LAG and RANK, and a scored fact table for the dashboards.</p>
+														</li>
+														<li>
+															<h5>Portable across three engines <span class="step-when">3 Nov 2026</span></h5>
+															<p>Rewrote the engine-specific parts so the same scripts run on SQLite, PostgreSQL and MySQL 8, with quality gates in the pipeline.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="bonus-sql-issues" role="tabpanel" aria-labelledby="tab-bonus-sql-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">2,887 records have an &ldquo;age&rdquo; under 18.</td>
+																	<td data-label="How I dealt with it">Flagged for review rather than deleted, and kept as an unexplained numeric signal instead of an age.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">1,029 labels fall outside the reference list, such as &ldquo;Fe male&rdquo; and &ldquo;Laarge Business&rdquo;.</td>
+																	<td data-label="How I dealt with it">Mapped to the standard labels in the cleaning script.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The second half of the file repeats the customers of the first half.</td>
+																	<td data-label="How I dealt with it">Proved the twin pattern in validate.sql and recorded each record&rsquo;s load, so every split in Python keeps twins together.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">An UPDATE with a join is written differently on each engine.</td>
+																	<td data-label="How I dealt with it">Built the scored fact table with a LEFT JOIN instead, so one script runs everywhere.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="bonus-sql-limits" role="tabpanel" aria-labelledby="tab-bonus-sql-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>There is no agent ID or month in the source, so the grain is one customer record.</li>
+														<li>Flags are reported for review, not corrected: what the &ldquo;Age&rdquo; field measures is still unknown.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="bonus-sql-next" role="tabpanel" aria-labelledby="tab-bonus-sql-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Ask the data owner for AgentID and the bonus calculation, and rebuild the warehouse at agent and month grain.</li>
+														<li>Fix the labels at source and confirm them with the system owner.</li>
+														<li>Ask how the extract was produced, to explain the two loads.</li>
+													</ul>
+												</section>
+											</div>
 										</article>
 
 										<!-- FMCG Supply Chain Data Layer -->
-										<article class="case-study" id="supply-chain-sql" aria-labelledby="supply-chain-sql-title">
-											<figure class="case-figure">
-												<a href="images/projects/supply-chain-sql.webp">
-													<img src="images/projects/supply-chain-sql.webp" srcset="images/projects/supply-chain-sql-sm.webp 800w, images/projects/supply-chain-sql.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Star schema with a warehouse-by-quarter fact table in the middle, joined to warehouse, region and period dimensions, and a forecast fact table beside it" width="1800" height="959" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>One fact table at warehouse-by-quarter grain</strong> New quarters append to the period dimension without changing the model.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="supply-chain-sql" aria-labelledby="supply-chain-sql-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/supply-chain-sql-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/supply-chain-sql-1.webp" srcset="images/projects/supply-chain-sql-1-sm.webp 640w, images/projects/supply-chain-sql-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Star schema with a warehouse-by-quarter fact table in the middle, joined to warehouse, region and period dimensions, and a forecast fact table beside it" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ds">Data Science</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>One fact table at warehouse-by-quarter grain</strong> New quarters append to the period dimension without changing the model.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More FMCG Supply Chain Data Layer screens">
+													<li>
+														<a href="images/projects/supply-chain-sql-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/supply-chain-sql-2-thumb.webp" alt="Diagram titled Data layer: every number the model sees has passed checks and reconciliation. The CSV file of 25,000 rows goes to staging, 21 quality checks, a star schema, 15 reconciliation checks and a model extract read by Python" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Checked before modeled</strong> Staging, 21 quality checks, a star schema and 15 reconciliation checks before Python reads a row.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/supply-chain-sql-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/supply-chain-sql-3-thumb.webp" alt="Chart titled Missing values carry information: a missing certificate marks a new warehouse" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Missing is a signal</strong> A missing certificate marks a new warehouse, so it became its own category.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/supply-chain-sql-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/supply-chain-sql-4-thumb.webp" alt="Heatmap titled Zone and regional zone explain 0.09% of the variation in tons" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>No regional story</strong> Zone and regional zone explain only 0.09% of the variation in tons.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">End-to-End Project &middot; FMCG</p>
-											<h3 id="supply-chain-sql-title" class="case-title">FMCG Supply Chain Data Layer</h3>
+											<h3 id="supply-chain-sql-title">FMCG Supply Chain Data Layer</h3>
+											<p class="project-summary">Seven portable SQL scripts turn a raw file of 25,000 warehouses into a trusted extract for the forecasting models, and answer the business questions in SQL. Problems reach the quality checks instead of failing the load, and totals are reconciled overall and by zone.</p>
+											<ul class="stats compact">
+												<li><strong>21</strong><span>quality rules, one row each in a quality view: 17 pass, 4 informational, 0 fail</span></li>
+												<li><strong>15 / 15</strong><span>reconciliation checks pass, in total and by zone</span></li>
+												<li><strong>908</strong><span>warehouses whose missing certificate only a second database engine exposed</span></li>
+											</ul>
 											<ul class="tags"><li>PostgreSQL</li><li>SQLite</li><li>MySQL 8</li><li>CTEs</li><li>Window Functions</li><li>NULLIF</li><li>Star Schema</li><li>Data Quality Rules</li><li>Reconciliation</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>Turn a raw file of 25,000 warehouses into a trusted model extract, and answer the business questions in SQL.</dd>
-												<dt>Data</dt>
-												<dd>One row per warehouse for the latest three months: 24 fields covering location, capacity, ownership, certification, staffing, incidents and tons shipped.</dd>
-												<dt>Approach</dt>
-												<dd>Seven portable scripts: a staging table with no constraints, so problems reach the checks instead of failing the load; a quality view with one row per rule (severity, actual, expected, status); a star schema; reconciliation in total and by zone; a model-extract view that Python reads; and nine named business queries using RANK, running shares and a portable median.</dd>
-												<dt>Result</dt>
-												<dd>21 quality rules (17 pass, 4 informational, 0 fail) and 15 of 15 reconciliation checks, identical on PostgreSQL 16 and SQLite. The second engine caught what the first hid: missing certificates were written as the text &ldquo;NA&rdquo;, which pandas silently read as missing but PostgreSQL loaded as a grade, for 908 warehouses.</dd>
-												<dt>Recommendation</dt>
-												<dd>Keep each rule in one place: staging stores the raw token on every engine, the checks count it, and the star schema converts it with NULLIF. Readers list their missing-value tokens explicitly instead of trusting library defaults.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/Supply-Chain-Management/tree/HEAD/sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="python.html#supply-chain" class="button">Full Case Study</a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="FMCG Supply Chain Data Layer write-up">
+													<button type="button" role="tab" id="tab-supply-chain-sql-approach" aria-controls="supply-chain-sql-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-supply-chain-sql-journey" aria-controls="supply-chain-sql-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-supply-chain-sql-issues" aria-controls="supply-chain-sql-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-supply-chain-sql-limits" aria-controls="supply-chain-sql-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-supply-chain-sql-next" aria-controls="supply-chain-sql-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="supply-chain-sql-approach" role="tabpanel" aria-labelledby="tab-supply-chain-sql-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Turn a raw file of 25,000 warehouses into a trusted model extract, and answer the business questions in SQL.</p>
+													<ul>
+														<li><strong>Data.</strong> One row per warehouse for the latest three months: 24 fields covering location, capacity, ownership, certification, staffing, incidents and tons shipped.</li>
+														<li><strong>Method.</strong> Seven portable scripts: a staging table with no constraints, so problems reach the checks instead of failing the load; a quality view with one row per rule (severity, actual, expected, status); a star schema; reconciliation in total and by zone; a model-extract view that Python reads; and nine named business queries using RANK, running shares and a portable median.</li>
+														<li><strong>Result.</strong> 21 quality rules (17 pass, 4 informational, 0 fail) and 15 of 15 reconciliation checks, identical on PostgreSQL 16 and SQLite. The second engine caught what the first hid: missing certificates were written as the text &ldquo;NA&rdquo;, which pandas silently read as missing but PostgreSQL loaded as a grade, for 908 warehouses.</li>
+														<li><strong>Recommendation.</strong> Keep each rule in one place: staging stores the raw token on every engine, the checks count it, and the star schema converts it with NULLIF. Readers list their missing-value tokens explicitly instead of trusting library defaults.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="supply-chain-sql-journey" role="tabpanel" aria-labelledby="tab-supply-chain-sql-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Staging without constraints <span class="step-when">2 Nov 2026</span></h5>
+															<p>Loaded the raw file into a staging table with no constraints, so bad values reach the checks instead of failing the load.</p>
+														</li>
+														<li>
+															<h5>A quality view <span class="step-when">2 Nov 2026</span></h5>
+															<p>One row per rule, with its severity, actual and expected values and status.</p>
+														</li>
+														<li>
+															<h5>Star schema and reconciliation <span class="step-when">2 Nov 2026</span></h5>
+															<p>Warehouse, region and period dimensions, with totals reconciled overall and by zone.</p>
+														</li>
+														<li>
+															<h5>A model extract and business queries <span class="step-when">2 Nov 2026</span></h5>
+															<p>A view that Python reads, and nine named business queries using RANK, running shares and a portable median.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="supply-chain-sql-issues" role="tabpanel" aria-labelledby="tab-supply-chain-sql-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">Missing certificates were stored as the text &ldquo;NA&rdquo;: pandas read them as missing, PostgreSQL loaded them as a grade.</td>
+																	<td data-label="How I dealt with it">A second engine exposed it; NULLIF now converts the token explicitly, for all 908 warehouses.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Generic quality rules missed a pattern found in exploration.</td>
+																	<td data-label="How I dealt with it">Added business rules for the new-warehouse pattern.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="supply-chain-sql-limits" role="tabpanel" aria-labelledby="tab-supply-chain-sql-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>Several inputs (retail shops, distributors, competitors, capacity size) show no relationship with volume, which is unusual for real data.</li>
+														<li>One snapshot in time, so there is no history to check trends against.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="supply-chain-sql-next" role="tabpanel" aria-labelledby="tab-supply-chain-sql-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Validate the fields that show no signal with their owners.</li>
+														<li>Add monthly sell-through, stockout days and quarterly history to the schema.</li>
+													</ul>
+												</section>
+											</div>
 										</article>
 
 										<!-- Consolidated P&L from a Raw General Ledger -->
-										<article class="case-study" id="pl-sql" aria-labelledby="pl-sql-title">
-											<figure class="case-figure">
-												<a href="images/projects/pl-sql.webp">
-													<img src="images/projects/pl-sql.webp" srcset="images/projects/pl-sql-sm.webp 800w, images/projects/pl-sql.webp 1222w" sizes="(max-width: 736px) 92vw, 960px" alt="Net sales by entity, FY2011 to FY2013: $20.0M, $31.6M and $40.0M, with France, Germany and Australia added as new entities" width="1222" height="758" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>Growth from new entities</strong> Most of the headline growth came from entities added in FY2012 and FY2013, not from the existing business.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="pl-sql" aria-labelledby="pl-sql-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/pl-sql-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/pl-sql-1.webp" srcset="images/projects/pl-sql-1-sm.webp 640w, images/projects/pl-sql-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Net sales by entity, FY2011 to FY2013: $20.0M, $31.6M and $40.0M, with France, Germany and Australia added as new entities" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ba">Business Analytics</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>Growth from new entities</strong> Most of the headline growth came from entities added in FY2012 and FY2013, not from the existing business.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More Consolidated P&amp;L from a Raw General Ledger screens">
+													<li>
+														<a href="images/projects/pl-sql-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/pl-sql-2-thumb.webp" alt="Chart titled FY2011 budget vs actual: where EBIT was won and lost, ending at an EBIT shortfall of $1,914 thousand" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Budget vs actual</strong> Where FY2011 EBIT was won and lost: $1.91 million short in total.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/pl-sql-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/pl-sql-3-thumb.webp" alt="FY2013 growth bridge from $31.6 million to $40.0 million: organic +$2.3 million, the ramp-up in France and Germany +$4.3 million, Australia +$1.8 million and currency +$0.02 million" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Organic, scope and currency</strong> Most of the FY2013 growth came from scope (France, Germany and Australia), not organic sales.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/pl-sql-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/pl-sql-4-thumb.webp" alt="Chart titled Applying ownership shrinks both the group and its growth: FY2013 sales of $38.1 million growing 26.9% at full consolidation, against $30.6 million growing 7.4% in the statutory approximation" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Ownership applied</strong> Statutory sales of $30.6M grow 7.4%, against $38.1M and 26.9% at 100%.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">Business Analytics &middot; Finance</p>
-											<h3 id="pl-sql-title" class="case-title">Consolidated P&amp;L from a Raw General Ledger</h3>
+											<h3 id="pl-sql-title">Consolidated P&amp;L from a Raw General Ledger</h3>
+											<p class="project-summary">Rebuilds a reliable profit and loss statement from a raw ledger extract, to answer &ldquo;How profitable are we, where, and against budget?&rdquo; The consolidated P&amp;L is one SQL query, matched to an independent pandas version to the cent and tied to the official account hierarchy.</p>
+											<ul class="stats compact">
+												<li><strong>To the cent</strong><span>agreement between the SQL and pandas P&amp;Ls in all three years</span></li>
+												<li><strong>7.1% vs 26.6%</strong><span>like-for-like FY2013 sales growth against the reported figure</span></li>
+												<li><strong>&minus;$1.91M</strong><span>FY2011 EBIT against budget, 25.8% short</span></li>
+											</ul>
 											<ul class="tags"><li>SQL</li><li>SQLite</li><li>CTEs</li><li>Joins</li><li>CASE WHEN</li><li>Currency Translation</li><li>Consolidation</li><li>Python (pandas)</li><li>Excel</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>Finance has a raw ledger extract but no reliable P&amp;L to answer &ldquo;How profitable are we, where, and against budget?&rdquo;</dd>
-												<dt>Data</dt>
-												<dd>Microsoft&rsquo;s AdventureWorksDW sample: 39,409 ledger postings across 14 organizations, a 99-account chart of accounts, actual and budget scenarios, and daily exchange rates.</dd>
-												<dt>Approach</dt>
-												<dd>Profiled the ledger, mapped posting dates to fiscal periods (including a year-end &ldquo;period 13&rdquo;), mapped 35 accounts to 21 P&amp;L lines, translated four currencies at each posting date&rsquo;s average rate and eliminated intercompany sales. The consolidated P&amp;L is one SQL query: a CTE that joins the ledger to the period, entity, rate and account maps, with CASE expressions for the signs.</dd>
-												<dt>Result</dt>
-												<dd>The query matches the pandas P&amp;L to the cent in all three years, and net income also ties to the official account-hierarchy roll-up. Like-for-like FY2013 sales grew 7.1%, against 26.6% reported, and FY2011 EBIT missed its budget by $1.91 million (25.8%).</dd>
-												<dt>Recommendation</dt>
-												<dd>Report like-for-like growth separately from growth that comes from new entities, make budgets flex with volume, and run the pipeline after each month-end close, reviewing the exceptions it flags.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/sql/p2_pl.sql" target="_blank" rel="noopener" class="button primary">View the SQL<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Consolidated P&amp;L from a Raw General Ledger write-up">
+													<button type="button" role="tab" id="tab-pl-sql-approach" aria-controls="pl-sql-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-pl-sql-journey" aria-controls="pl-sql-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-pl-sql-issues" aria-controls="pl-sql-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-pl-sql-limits" aria-controls="pl-sql-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-pl-sql-next" aria-controls="pl-sql-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="pl-sql-approach" role="tabpanel" aria-labelledby="tab-pl-sql-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Finance has a raw ledger extract but no reliable P&amp;L to answer &ldquo;How profitable are we, where, and against budget?&rdquo;</p>
+													<ul>
+														<li><strong>Data.</strong> Microsoft&rsquo;s AdventureWorksDW sample: 39,409 ledger postings across 14 organizations, a 99-account chart of accounts, actual and budget scenarios, and daily exchange rates.</li>
+														<li><strong>Method.</strong> Profiled the ledger, mapped posting dates to fiscal periods (including a year-end &ldquo;period 13&rdquo;), mapped 35 accounts to 21 P&amp;L lines, translated four currencies at each posting date&rsquo;s average rate and eliminated intercompany sales. The consolidated P&amp;L is one SQL query: a CTE that joins the ledger to the period, entity, rate and account maps, with CASE expressions for the signs.</li>
+														<li><strong>Result.</strong> The query matches the pandas P&amp;L to the cent in all three years, and net income also ties to the official account-hierarchy roll-up. Like-for-like FY2013 sales grew 7.1%, against 26.6% reported, and FY2011 EBIT missed its budget by $1.91 million (25.8%).</li>
+														<li><strong>Recommendation.</strong> Report like-for-like growth separately from growth that comes from new entities, make budgets flex with volume, and run the pipeline after each month-end close, reviewing the exceptions it flags.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="pl-sql-journey" role="tabpanel" aria-labelledby="tab-pl-sql-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Version 1: the P&amp;L <span class="step-when">4 Nov 2026</span></h5>
+															<p>Mapped posting dates to fiscal periods and 35 accounts to 21 P&amp;L lines, translated four currencies and eliminated intercompany sales.</p>
+														</li>
+														<li>
+															<h5>Continuation <span class="step-when">4 Nov 2026</span></h5>
+															<p>A constant-currency growth bridge, a flexible budget (70% of the miss was volume), anomaly screening with robust z-scores and Benford&rsquo;s law, and a balance-sheet check.</p>
+														</li>
+														<li>
+															<h5>Interview audit: ownership and SQL <span class="step-when">11 Nov 2026</span></h5>
+															<p>Applied ownership for a statutory view, and rebuilt the P&amp;L as one SQL query that matches pandas to the cent.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="pl-sql-issues" role="tabpanel" aria-labelledby="tab-pl-sql-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">Posting dates were shifted: some months had no postings and others two, so a calendar pivot doubled some months.</td>
+																	<td data-label="How I dealt with it">Mapped each posting date to its fiscal period, including a year-end period 13.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The fiscal-year column in the date table was internally inconsistent.</td>
+																	<td data-label="How I dealt with it">Derived the periods myself.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Entities reported in four currencies.</td>
+																	<td data-label="How I dealt with it">Translated at each posting date&rsquo;s average rate before summing.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Intercompany sales, about 4% of gross sales, inflated revenue.</td>
+																	<td data-label="How I dealt with it">Eliminated them in consolidation.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="pl-sql-limits" role="tabpanel" aria-labelledby="tab-pl-sql-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>AdventureWorks is a fictitious company, although its multi-entity, multi-currency ledger is the real structure FP&amp;A teams work with.</li>
+														<li>The headline view consolidates a 25%-owned company at 100%; applying ownership shrinks FY2013 growth to 7.4%.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="pl-sql-next" role="tabpanel" aria-labelledby="tab-pl-sql-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Schedule the pipeline after each month-end close and review the exceptions it flags.</li>
+														<li>A product-level price-volume-mix analysis, since the 9% fall in average price may reflect mix or discounting.</li>
+													</ul>
+												</section>
+											</div>
 										</article>
 
 										<!-- Revenue & Operations Analysis (New Wheels) -->
-										<article class="case-study" id="new-wheels" aria-labelledby="new-wheels-title">
-											<figure class="case-figure">
-												<a href="images/projects/new-wheels.webp">
-													<img src="images/projects/new-wheels.webp" srcset="images/projects/new-wheels-sm.webp 800w, images/projects/new-wheels.webp 1800w" sizes="(max-width: 736px) 92vw, 960px" alt="Four bar charts by quarter of 2018: orders fall from 310 to 199, net revenue from $18.03 million to $8.57 million and the average rating from 3.55 to 2.40, while average days to ship rise from 57.2 to 174.1" width="1800" height="582" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>Shipping slowed, and everything followed</strong> Quarterly results from the MySQL queries: as shipping times tripled, ratings, orders and revenue fell together.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="new-wheels" aria-labelledby="new-wheels-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/new-wheels-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/new-wheels-1.webp" srcset="images/projects/new-wheels-1-sm.webp 640w, images/projects/new-wheels-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Four bar charts by quarter of 2018: orders fall from 310 to 199, net revenue from $18.03 million to $8.57 million and the average rating from 3.55 to 2.40, while average days to ship rise from 57.2 to 174.1" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ds">Data Science</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>Shipping slowed, and everything followed</strong> Quarterly results from the MySQL queries: as shipping times tripled, ratings, orders and revenue fell together.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More Revenue &amp; Operations Analysis (New Wheels) screens">
+													<li>
+														<a href="images/projects/new-wheels-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/new-wheels-2-thumb.webp" alt="Entity-relationship diagram of the New Wheels database: customers, orders, products and shippers" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Four tables</strong> Customers, orders, products and shippers, joined on their keys.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/new-wheels-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/new-wheels-3-thumb.webp" alt="MySQL query that uses LAG to compute the quarter-over-quarter change in net revenue, with its result" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Quarter over quarter</strong> <code>LAG()</code> measures the change in net revenue from one quarter to the next.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/new-wheels-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/new-wheels-4-thumb.webp" alt="MySQL result of the average days to ship by quarter, computed with DATEDIFF" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Shipping slowed</strong> <code>DATEDIFF</code> shows the average time to ship tripling from 57 to 174 days.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">Root-Cause Analysis &middot; Automotive Retail</p>
-											<h3 id="new-wheels-title" class="case-title">Revenue &amp; Operations Analysis (New Wheels)</h3>
+											<h3 id="new-wheels-title">Revenue &amp; Operations Analysis (New Wheels)</h3>
+											<p class="project-summary">New Wheels, an online seller of pre-owned cars, saw sales and customer ratings slide through 2018. Ten business questions answered in MySQL give the CEO a quarterly view of the business and the likely cause: shipping times tripled while revenue halved and customers turned unhappy.</p>
+											<ul class="stats compact">
+												<li><strong>&minus;52.5%</strong><span>net revenue from the first quarter to the fourth ($18.03M to $8.57M)</span></li>
+												<li><strong>57 &rarr; 174</strong><span>average days to ship, from the first quarter to the fourth</span></li>
+												<li><strong>3.55 &rarr; 2.40</strong><span>average customer rating, as Bad and Very Bad feedback rose from 22% to 60%</span></li>
+											</ul>
 											<ul class="tags"><li>MySQL</li><li>Joins</li><li>CTEs</li><li>Window Functions</li><li>CASE WHEN</li><li>Date Functions</li><li>Aggregations</li><li>Root-Cause Analysis</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>New Wheels, an online seller of pre-owned cars, saw sales and customer ratings slide through 2018. The CEO needed a quarterly view of the business and the reason behind the decline.</dd>
-												<dt>Data</dt>
-												<dd>A MySQL database of 1,000 orders placed in 2018 by 994 customers in 49 US states, in four tables (customers, orders, products and shippers), with customer feedback and order and ship dates.</dd>
-												<dt>Approach</dt>
-												<dd>Ten business questions answered in SQL: joins and CTEs, CASE mappings from feedback to a 1&ndash;5 rating, <code>RANK()</code> for the favorite vehicle maker in each state, <code>LAG()</code> for quarter-over-quarter change, and <code>DATEDIFF</code> for days to ship.</dd>
-												<dt>Result</dt>
-												<dd>From the first quarter to the fourth, orders fell 35.8% (310 to 199) and net revenue 52.5% ($18.03M to $8.57M), while the average time to ship tripled from 57 to 174 days. The average rating fell from 3.55 to 2.40 as Bad and Very Bad feedback rose from 22% to 60% of responses.</dd>
-												<dt>Recommendation</dt>
-												<dd>Treat shipping as the root cause: enforce a 25-day shipping SLA with logistics partners, collect feedback within days of delivery instead of each quarter, and pilot the SLA with a random half of customers to confirm it lifts ratings before rolling it out.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="projects/new-wheels/Revenue_Operations_Analysis.pdf" target="_blank" rel="noopener" class="button primary">Report (PDF)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="https://github.com/joelraj18/joelraj18.github.io/blob/HEAD/projects/new-wheels/new_wheels_project_dumpfile.sql" target="_blank" rel="noopener" class="button">Database Dump<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="images/projects/new-wheels-erd.webp" target="_blank" rel="noopener" class="button">Schema (ERD)<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Revenue &amp; Operations Analysis (New Wheels) write-up">
+													<button type="button" role="tab" id="tab-new-wheels-approach" aria-controls="new-wheels-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-new-wheels-journey" aria-controls="new-wheels-journey" aria-selected="false">From the Start</button>
+												</div>
+												<section class="tab-panel" id="new-wheels-approach" role="tabpanel" aria-labelledby="tab-new-wheels-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>New Wheels, an online seller of pre-owned cars, saw sales and customer ratings slide through 2018. The CEO needed a quarterly view of the business and the reason behind the decline.</p>
+													<ul>
+														<li><strong>Data.</strong> A MySQL database of 1,000 orders placed in 2018 by 994 customers in 49 US states, in four tables (customers, orders, products and shippers), with customer feedback and order and ship dates.</li>
+														<li><strong>Method.</strong> Ten business questions answered in SQL: joins and CTEs, CASE mappings from feedback to a 1&ndash;5 rating, <code>RANK()</code> for the favorite vehicle maker in each state, <code>LAG()</code> for quarter-over-quarter change, and <code>DATEDIFF</code> for days to ship.</li>
+														<li><strong>Result.</strong> From the first quarter to the fourth, orders fell 35.8% (310 to 199) and net revenue 52.5% ($18.03M to $8.57M), while the average time to ship tripled from 57 to 174 days. The average rating fell from 3.55 to 2.40 as Bad and Very Bad feedback rose from 22% to 60% of responses.</li>
+														<li><strong>Recommendation.</strong> Treat shipping as the root cause: enforce a 25-day shipping SLA with logistics partners, collect feedback within days of delivery instead of each quarter, and pilot the SLA with a random half of customers to confirm it lifts ratings before rolling it out.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="new-wheels-journey" role="tabpanel" aria-labelledby="tab-new-wheels-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Customers</h5>
+															<p>Where customers are (49 states, led by Texas and California), the five most popular vehicle makers, and the favorite maker in each state with <code>RANK()</code>.</p>
+														</li>
+														<li>
+															<h5>Satisfaction</h5>
+															<p>Average rating by quarter, with <code>CASE</code> mapping feedback to a 1&ndash;5 score, and how the mix of feedback shifted.</p>
+														</li>
+														<li>
+															<h5>Revenue and orders</h5>
+															<p>Orders and net revenue by quarter, with <code>LAG()</code> for the change from one quarter to the next.</p>
+														</li>
+														<li>
+															<h5>Operations</h5>
+															<p>The average discount by credit card type, and the average days to ship by quarter with <code>DATEDIFF</code>.</p>
+														</li>
+														<li>
+															<h5>Business observations</h5>
+															<p>Linked the fall in revenue and ratings to slower shipping, and set out recommendations for the CEO.</p>
+														</li>
+													</ol>
+												</section>
+											</div>
 										</article>
 
 									</div>
@@ -307,6 +728,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/portfolio.js"></script>
 
 	</body>
 </html>

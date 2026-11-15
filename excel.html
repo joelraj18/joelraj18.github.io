@@ -20,6 +20,7 @@
 		<meta property="og:image" content="https://joelraj18.github.io/images/profile.jpg" />
 		<meta property="og:image:alt" content="Portrait of Joel Raj Vemuri" />
 		<meta name="twitter:card" content="summary" />
+		<script>document.documentElement.className += ' js';</script>
 		<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -113,67 +114,279 @@
 									</header>
 									<p>Both models live in a 39-sheet practice workbook built from live formulas, where a Checks sheet compares 477 results with an independent Python calculation.</p>
 
-									<!-- Publishing a project: add an <article> inside <div class="case-studies"> (template in README.md), newest first. -->
-									<div class="case-studies">
+									<!-- Adding a project: copy one <article>, give it a new id prefix for its tabs and panels, add its four screens to images/projects/ and, on pages with an index, add it to the index above (README.md). -->
+									<div class="case-studies track-cards">
 
 										<!-- Financial Analytics of Indian FMCG Companies -->
-										<article class="case-study" id="financial-analytics" aria-labelledby="financial-analytics-title">
-											<figure class="case-figure">
-												<a href="images/projects/financial-analytics.webp">
-													<img src="images/projects/financial-analytics.webp" srcset="images/projects/financial-analytics-sm.webp 800w, images/projects/financial-analytics.webp 1350w" sizes="(max-width: 736px) 92vw, 960px" alt="Five-year revenue growth against FY26 operating margin for seven Indian FMCG companies: Colgate-Palmolive has the highest margin, 31%, with 4.5% growth, while Marico and Nestl&eacute; India grow fastest, near 11%" width="1350" height="832" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>Growth versus profitability</strong> Margins and returns vary far more across the seven peers than growth does.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="financial-analytics" aria-labelledby="financial-analytics-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/financial-analytics-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/financial-analytics-1.webp" srcset="images/projects/financial-analytics-1-sm.webp 640w, images/projects/financial-analytics-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Five-year revenue growth against FY26 operating margin for seven Indian FMCG companies: Colgate-Palmolive has the highest margin, 31%, with 4.5% growth, while Marico and Nestl&eacute; India grow fastest, near 11%" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ba">Business Analytics</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>Growth versus profitability</strong> Margins and returns vary far more across the seven peers than growth does.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More Financial Analytics of Indian FMCG Companies screens">
+													<li>
+														<a href="images/projects/financial-analytics-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/financial-analytics-2-thumb.webp" alt="Chart titled HUL: ROCE fell after the FY21 GSK Consumer Healthcare merger, from about 117% in FY20 to 28% in FY26" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>A merger in the ratios</strong> HUL&rsquo;s ROCE fell from about 117% to 28% after the FY21 GSK merger.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/financial-analytics-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/financial-analytics-3-thumb.webp" alt="Histogram of 20,000 simulated plant NPVs: 5.6% fall below zero and the median is &#8377;150 crore" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>A probability of loss</strong> 20,000 simulated NPVs: median &#8377;150 crore, 5.6% below zero.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/financial-analytics-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/financial-analytics-4-thumb.webp" alt="Chart titled Every published estimate of the cost of capital sits far below the plant&rsquo;s IRR: estimates from 10.7% to 12.0% against an IRR of 18.2%" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>A sourced discount rate</strong> Cost-of-capital estimates of 10.7&ndash;12.0% all sit far below the 18.2% IRR.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">Business Analytics &middot; Financial Analytics</p>
-											<h3 id="financial-analytics-title" class="case-title">Financial Analytics of Indian FMCG Companies</h3>
+											<h3 id="financial-analytics-title">Financial Analytics of Indian FMCG Companies</h3>
+											<p class="project-summary">Benchmarks how seven Indian FMCG companies perform and gives management a disciplined way to judge a &#8377;600 crore plant. Every number lives in Excel formulas, one-off items are normalized, and the plant decision carries a sourced cost of capital and a probability of loss.</p>
+											<ul class="stats compact">
+												<li><strong>+41% &rarr; &minus;5%</strong><span>HUL&rsquo;s FY26 profit growth once a one-off &#8377;4,611 crore demerger gain is removed</span></li>
+												<li><strong>&#8377;217 Cr</strong><span>plant NPV at an 11% hurdle (IRR 18.2%); &#8377;150 crore expected after simulation</span></li>
+												<li><strong>5.6%</strong><span>chance the plant loses money, from 20,000 simulated NPVs</span></li>
+											</ul>
 											<ul class="tags"><li>Excel</li><li>SUMIFS</li><li>INDEX-MATCH</li><li>NPV / IRR / PMT</li><li>Monte Carlo Simulation</li><li>DuPont Analysis</li><li>CAPM</li><li>Python (pandas)</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>Management needs a consistent view of how peers perform, and a disciplined way to judge a capital project: a &#8377;600 crore plant.</dd>
-												<dt>Data</dt>
-												<dd>Twelve years (FY2015&ndash;FY2026) of profit and loss, balance sheet, cash flow and ratio data for seven listed FMCG companies, including HUL, Nestl&eacute; India and Britannia, reshaped into one 2,990-row long table.</dd>
-												<dt>Approach</dt>
-												<dd>A peer benchmark (growth, margins, ROE, ROCE, cash conversion cycle) built with SUMIFS over the long table, with DuPont analysis and one-off items normalized; a ten-year plant model with NPV, IRR and PMT; then a z-score scorecard, a Monte Carlo simulation (RAND with NORM.INV) and a CAPM cost of capital from published inputs.</dd>
-												<dt>Result</dt>
-												<dd>HUL&rsquo;s reported FY26 profit growth of +41% becomes about &minus;5% once a one-off &#8377;4,611 crore demerger gain is removed. The plant&rsquo;s NPV is &#8377;217 crore (IRR 18.2%) at an 11% hurdle, which sits inside the 10.7&ndash;12.0% CAPM range; simulation lowers the expected NPV to &#8377;150 crore, with a 5.6% chance of a loss.</dd>
-												<dt>Recommendation</dt>
-												<dd>Report adjusted earnings beside reported earnings whenever one-offs exceed 5% of profit before tax, benchmark peers on ROCE and cash conversion rather than growth alone, and approve the plant with a contingency and a review if its EBITDA margin is below 15% in year two.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/deliverables/BA_Projects_Practice_Workbook.xlsx" target="_blank" rel="noopener" class="button primary">Excel Workbook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p1_financial_analytics.py" target="_blank" rel="noopener" class="button">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="Financial Analytics of Indian FMCG Companies write-up">
+													<button type="button" role="tab" id="tab-financial-analytics-approach" aria-controls="financial-analytics-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-financial-analytics-journey" aria-controls="financial-analytics-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-financial-analytics-issues" aria-controls="financial-analytics-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-financial-analytics-limits" aria-controls="financial-analytics-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-financial-analytics-next" aria-controls="financial-analytics-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="financial-analytics-approach" role="tabpanel" aria-labelledby="tab-financial-analytics-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>Management needs a consistent view of how peers perform, and a disciplined way to judge a capital project: a &#8377;600 crore plant.</p>
+													<ul>
+														<li><strong>Data.</strong> Twelve years (FY2015&ndash;FY2026) of profit and loss, balance sheet, cash flow and ratio data for seven listed FMCG companies, including HUL, Nestl&eacute; India and Britannia, reshaped into one 2,990-row long table.</li>
+														<li><strong>Method.</strong> A peer benchmark (growth, margins, ROE, ROCE, cash conversion cycle) built with SUMIFS over the long table, with DuPont analysis and one-off items normalized; a ten-year plant model with NPV, IRR and PMT; then a z-score scorecard, a Monte Carlo simulation (RAND with NORM.INV) and a CAPM cost of capital from published inputs.</li>
+														<li><strong>Result.</strong> HUL&rsquo;s reported FY26 profit growth of +41% becomes about &minus;5% once a one-off &#8377;4,611 crore demerger gain is removed. The plant&rsquo;s NPV is &#8377;217 crore (IRR 18.2%) at an 11% hurdle, which sits inside the 10.7&ndash;12.0% CAPM range; simulation lowers the expected NPV to &#8377;150 crore, with a 5.6% chance of a loss.</li>
+														<li><strong>Recommendation.</strong> Report adjusted earnings beside reported earnings whenever one-offs exceed 5% of profit before tax, benchmark peers on ROCE and cash conversion rather than growth alone, and approve the plant with a contingency and a review if its EBITDA margin is below 15% in year two.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="financial-analytics-journey" role="tabpanel" aria-labelledby="tab-financial-analytics-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Version 1: benchmark and plant model <span class="step-when">4 Nov 2026</span></h5>
+															<p>A peer benchmark built with SUMIFS over a long table, DuPont analysis with one-off items normalized, and a ten-year plant model with NPV, IRR and PMT.</p>
+														</li>
+														<li>
+															<h5>Continuation <span class="step-when">4 Nov 2026</span></h5>
+															<p>A composite z-score scorecard tested over 10,000 weightings, earnings-quality tests, and a Monte Carlo simulation of the plant.</p>
+														</li>
+														<li>
+															<h5>Interview audit <span class="step-when">11 Nov 2026</span></h5>
+															<p>A CAPM cost of capital from published inputs, what the market pays for, and the plant&rsquo;s capital cost checked against peers.</p>
+														</li>
+														<li>
+															<h5>Workbook sheets <span class="step-when">14 Nov 2026</span></h5>
+															<p>The continuation and the audit added to the practice workbook as live-formula sheets.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="financial-analytics-issues" role="tabpanel" aria-labelledby="tab-financial-analytics-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">Nestl&eacute; India changed its financial year, so one column covers fifteen months (sales +44%, then &minus;17%).</td>
+																	<td data-label="How I dealt with it">Measured its growth over 5.25 years instead of reading the spike as growth.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">HUL&rsquo;s FY25 revenue is restated for the ice-cream demerger while FY24 is not, so FY25 appears to fall 1%.</td>
+																	<td data-label="How I dealt with it">Footnoted it: HUL reported about 2% underlying growth.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Godrej Consumer&rsquo;s FY24 loss comes from a &minus;&#8377;2,209 crore exceptional entry.</td>
+																	<td data-label="How I dealt with it">Excluded it from trends, with a footnote rather than a silent correction.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">&ldquo;Where does your 11% discount rate come from?&rdquo;</td>
+																	<td data-label="How I dealt with it">Built a CAPM range from published inputs: 10.7&ndash;12.0%, so 11% sits inside it, and the IRR clears all of it.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="financial-analytics-limits" role="tabpanel" aria-labelledby="tab-financial-analytics-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>Seven companies: ITC and Tata Consumer Products were left out because their business mix differs.</li>
+														<li>The data come from a website; balance sheets balance and one-offs were checked against results coverage, but key lines are not reconciled to the annual reports.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="financial-analytics-next" role="tabpanel" aria-labelledby="tab-financial-analytics-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>Add ITC and Tata Consumer Products to the peer set.</li>
+														<li>Reconcile key lines to the annual reports for a formal deliverable.</li>
+														<li>Where profit runs ahead of cash, split the gap into receivables, inventory, payables, capitalized costs and provisions.</li>
+													</ul>
+												</section>
+											</div>
 										</article>
 
 										<!-- FMCG Driver-Based Model for Hindustan Unilever -->
-										<article class="case-study" id="fmcg-model" aria-labelledby="fmcg-model-title">
-											<figure class="case-figure">
-												<a href="images/projects/fmcg-model.webp">
-													<img src="images/projects/fmcg-model.webp" srcset="images/projects/fmcg-model-sm.webp 800w, images/projects/fmcg-model.webp 1256w" sizes="(max-width: 736px) 92vw, 960px" alt="Price waterfall for a &#8377;100 pack: GST &#8377;15.3, retailer margin &#8377;12.7, distributor margin &#8377;4.3 and trade schemes &#8377;3.4 leave &#8377;64.3 of net realization and &#8377;35.6 of gross margin" width="1256" height="878" loading="lazy" />
-													<span class="visually-hidden"> (opens the full-size chart)</span>
-												</a>
-												<figcaption><strong>Where &#8377;100 of MRP goes</strong> Only about 64% of what a shopper pays reaches the company.</figcaption>
-											</figure>
+										<article class="case-study project-card" id="fmcg-model" aria-labelledby="fmcg-model-title">
+											<div class="watch">
+												<figure class="watch-main">
+													<a href="images/projects/fmcg-model-1.webp" class="shot">
+														<span class="thumb">
+															<img src="images/projects/fmcg-model-1.webp" srcset="images/projects/fmcg-model-1-sm.webp 640w, images/projects/fmcg-model-1.webp 1440w" sizes="(max-width: 980px) 92vw, 620px" alt="Price waterfall for a &#8377;100 pack: GST &#8377;15.3, retailer margin &#8377;12.7, distributor margin &#8377;4.3 and trade schemes &#8377;3.4 leave &#8377;64.3 of net realization and &#8377;35.6 of gross margin" width="1440" height="810" loading="lazy" />
+															<span class="thumb-badge is-ba">Business Analytics</span>
+														</span>
+													</a>
+													<figcaption class="shot-caption"><strong>Where &#8377;100 of MRP goes</strong> Only about 64% of what a shopper pays reaches the company.</figcaption>
+												</figure>
+												<ol class="up-next" aria-label="More FMCG Driver-Based Model for Hindustan Unilever screens">
+													<li>
+														<a href="images/projects/fmcg-model-2.webp" class="shot">
+															<span class="thumb"><img src="images/projects/fmcg-model-2-thumb.webp" alt="FY31E revenue by scenario: bull &#8377;106,356 crore, base &#8377;95,289 crore and bear &#8377;83,639 crore" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Three scenarios</strong> FY31E revenue from &#8377;83,639 crore in the bear case to &#8377;106,356 crore in the bull case.</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/fmcg-model-3.webp" class="shot">
+															<span class="thumb"><img src="images/projects/fmcg-model-3-thumb.webp" alt="Monte Carlo distribution of FY31E profit after tax, from &#8377;13,606 crore at P10 to &#8377;16,813 crore at P90" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>Profit as a range</strong> FY31E profit after tax runs from &#8377;13,606 crore (P10) to &#8377;16,813 crore (P90).</span>
+														</a>
+													</li>
+													<li>
+														<a href="images/projects/fmcg-model-4.webp" class="shot">
+															<span class="thumb"><img src="images/projects/fmcg-model-4-thumb.webp" alt="Reverse DCF: the share price of &#8377;1,990 implies long-run growth of 6.2% at an 8.8% cost of equity, 7.5% at 10.0% and 8.6% at 11.0%" width="640" height="360" loading="lazy" /></span>
+															<span class="up-next-text shot-caption"><strong>What the price implies</strong> At &#8377;1,990 the market implies 6.2&ndash;8.6% growth, depending on the discount rate.</span>
+														</a>
+													</li>
+												</ol>
+											</div>
 											<p class="project-kicker">Business Analytics &middot; Financial Modeling</p>
-											<h3 id="fmcg-model-title" class="case-title">FMCG Driver-Based Model for Hindustan Unilever</h3>
+											<h3 id="fmcg-model-title">FMCG Driver-Based Model for Hindustan Unilever</h3>
+											<p class="project-summary">Forecasts how much revenue and profit Hindustan Unilever can deliver over five years, and what the GST 2.0 rate cut and input costs mean for it. Pack-level unit economics feed a driver-based P&amp;L with a scenario switch, followed by a Monte Carlo simulation, a backtest of planning rules and a reverse DCF against the share price.</p>
+											<ul class="stats compact">
+												<li><strong>&minus;11%</strong><span>MRP after passing on the full GST cut, with HUL&rsquo;s earnings per pack unchanged</span></li>
+												<li><strong>&#8377;95,289 Cr</strong><span>base-case FY31E revenue (bull &#8377;106,356 crore, bear &#8377;83,639 crore)</span></li>
+												<li><strong>&#8377;1,877</strong><span>per share at HUL&rsquo;s own 8.8% cost of equity, against a price of &#8377;1,990</span></li>
+											</ul>
 											<ul class="tags"><li>Excel</li><li>Scenario Switch (CHOOSE)</li><li>INDEX</li><li>Driver-Based Forecasting</li><li>Price Elasticity</li><li>Monte Carlo Simulation</li><li>Reverse DCF</li><li>Python</li></ul>
-											<dl>
-												<dt>Problem</dt>
-												<dd>How much revenue and profit can Hindustan Unilever (HUL) deliver over five years, and what do the GST 2.0 rate cut and input costs mean for it?</dd>
-												<dt>Data</dt>
-												<dd>HUL&rsquo;s annual results for FY2015&ndash;FY2026 and quarterly results to September 2026, the GST 2.0 rates, and published ranges for trade margins.</dd>
-												<dt>Approach</dt>
-												<dd>Pack-level unit economics, a price waterfall from MRP to net realization, and a driver-based P&amp;L for FY27E&ndash;FY31E: an inputs sheet, a CHOOSE scenario switch for base, bull and bear, and a constant-elasticity volume response. Then a Monte Carlo simulation with correlated drivers, a backtest of planning rules on HUL&rsquo;s history and a reverse DCF against the share price.</dd>
-												<dt>Result</dt>
-												<dd>Passing on the full GST cut lowers the MRP by 11% without changing what HUL earns per pack, and at an elasticity of &minus;0.5 volume rises about 6%. Base-case revenue is &#8377;71,022 crore in FY27E and &#8377;95,289 crore in FY31E. One point of material cost moves FY31E EBITDA by about &#8377;950 crore, as much as 1.1 points of extra volume growth every year.</dd>
-												<dt>Recommendation</dt>
-												<dd>Pass GST cuts through price on larger packs and through grammage on &#8377;5 and &#8377;10 packs, protect gross margin with hedging and forward buying, and plan costs on the P10 outcome (FY31E profit of about &#8377;13,600 crore) while setting targets on the base case.</dd>
-											</dl>
 											<ul class="actions">
 												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/deliverables/BA_Projects_Practice_Workbook.xlsx" target="_blank" rel="noopener" class="button primary">Excel Workbook<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 												<li><a href="https://github.com/joelraj18/Business-Analytics-Projects/blob/HEAD/analysis/p3_fmcg_model.py" target="_blank" rel="noopener" class="button">View Code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
 											</ul>
+											<div class="tabs" data-tabs>
+												<div class="tab-list" role="tablist" aria-label="FMCG Driver-Based Model for Hindustan Unilever write-up">
+													<button type="button" role="tab" id="tab-fmcg-model-approach" aria-controls="fmcg-model-approach" aria-selected="true">Approach</button>
+													<button type="button" role="tab" id="tab-fmcg-model-journey" aria-controls="fmcg-model-journey" aria-selected="false">From the Start</button>
+													<button type="button" role="tab" id="tab-fmcg-model-issues" aria-controls="fmcg-model-issues" aria-selected="false">Issues &amp; Fixes</button>
+													<button type="button" role="tab" id="tab-fmcg-model-limits" aria-controls="fmcg-model-limits" aria-selected="false">Limitations</button>
+													<button type="button" role="tab" id="tab-fmcg-model-next" aria-controls="fmcg-model-next" aria-selected="false">Future Improvements</button>
+												</div>
+												<section class="tab-panel" id="fmcg-model-approach" role="tabpanel" aria-labelledby="tab-fmcg-model-approach" tabindex="0">
+													<h4>Approach</h4>
+													<p>How much revenue and profit can Hindustan Unilever (HUL) deliver over five years, and what do the GST 2.0 rate cut and input costs mean for it?</p>
+													<ul>
+														<li><strong>Data.</strong> HUL&rsquo;s annual results for FY2015&ndash;FY2026 and quarterly results to September 2026, the GST 2.0 rates, and published ranges for trade margins.</li>
+														<li><strong>Method.</strong> Pack-level unit economics, a price waterfall from MRP to net realization, and a driver-based P&amp;L for FY27E&ndash;FY31E: an inputs sheet, a CHOOSE scenario switch for base, bull and bear, and a constant-elasticity volume response. Then a Monte Carlo simulation with correlated drivers, a backtest of planning rules on HUL&rsquo;s history and a reverse DCF against the share price.</li>
+														<li><strong>Result.</strong> Passing on the full GST cut lowers the MRP by 11% without changing what HUL earns per pack, and at an elasticity of &minus;0.5 volume rises about 6%. Base-case revenue is &#8377;71,022 crore in FY27E and &#8377;95,289 crore in FY31E. One point of material cost moves FY31E EBITDA by about &#8377;950 crore, as much as 1.1 points of extra volume growth every year.</li>
+														<li><strong>Recommendation.</strong> Pass GST cuts through price on larger packs and through grammage on &#8377;5 and &#8377;10 packs, protect gross margin with hedging and forward buying, and plan costs on the P10 outcome (FY31E profit of about &#8377;13,600 crore) while setting targets on the base case.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="fmcg-model-journey" role="tabpanel" aria-labelledby="tab-fmcg-model-journey" tabindex="0">
+													<h4>From the Start</h4>
+													<ol class="steps">
+														<li>
+															<h5>Version 1: unit economics to P&amp;L <span class="step-when">4 Nov 2026</span></h5>
+															<p>Pack-level unit economics, a price waterfall from MRP to net realization, and a driver-based P&amp;L for FY27E&ndash;FY31E with a CHOOSE scenario switch.</p>
+														</li>
+														<li>
+															<h5>Continuation <span class="step-when">4 Nov 2026</span></h5>
+															<p>A Monte Carlo simulation with correlated drivers, a backtest of planning rules on HUL&rsquo;s history and a portfolio-weighted GST effect; costs are now planned on P10, not the bear case.</p>
+														</li>
+														<li>
+															<h5>Interview audit <span class="step-when">11 Nov 2026</span></h5>
+															<p>A reverse DCF: at HUL&rsquo;s own 8.8% cost of equity the model gives &#8377;1,877 against a price of &#8377;1,990.</p>
+														</li>
+														<li>
+															<h5>Workbook sheets <span class="step-when">14 Nov 2026</span></h5>
+															<p>The continuation and the audit added to the practice workbook as live-formula sheets.</p>
+														</li>
+													</ol>
+												</section>
+												<section class="tab-panel" id="fmcg-model-issues" role="tabpanel" aria-labelledby="tab-fmcg-model-issues" tabindex="0">
+													<h4>Issues &amp; Fixes</h4>
+													<div class="table-wrapper">
+														<table class="compact issues">
+															<thead>
+																<tr>
+																	<th>Issue</th>
+																	<th>How I dealt with it</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td data-label="Issue">HUL&rsquo;s FY25 revenue is restated for the ice-cream demerger while FY24 is not.</td>
+																	<td data-label="How I dealt with it">Confirmed the restatement (the gap of roughly &#8377;1,800 crore matches the ice-cream business) and built a like-for-like base.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">FY26 profit included the one-off demerger gain.</td>
+																	<td data-label="How I dealt with it">Normalized other income.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Quarterly and annual cost classifications differed.</td>
+																	<td data-label="How I dealt with it">Calibrated margins on annual data and checked them against the first-half FY27 operating margin (22.6%).</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">Version 1&rsquo;s DCF gave &#8377;1,048 per share against a market price of &#8377;1,990.</td>
+																	<td data-label="How I dealt with it">The reverse DCF showed the gap was the discount rate: a project rate of 11% applied to a low-beta company&rsquo;s equity.</td>
+																</tr>
+																<tr>
+																	<td data-label="Issue">The first check of the GST volume effect agreed with me, but it was flawed.</td>
+																	<td data-label="How I dealt with it">Weighted the effect by HUL&rsquo;s segment revenue, which cut it from about 6 points to at most 3.7.</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</section>
+												<section class="tab-panel" id="fmcg-model-limits" role="tabpanel" aria-labelledby="tab-fmcg-model-limits" tabindex="0">
+													<h4>Limitations</h4>
+													<ul>
+														<li>The GST price elasticity can&rsquo;t be proven with public annual data.</li>
+														<li>A driver-based P&amp;L with a cash-flow layer, not a full three-statement model.</li>
+														<li>Base-case growth sits above HUL&rsquo;s recent history, a risk the backtest flagged.</li>
+													</ul>
+												</section>
+												<section class="tab-panel" id="fmcg-model-next" role="tabpanel" aria-labelledby="tab-fmcg-model-next" tabindex="0">
+													<h4>Future Improvements</h4>
+													<ul>
+														<li>A difference-in-differences study of the GST cut, using monthly sell-out data by category and region.</li>
+														<li>A full three-statement model, with a balance sheet that balances every year.</li>
+													</ul>
+												</section>
+											</div>
 										</article>
 
 									</div>
@@ -246,6 +459,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/portfolio.js"></script>
 
 	</body>
 </html>
